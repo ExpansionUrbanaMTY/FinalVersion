@@ -1,10 +1,9 @@
 /* Paleta de Colores: 
-#F9F8C1 Beige
-#FCBA81
-#F3775D
-#D1426F
-#982B80
-#1F184E Azul-Morado
+#182D3A Azul oscuro
+#2D5066 Azul 
+#527D9A Azul más claro
+#E4E3DF Beige
+
 */
 
 
@@ -27,7 +26,7 @@ p{
 
 
 #nav{
-    background: #1a1a1a;
+    background: #E5E5E1; 
     display: flex;
     align-items: center;
     padding: 0px 16px;
@@ -52,14 +51,14 @@ p{
     display: flex; 
 }
 #nav ul li a{
-    color: inherit;
+    color: black;
     text-decoration: none;
     text-align: center;
     padding: 12px;
     width: 100%
 }
 #nav .nav-toggle{
-    color: #982B80;
+    color: #E4E3DF;
     font-size: 1.2rem;
 }
 #nav .icon {
@@ -83,7 +82,6 @@ p{
     z-index: 1000;
     text-align: center;
     background: -webkit-linear-gradient(0deg, #F9F8C1,#FCBA81, #F3775D, #D1426F );
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -791,7 +789,7 @@ hr.rounded {
 
 .activeNav{
     font-weight: 550;
-    color: rgb(210, 65, 111) !important;
+    color: #2D5066  !important;
 }
 .buttonHome{
     padding: 10px;
