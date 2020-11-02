@@ -47,19 +47,14 @@
             <i class="fa fa-bars"></i>
         </a>
     </div>
-    <div class=" uk-light"style="padding:5%;border-bottom: 2px solid rgb(80, 80, 80);">
-        <h1 id="title" style="font-weight: bold; text-align: center;">
-            Costo anual de reposición de pavimentos versus gasto municipal anual en la ZMM (millones de pesos mexicanos de 2019)
-        </h1>
+    <div class=" uk-dark"style="padding:0px 5%;border-bottom: 2px solid rgb(80, 80, 80);">
         <div class="uk-child-width-1-2@s uk-grid-match" uk-grid style="padding-top: 1rem;">
             <div>
+                <h1 id="title" style="font-weight: bold; text-align: left; font-size: 20px; font-style: italic; color: #2D5066;">
+                    Costo anual de reposición de pavimentos versus gasto municipal anual en la ZMM (millones de pesos mexicanos de 2019)
+                </h1>
                 <div class="uk-card  uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;">
                     <div>
-                        <ul class="tabs">
-                            <li class="active buttonHome" onclick="mainTab()">Escenarios </li>
-                            <li class="buttonHome" >Presupuesto</li>
-                        </ul>
-                
                         <ul class="tabs-content">
                             <li class="active" >
                                 <canvas id="escenarios" width="350" height="275"></canvas>
@@ -68,56 +63,21 @@
                                 <canvas id="costoAnual" width="350" height="275"></canvas>
                             </li>
                         </ul>
+                        <ul class="tabs">
+                            <li class="active buttonHome" onclick="mainTab()">Escenarios </li>
+                            <li class="buttonHome">Presupuesto</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div>
                 <!--Total y reset-->
-                
 
-                <table class="uk-table uk-table-divider">
-                    <thead>
-                        <tr>
-                            <th style="vertical-align: middle;"><h2 style="margin:0;"><strong id="totalCostText">Costo Total: $3000 MDP</strong></h2></th>
-                            <th>
-                                <div style="float: right;">
-                                    <button class="uk-button uk-button-danger" style="background-color: #D2416F;
-                                    border: none;
-                                    color: white;
-                                    padding: 12px;
-                                    text-align: center;
-                                    text-decoration: none;
-                                    display: block;
-                                    font-size: 12px;
-                                    margin: 4px 2px;border-radius: 50%;" onclick="sliderReset()">
-                                        <i class="fa fa-refresh" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </th>
-                            <th>
-                                <div style="float: right;">
-                                    <button class="uk-button uk-button-danger" style="background-color: #D2416F;
-                                    border: none;
-                                    color: white;
-                                    padding: 12px;
-                                    text-align: center;
-                                    text-decoration: none;
-                                    display: block;
-                                    font-size: 12px;
-                                    margin: 4px 2px;border-radius: 50%;" uk-toggle="target: #helpModal">
-                                        <i class="fa fa-question" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </th>
-                        </tr>
-                    </thead>
-                </table>
-
-                <div class="uk-card uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;padding: 0 !important;">
+                <div class="uk-card uk-card-default uk-card-body" style="background-color: white !important;box-shadow:none !important;padding: 0 !important;">
                     <!--Sliders-->
                     <div>
                         <div class="uk-overflow-auto">
-                            <table class="uk-table uk-table-divider">
+                            <table class="uk-table uk-table-divider costosTable">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -126,17 +86,17 @@
                                         <th>Secundarias (36,331,975.27 Km&#13217;)</th>
                                         <th>Terciarias (127,911,345.27 Km&#13217;)</th>
                                         -->
-                                        <th><b>Primarias</b> (31.58 millones de m<sup>2</sup>)</th>
-                                        <th style="vertical-align: inherit;"><b>Secundarias</b> (36.33 millones de m<sup>2</sup>)</th>
-                                        <th><b>Terciarias</b> (127.91 millones de m<sup>2</sup>)</th>
+                                        <th class="costosTableHeader"><b>Primarias</b><br> <span style="color: #cececd; font-size: 12px; font-style: italic;">31.58 millones de m<sup>2</sup></span></th>
+                                        <th class="costosTableHeader" style="vertical-align: inherit;"><b>Secundarias</b><br> <span style="color: #cececd; font-size: 12px; font-style: italic;">36.33 millones de m<sup>2</sup></span></th>
+                                        <th class="costosTableHeader"><b>Terciarias</b><br><span style="color: #cececd; font-size: 12px; font-style: italic;">127.91 millones de m<sup>2</sup></span></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
+                                <tbody style="position: relative; top: 3rem;">
+                                    <tr valign="middle" style="height: 130px;">
                                         <td class="uk-width-small">Grosor de carpeta (cm)</td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="6" min="1" max="10" step="1" id="GCarpPrim" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range custom-range" value="6" min="1" max="10" step="1" id="GCarpPrim" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
@@ -153,7 +113,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr valign="middle" style="height: 130px;">
                                         <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>                        
                                         <td>
                                             <div class="range-wrap">
@@ -174,7 +134,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr style="height: 130px;">
                                         <td class="uk-width-small">Bacheo profundo (porcentaje de la superficie que se hace bacheo donde se recarpetea)</td>
                                         <td>
                                             <div class="range-wrap2">
@@ -195,7 +155,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr  style="height: 130px;">
                                         <td class="uk-width-small">Bacheo superficial(porcentaje de las vialidades en las que se realiza bacheo)</td>
                                         <td>
                                             <div class="range-wrap2">
@@ -222,10 +182,54 @@
                     </div>
 
                 </div>
+                <table class="uk-table uk-table-divider">
+                    <thead>
+                        <tr>
+                            <th style="vertical-align: middle;">
+                                <h2 style="margin: 0; font-size: 20px;"><i>Costo total: </i><strong id="totalCostText" style="color: #2D5066;"> $3000 MDP</strong></h2>
+                            </th>
+                            <th style="vertical-align: middle; background-color: #d4d4d3; border-color: #b1b1af; border-right: solid 2px;">
+                                <div>
+                                    <button class="uk-button uk-button-danger" style="
+                                                    border: none;
+                                                    color: #a1a19e;
+                                                    background-color: #d4d4d3;
+                                                    padding: 12px;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    display: block;
+                                                    margin: auto;
+                                                    font-size: 25px;
+                                                    border-radius: 50%;" 
+                                                    onclick="sliderReset()">
+                                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </th>
+                            <th style="vertical-align: middle; background-color: #d4d4d3;">
+                                <div>
+                                    <button class="uk-button uk-button-danger" style="background-color: #d4d4d3;
+                                                    border: none;
+                                                    color: #a1a19e;
+                                                    background-color: #d4d4d3;
+                                                    padding: 12px;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    display: block;
+                                                    font-size: 25px;
+                                                    margin: auto;
+                                                    border-radius: 50%;" uk-toggle="target: #helpModal">
+                                        <i class="fa fa-question" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
-    <div class="fullscreen-cont uk-text-justify">
+    <div class="fullscreen-cont uk-text-justify uk-dark">
         <h1 id="title" style="font-weight: bold;">Superficie de pavimentos por municipio en la ZMM</h1> 
         <p>
             La tabla a continuación desglosa las superficies pavimentadas para los municipios que conforman la ZMM y que se observan en el mapa de la expansión urbana correspondiente al año 2019. Los cálculos de superficie pavimentada no incluyen el área de banquetas, sino solamente de vialidades. Esta superficie fue obtenida a partir del procesamiento de los archivos de planimetría catastral. La población de 2019 se obtuvo de las proyecciones del Consejo Nacional de Población (CONAPO) y es el total municipal. El área total desglosa la superficie territorial del límite municipal reportado por el Instituto Nacional de Estadística y Geografía (INEGI). El área urbanizada corresponde a la superficie del municipio que se encuentra urbanizada y fue calculada a partir de las imágenes Landsat. Finalmente, las dos últimas columnas reportan el número de metros per cápita de superficie pavimentada por habitante en el municipio y el porcentaje de la superficie urbanizada que corresponde a las vialidades.
@@ -473,7 +477,7 @@
     
     <script>
         //mover a un script propio
-        Chart.defaults.global.defaultFontColor = "#fff";
+        Chart.defaults.global.defaultFontColor = "rgb(25,45,58)";
 
         let cFinPrim = 10;
         let cFinSec = 20;
@@ -484,16 +488,16 @@
                 label: 'Escenario',
                 data: [cFinPrim, cFinSec, cFinTer,costoTotal],
                 backgroundColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgb(153,43,129)'
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(45, 80, 102)'
                 ],
                 borderColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgb(153,43,129)'
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(45, 80, 102)'
                 ],
                 borderWidth: 2,
                 hoverBorderWidth: 0
@@ -587,21 +591,21 @@
                 "#4b77a9",
                 "#5f255f",
             ],
-            borderColor: "#fff"
+            borderColor: "#rgb(25,45,58)"
         }];
 
         var optionsPie = {
             legend: {
                 labels: {
                     // This more specific font property overrides the global property
-                    fontColor: 'white'
+                    fontColor: 'black'
                 }
             },
             title: {
                 display: true,
                 fontsize: 20,
                 text: 'Egresos de los municipios de la ZMM (pesos del 2019)',
-                fontColor: 'white'
+                fontColor: 'rgb(25,45,58)'
             },
             tooltips: {
                 enabled: true
@@ -640,7 +644,7 @@
                 legend: {
                     labels: {
                         // This more specific font property overrides the global property
-                        fontColor: 'white'
+                        fontColor: 'rgb(25,45,58)'
                     }
                 },
                 tooltips: {
@@ -666,12 +670,12 @@
                                 return '$' + value;
                                 }
                             },
-                            fontColor: 'white'    
+                            fontColor: 'rgb(25,45,58)'    
                         },
                         scaleLabel: {
                             display: true,
                             labelString: 'Costo por año por tipo de vialidad (Millones de pesos mexicanos)',
-                            fontColor: 'white'
+                            fontColor: 'rgb(25,45,58)'
                         }
                     }],
                     xAxes:[{
@@ -796,24 +800,24 @@
 
             let costoString = formatter.format(costoTotal);
 
-            document.getElementById("totalCostText").innerHTML  = "Costo Total: "+costoString;
-
+            //document.getElementById("totalCostText").innerHTML  = "Costo Total: "+costoString;
+            document.getElementById("totalCostText").innerHTML = costoString;
             //UPDATES!
             //data: [cFinPrim, cFinSec, cFinTer,costoTotal],
             let escenariosDatas = {
                 label: 'Escenario',
                 data: [ Math.floor(cFinPrim2), Math.floor(cFinSec2), Math.floor(cFinTer2),Math.floor(costoTotal2)],
                 backgroundColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgb(153,43,129)'
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(45, 80, 102)'
                 ],
                 borderColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgb(153,43,129)'
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(45, 80, 102)'
                 ],
                 borderWidth: 2,
                 hoverBorderWidth: 0
@@ -833,10 +837,10 @@
                 label:'Porcentajes de costo',
                 data: [porcentajeCosto,losOtros],
                 backgroundColor: [
-                    "#992B81",
-                    "#20174E"
+                    'rgb(82, 125, 154)',
+                    'rgb(45, 80, 102)'
                 ],
-                borderColor: "#121212",
+                borderColor: "#E4E3DF",
                 borderWidth: 4,
                 hoverBorderWidth: 0
             };
