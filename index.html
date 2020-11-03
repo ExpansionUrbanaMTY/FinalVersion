@@ -57,10 +57,13 @@
 
     <div class="uk-child-width-expand@s uk-grid-small uk-grid-match" uk-grid>
         <div>
-            <div class="uk-light uk-card uk-card-default uk-card-body " style="background-color: #E4E3DF ; padding-left: 65px;padding-top: 0 !important; color:black; height: 90vh;">
-                <article class="uk-article">
+            <div style="
+                padding-left: 40px;padding-top: 0 !important; color:black; height: 90vh;
+                background: linear-gradient(90deg, #E4E3DF, #cfcec9);
+            ">
+                <article class="uk-article" style="padding-right: 10px;">
                     <div>
-                        <p class="uk-text-justify" id="cluster-text">  
+                        <p class="uk-text-justify" id="cluster-text" style="font-size: larger;">  
                             <h3 style="color: black;">Expansión Urabana de Monterrey</h3>
                             <p class="uk-text-justify">Esta investigación ha sido posible gracias al apoyo financiero de la Fundación FEMSA a través del Tecnológico de Monterrey. Los recursos fueron utilizados para la compra de equipo, licencias de software y el sostenimiento del equipo de investigación durante un año.</p>
                             <p class="uk-text-justify">Agradecemos a la Secretaría de Infraestructura del gobierno del Estado de Nuevo León abrirnos las puertas para consultar los archivos cartográficos catastrales. Asimismo, agradecemos al personal y dirección del Instituto Registra! y Catastral del Estado de Nuevo León las facilidades otorgadas durante nuestras visitas y compartirnos información crucial para el cálculo de anchos de vialidades. </p>
@@ -74,8 +77,8 @@
             </div>
         </div>
         <div>
-            <div class="uk-card uk-card-default uk-card-body uk-text-center " style="background-color: #E4E3DF; padding-right: 65px;">
-                    <div id="map"></div>
+            <div class="uk-card uk-text-center" style="background-color: #E4E3DF; margin-left: -15px; width: 70% !important;">
+                    <div id="map" style="height: 100%"></div>
             </div>
         </div>
     </div>
@@ -106,9 +109,21 @@
             })
         })
 
-        UIkit.offcanvas('#offcanvas-overlay').toggle();
+        // UIkit.offcanvas('#offcanvas-overlay').toggle();
+
+        mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJjazg1OHpseHcwMG1lM2VrbGo1emY5enVzIn0.v27OOfnnNHFavaO04-affQ';
+        let map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/roponmx/ckgiiclqk1w7s19o9kavul2ta',
+            center:[-100.25646, 25.67678],
+            zoom: 8.8
+        });
+
+
+
+
     </script>
-    <script src="./map.js?a"></script>
-    <script src="./js/charts.js"></script>
+    <!-- <script src="./map.js?a"></script> -->
+    <!-- <script src="./js/charts.js"></script> -->
 
 </body>

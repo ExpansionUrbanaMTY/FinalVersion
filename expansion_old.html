@@ -24,7 +24,7 @@
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slickclass/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -37,39 +37,10 @@
     gtag('config', 'G-QWNMHKJPW1');
     </script>		
 
-
-    <style>
-        #slider-cont{
-            display: flex;
-            height: 5vh
-        }
-            #slider-cont>*{
-                margin: 4px
-            }
-            #slider-cont #slider{
-                flex: 1
-            }
-
-        .sidebar{
-            padding-left: 40px;padding-top: 0 !important; color:black; height: 90vh;
-            background: linear-gradient(90deg, #E4E3DF, #cfcec9);
-            overflow: auto;
-            flex: 1;
-        }
-        .map{
-            background-color: #E4E3DF; display: flex; flex-direction: column; flex: 2;
-            position: relative; height: 100%; width: 100%
-        }
-        .map #map{
-            width: 100%;
-            height: 85vh
-        }
-    </style>
-
 </head>
 <body>
     <div id="nav" style=" z-index: 1000;">
-        <img src="img/logos/NewLogo.png"  style="height: 80 !important;">
+        <img src="img/logos/NewLogo.png"  style="height: 70 !important;">
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="expansion.html" class="activeNav">Expansión Urbana</a></li>
@@ -84,14 +55,26 @@
         </a>
     </div>
 
-    <!-- <div class="uk-child-width-expand@s uk-grid-small uk-grid-match" uk-grid> -->
-    <div style="
-        display: flex;
-        align-items: center;
-        justify-content: stretch;
-    ">
-        <div class="uk-light uk-card uk-card-body sidebar">
-            <article class="uk-article">
+    <div id="map-container" style="padding-top: 16px !important;">
+
+        <div id="map"></div>
+
+        <div id="sidebar" style="background-color: #E4E3DF;">
+            <div id="sidebar-slider">
+                <div style="flex: 1;">
+                    <span class="tooltip">1990</span>
+                    <input id="slider" type="range" min="0" max="6" step="1" value="6" style="outline:none !important;"/>
+                    <span class="tooltip">2019</span>
+                </div>
+                <button id="autoplay" style="background-color: #2D5066; border:none; height: 30px; width: 30px;">
+                    <i class="fa fa-play" aria-hidden="true" style="color:white;"></i>
+                </button>
+                <div>
+                    
+                </div>
+            </div>
+
+            <div style="flex: 1;" id="sidebar-graphs">
                 <div id="graphs">
                     <ul class="tabs">
                         <li class="buttonHome">Población</li>
@@ -100,8 +83,8 @@
                     </ul>
     
                     <ul class="tabs-content">
-                        <li style="height:275px">
-                            <canvas id="populationChart" width="200" height="180px"></canvas>
+                        <li style="height:275">
+                            <canvas id="populationChart" width="200" height="180"></canvas>
                             <p class="uk-text-justify">
                                 La población de la Zona Metropolitana de Monterrey (ZMM) ha aumentado de forma constante entre los años 1990 y 2019. Pasó de albergar una población de 2,614,841 habitantes a 4,859,863, es decir que tuvo un crecimiento del 86% durante este periodo. La ciudad casi ha duplicado su población en un periodo de 30 años.  
                             </p>
@@ -153,26 +136,15 @@
                         </li>
                         
                     </ul>
-                </div>    
-            </article>
+                </div>
+            </div>
         </div>
-
-        <div class="uk-card uk-text-center map">
-            <div id="map"></div>
-            <div id="slider-cont">
-                <span class="tooltip">1990</span>
-                <input id="slider" type="range" min="0" max="6" step="1" value="6" style="outline:none !important; flex:1"/>
-                <span class="tooltip">2019</span>
-            
-                <button id="autoplay" style="background-color: #2D5066; border:none; height: 30px; width: 30px;">
-                    <i class="fa fa-play" aria-hidden="true" style="color:white;"></i>
-                </button>
-            <div>
-        </div>
- 
-    </div>
+    </div>  
+    
     
 
+
+    
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -198,13 +170,7 @@
             })
         })
 
-        // UIkit.offcanvas('#offcanvas-overlay').toggle();
-
-        
-
-
-
-
+        UIkit.offcanvas('#offcanvas-overlay').toggle();
     </script>
     <script src="./map.js?a"></script>
     <script src="./js/charts.js"></script>

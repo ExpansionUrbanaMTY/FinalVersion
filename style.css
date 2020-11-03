@@ -78,12 +78,13 @@ p{
 
 #map-container>#sidebar{
     width: 100%;
-    max-width: 400px;
+    max-width: 30%;
     z-index: 99;
     flex: 1;
     position: relative !important;
     display: flex;
     flex-direction: column;
+    background-color: #CFCEC9;
 }
 
 #map-container>#sidebar>*{
@@ -1006,5 +1007,12 @@ hr.rounded {
     #map-container>#sidebar-graphs{
         display: block;
         overflow: visible;
+    }
+
+    #fixdiv1{
+        width: 30% !important;
+    }
+    #fixdiv2{
+        width: 70% !important;
     }
 }
