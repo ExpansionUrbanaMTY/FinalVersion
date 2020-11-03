@@ -21,7 +21,7 @@ const places = {
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJjazg1OHpseHcwMG1lM2VrbGo1emY5enVzIn0.v27OOfnnNHFavaO04-affQ';
 let map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/dark-v10',
+    style: 'mapbox://styles/roponmx/ckgiiclqk1w7s19o9kavul2ta',
     center: [-100.8126957, 25.801482],
     zoom: 8.8
 });
@@ -61,7 +61,7 @@ let loadMap = async ()=>{
         ];
         rows.forEach(function(row) {
             if(row['MU'+year]=='1'){
-                expression.push(Number(row['Id']), '#F3775D');
+                expression.push(Number(row['Id']), '#2D5066');
             } 
         });
         expression.push('transparent')

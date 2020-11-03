@@ -75,15 +75,6 @@ p{
     display: flex;
     flex-direction: column;
 }
-#map-container h1{
-    width: 100%;
-    /* text-shadow: 1px 1px 5px rgba(0,0,0,1); */
-    -webkit-text-stroke: 0.5px black;
-    z-index: 1000;
-    text-align: center;
-    background: -webkit-linear-gradient(0deg, #F9F8C1,#FCBA81, #F3775D, #D1426F );
-    -webkit-text-fill-color: transparent;
-}
 
 #map-container>#sidebar{
     width: 100%;
@@ -101,7 +92,7 @@ p{
     padding: 16px;
     overflow: auto;
     border-radius: 16px;
-    background: rgba(100,100,100,0.3);
+    background: #E4E3DF; 
     backdrop-filter: blur(20px);
     border: 0.5px solid rgb(100, 100, 100)
 }
@@ -123,7 +114,7 @@ p{
     width: 100%;
     appearance: none;
     -webkit-appearance: none;
-    background-color: #982B80 !important;
+    background-color: #2D5066 !important;
     height:16px;
     border-radius: 16px
 }
@@ -135,11 +126,6 @@ p{
     height: 100vh;
     width: 100vw;
 }
-
-
-
-
-
 
 #map-container #offcanvas-overlay{
     left: 0;
@@ -171,8 +157,6 @@ p{
 #map-container #map-title div>*{
     margin: 4px
 }
-
-
 
 #map-container #map-title div>input[type="range"]::-webkit-slider-thumb{
     appearance: none;

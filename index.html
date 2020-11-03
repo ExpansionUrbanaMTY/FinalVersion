@@ -40,7 +40,7 @@
 </head>
 <body>
     <div id="nav" style=" z-index: 1000;">
-        <img src="img/logos/logo-final.png"  style="height: 50 !important;">
+        <img src="img/logos/NewLogo.png"  style="height: 80 !important;">
         <ul>
             <li><a href="index.html" class="activeNav">Inicio</a></li>
             <li><a href="expansion.html">Expansión Urbana</a></li>
@@ -57,17 +57,16 @@
 
     <div class="uk-child-width-expand@s uk-grid-small uk-grid-match" uk-grid>
         <div>
-            <div class="uk-light uk-card uk-card-default uk-card-body " style="background-color: #E4E3DF ; padding-left: 65px;padding-top: 0 !important; color:black;">
+            <div class="uk-light uk-card uk-card-default uk-card-body " style="background-color: #E4E3DF ; padding-left: 65px;padding-top: 0 !important; color:black; height: 90vh;">
                 <article class="uk-article">
-
                     <div>
-                        <p class="uk-text-justify" id="cluster-text">
-                            <p class="uk-text-justify">
-                                Esta investigación ha sido posible... Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga dicta neque omnis cumque sapiente quae harum aspernatur officia adipisci! Dolore laudantium iste, tenetur maxime esse iusto eos officia veritatis ab!
-                            </p>    
-                            <p class="uk-text-justify">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos sit tenetur illo nulla atque et beatae expedita excepturi facilis vel in aspernatur voluptatibus sed, assumenda enim dolorem velit deserunt? Natus.
-                            </p>
+                        <p class="uk-text-justify" id="cluster-text">  
+                            <h3 style="color: black;">Expansión Urabana de Monterrey</h3>
+                            <p class="uk-text-justify">Esta investigación ha sido posible gracias al apoyo financiero de la Fundación FEMSA a través del Tecnológico de Monterrey. Los recursos fueron utilizados para la compra de equipo, licencias de software y el sostenimiento del equipo de investigación durante un año.</p>
+                            <p class="uk-text-justify">Agradecemos a la Secretaría de Infraestructura del gobierno del Estado de Nuevo León abrirnos las puertas para consultar los archivos cartográficos catastrales. Asimismo, agradecemos al personal y dirección del Instituto Registra! y Catastral del Estado de Nuevo León las facilidades otorgadas durante nuestras visitas y compartirnos información crucial para el cálculo de anchos de vialidades. </p>
+                            <p class="uk-text-justify">Agradecemos y reconocemos la generosidad de Centro de Colaboración Geoespacial de la Secretaría de Desarrollo Sustentable del gobierno del estado de Nuevo León, que nos compartió información geográfica valiosa de sus acervos para guiar este trabajo. </p>
+                            <p class="uk-text-justify">Agradecemos el apoyo del Consejo de Nuevo Léon para abrirnos puertas con las administraciones de los municipios de la ZMM y poder gestionar las entrevistas a profundidad. </p>
+                            <p class="uk-text-justify">Agradecemos el apoyo y participación de las empresas Terra Regia y U-Calli para validar las estimaciones del costo de mantenimiento de vialidades. </p>
                         </p>
                     </div>
 
@@ -76,17 +75,7 @@
         </div>
         <div>
             <div class="uk-card uk-card-default uk-card-body uk-text-center " style="background-color: #E4E3DF; padding-right: 65px;">
-                <figure class="cd-image-container">
-                    <img src="img/FormaUrbana/2020-01.png" alt="Original Image">
-                    <span class="cd-image-label" data-type="original"></span>
-            
-                    <div class="cd-resize-img"> <!-- the resizable image on top -->
-                        <img src="./img/FormaUrbana/1960-01.png" alt="Modified Image">
-                        <span class="cd-image-label" data-type="modified"></span>
-                    </div>
-            
-                    <span class="cd-handle"></span>
-                </figure> <!-- cd-image-container -->
+                    <div id="map"></div>
             </div>
         </div>
     </div>

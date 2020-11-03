@@ -14,8 +14,8 @@ async function readData(){
             datasets: [{
                 label: 'Número de habitantes por año',
                 data: Object.values(poblacion[2]).filter(l=>l!="Total"),
-                backgroundColor: 'rgba(210, 65, 111)',
-                borderColor: '#f3719a',
+                backgroundColor: '#527D9A',
+                borderColor: '#2D5066',
                 borderWidth: 2
             }]
         },
@@ -70,8 +70,8 @@ async function readData(){
             {
                 label: 'Número de habitantes por kilómetro cuadrado',
                 data: Object.values(densidad[2]).filter(l=>l!="Total"),
-                backgroundColor: 'rgba(210, 65, 111)',
-                borderColor: '#f3719a',
+                backgroundColor: '#527D9A',
+                borderColor: '#2D5066',
                 borderWidth: 2
             }]
         },
@@ -125,8 +125,8 @@ async function readData(){
                 {
                 label: 'Kilómetros cuadrados por año',
                 data: Object.values(extension[2]).filter(l=>l!="Total"),
-                backgroundColor: 'rgba(210, 65, 111)',
-                borderColor: '#f3719a',
+                backgroundColor: '#527D9A',
+                borderColor: '#2D5066',
                 borderWidth: 2
             }]
         },
