@@ -385,7 +385,7 @@ hr.rounded {
 }
 
 progress::-webkit-progress-value {
-    background-color: #D2416F !important;
+    background-color: #2e5167 !important;
 }
 
 progress {
@@ -641,7 +641,7 @@ hr.rounded {
 }
 
 #complex-title{
-    color: #ce31a7 !important;
+    color: #2D5066 !important;
     scroll-padding-top: 0 !important;
     margin-top: 0 !important;
 }
