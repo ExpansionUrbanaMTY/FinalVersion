@@ -14,7 +14,7 @@ async function readData(){
                 fill: 'origin',
                 label: 'Total',
                 data: Object.values(pavimentos.historicosTotales).filter(l=>l!="Total"),
-                backgroundColor: '#f3775e',
+                backgroundColor: '#C0CACE',
             }]
         },
         options: {

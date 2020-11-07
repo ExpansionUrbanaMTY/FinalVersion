@@ -31,187 +31,171 @@
 </head>
 <body>
     <div id="nav" style=" z-index: 1000;">
-        <img src="img/logos/logo-final.png" height="50px" style="height: 50 !important;">
-        <h4 style="all: revert;">Expansión Urbana de Monterrey</h4>
+        <img src="img/logos/NewLogo.png"  style="height: 80 !important;">
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="costos.html" class="activeNav">Costos</a></li>
-            <li><a href="formaurbana.html">Forma</a></li>
-            <li><a href="funcionurbana.html">Función</a></li>
-            <li><a href="egresos.html">Finanzas</a></li>
+            <li><a href="index.html" class="activeNav">Inicio</a></li>
+            <li><a href="expansion.html">Expansión Urbana</a></li>
+            <li><a href="">Morfología Urbana</a></li>
             <li><a href="atlas.html">Calles</a></li>
-            <li><a href="metodologia.html">Metodología</a></li>
+            <li><a href="">Finanzas</a></li>
+            <li><a href="">Costos</a></li>
             <li><a href="equipo.html">Equipo</a></li>
         </ul>
         <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
-    <div class=" uk-light"style="padding:5%;border-bottom: 2px solid rgb(80, 80, 80);">
-        <h1 id="title" style="font-weight: bold; text-align: center;">
-            Costo anual de reposición de pavimentos versus gasto municipal anual en la ZMM (millones de pesos mexicanos de 2019)
-        </h1>
+
+    <div class=" uk-dark" style="padding:0px 5%;border-bottom: 2px solid rgb(80, 80, 80);">
         <div class="uk-child-width-1-2@s uk-grid-match" uk-grid style="padding-top: 1rem;">
             <div>
-                <div class="uk-card  uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;">
+                <h1 id="title"
+                    style="font-weight: bold; text-align: left; font-size: 20px; color: black;">
+                    Costo anual de reposición de pavimentos versus gasto municipal anual en la ZMM (millones de pesos
+                    mexicanos de 2019)
+                </h1>
+                <div class="uk-card  uk-card-default uk-card-body"
+                    style="background-color: #fff0 !important;box-shadow:none !important;">
                     <div>
-                        <ul class="tabs">
-                            <li class="active buttonHome" onclick="mainTab()">Escenarios </li>
-                            <li class="buttonHome" >Presupuesto</li>
-                        </ul>
-                
                         <ul class="tabs-content">
-                            <li class="active" >
+                            <li class="active">
                                 <canvas id="escenarios" width="350" height="275"></canvas>
                             </li>
                             <li>
                                 <canvas id="costoAnual" width="350" height="275"></canvas>
                             </li>
                         </ul>
+                        <ul class="tabs">
+                            <li class="active buttonHome" onclick="mainTab()">Escenarios </li>
+                            <li class="buttonHome">Presupuesto</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div>
                 <!--Total y reset-->
-                
-
-                <table class="uk-table uk-table-divider">
-                    <thead>
-                        <tr>
-                            <th style="vertical-align: middle;"><h2 style="margin:0;"><strong id="totalCostText">Costo Total: $3000 MDP</strong></h2></th>
-                            <th>
-                                <div style="float: right;">
-                                    <button class="uk-button uk-button-danger" style="background-color: #D2416F;
-                                    border: none;
-                                    color: white;
-                                    padding: 12px;
-                                    text-align: center;
-                                    text-decoration: none;
-                                    display: block;
-                                    font-size: 12px;
-                                    margin: 4px 2px;border-radius: 50%;" onclick="sliderReset()">
-                                        <i class="fa fa-refresh" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </th>
-                            <th>
-                                <div style="float: right;">
-                                    <button class="uk-button uk-button-danger" style="background-color: #D2416F;
-                                    border: none;
-                                    color: white;
-                                    padding: 12px;
-                                    text-align: center;
-                                    text-decoration: none;
-                                    display: block;
-                                    font-size: 12px;
-                                    margin: 4px 2px;border-radius: 50%;" uk-toggle="target: #helpModal">
-                                        <i class="fa fa-question" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </th>
-                        </tr>
-                    </thead>
-                </table>
-
-                <div class="uk-card uk-card-default uk-card-body" style="background-color: #fff0 !important;box-shadow:none !important;padding: 0 !important;">
+    
+                <div class="uk-card uk-card-default uk-card-body"
+                    style="background-color: #E4E3DF !important;box-shadow:none !important;padding: 0 !important;">
                     <!--Sliders-->
                     <div>
                         <div class="uk-overflow-auto">
-                            <table class="uk-table uk-table-divider">
+                            <table class="uk-table uk-table-divider costosTable">
                                 <thead>
                                     <tr>
                                         <th></th>
                                         <!--
-                                        <th>Primarias (31,582,743.17 Km&#13217;)</th>
-                                        <th>Secundarias (36,331,975.27 Km&#13217;)</th>
-                                        <th>Terciarias (127,911,345.27 Km&#13217;)</th>
-                                        -->
-                                        <th><b>Primarias</b> (31.58 millones de m<sup>2</sup>)</th>
-                                        <th style="vertical-align: inherit;"><b>Secundarias</b> (36.33 millones de m<sup>2</sup>)</th>
-                                        <th><b>Terciarias</b> (127.91 millones de m<sup>2</sup>)</th>
+                                            <th>Primarias (31,582,743.17 Km&#13217;)</th>
+                                            <th>Secundarias (36,331,975.27 Km&#13217;)</th>
+                                            <th>Terciarias (127,911,345.27 Km&#13217;)</th>
+                                            -->
+                                        <th class="costosTableHeader" style="color: #182D3A; text-align: center;"><b>Primarias</b><br> <span
+                                                style="color: #a1a19e; font-size: 12px; font-style: italic;">31.58 millones
+                                                de m<sup>2</sup></span></th>
+                                        <th class="costosTableHeader"  style="color: #182D3A; text-align: center;">
+                                            <b>Secundarias</b><br> <span
+                                                style="color: #a1a19e; font-size: 12px; font-style: italic;">36.33 millones
+                                                de m<sup>2</sup></span></th>
+                                        <th class="costosTableHeader"  style="color: #182D3A; text-align: center;"><b>Terciarias</b><br><span
+                                                style="color: #a1a19e; font-size: 12px; font-style: italic;">127.91 millones
+                                                de m<sup>2</sup></span></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
+                                <tbody style="position: relative; top: 3rem;">
+                                    <tr valign="middle" style="height: 130px;">
                                         <td class="uk-width-small">Grosor de carpeta (cm)</td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="6" min="1" max="10" step="1" id="GCarpPrim" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range custom-range" value="6" min="1"
+                                                    max="10" step="1" id="GCarpPrim" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="4" min="1" max="4" step="1" id="GCarpSec" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="4" min="1" max="4"
+                                                    step="1" id="GCarpSec" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="4" min="1" max="4" step="1" id="GCarpTer" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="4" min="1" max="4"
+                                                    step="1" id="GCarpTer" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>                        
+                                    <tr valign="middle" style="height: 130px;">
+                                        <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range"  value="5" min="1" max="50" step="1" id ="fMantPrim" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="5" min="1" max="50"
+                                                    step="1" id="fMantPrim" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="15" min="1" max="50" step="1" id="fMantSec" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="15" min="1" max="50"
+                                                    step="1" id="fMantSec" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="50" min="1" max="100" step="1" id="fMantTer" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="50" min="1" max="100"
+                                                    step="1" id="fMantTer" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="uk-width-small">Bacheo profundo (porcentaje de la superficie que se hace bacheo donde se recarpetea)</td>
+                                    <tr style="height: 130px;">
+                                        <td class="uk-width-small">Bacheo profundo (porcentaje de la superficie que se hace
+                                            bacheo donde se recarpetea)</td>
                                         <td>
                                             <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.07" min="0" max="0.10" step="0.01" id="bProfPrim" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="0.07" min="0" max="0.10"
+                                                    step="0.01" id="bProfPrim" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.05" min="0" max="0.10" step="0.01" id="bProfSec" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="0.05" min="0" max="0.10"
+                                                    step="0.01" id="bProfSec" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.03" min="0" max="0.10" step="0.01" id="bProfTer" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="0.03" min="0" max="0.10"
+                                                    step="0.01" id="bProfTer" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="uk-width-small">Bacheo superficial(porcentaje de las vialidades en las que se realiza bacheo)</td>
+                                    <tr style="height: 130px;">
+                                        <td class="uk-width-small">Bacheo superficial(porcentaje de las vialidades en las
+                                            que se realiza bacheo)</td>
                                         <td>
                                             <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupPrim" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="0.02" min="0" max="0.10"
+                                                    step="0.01" id="bSupPrim" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.02" min="0" max="0.10" step="0.01" id="bSupSec" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="0.02" min="0" max="0.10"
+                                                    step="0.01" id="bSupSec" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="range-wrap2">
-                                                <input type="range" class="range uk-range" value="0.01" min="0" max="0.10" step="0.01" id="bSupTer" onchange="calculateCostosEscenario()">
+                                                <input type="range" class="range uk-range" value="0.01" min="0" max="0.10"
+                                                    step="0.01" id="bSupTer" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
                                             </div>
                                         </td>
@@ -220,23 +204,84 @@
                             </table>
                         </div>
                     </div>
-
+    
                 </div>
+                <table class="uk-table uk-table-divider">
+                    <thead>
+                        <tr>
+                            <th style="vertical-align: middle;">
+                                <h2 style="margin: 0; font-size: 20px;"><i>Costo total: </i><strong id="totalCostText"
+                                        style="color: #2D5066;"> $3000 MDP</strong></h2>
+                            </th>
+                            <th
+                                style="vertical-align: middle; background-color: #d4d4d3; border-color: #b1b1af; border-right: solid 2px;">
+                                <div>
+                                    <button class="uk-button uk-button-danger" style="
+                                                        border: none;
+                                                        color: #a1a19e;
+                                                        background-color: #d4d4d3;
+                                                        padding: 12px;
+                                                        text-align: center;
+                                                        text-decoration: none;
+                                                        display: block;
+                                                        margin: auto;
+                                                        font-size: 25px;
+                                                        border-radius: 50%;" onclick="sliderReset()">
+                                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </th>
+                            <th style="vertical-align: middle; background-color: #d4d4d3;">
+                                <div>
+                                    <button class="uk-button uk-button-danger" style="background-color: #d4d4d3;
+                                                        border: none;
+                                                        color: #a1a19e;
+                                                        background-color: #d4d4d3;
+                                                        padding: 12px;
+                                                        text-align: center;
+                                                        text-decoration: none;
+                                                        display: block;
+                                                        font-size: 25px;
+                                                        margin: auto;
+                                                        border-radius: 50%;" uk-toggle="target: #helpModal">
+                                        <i class="fa fa-question" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
-    <div class="fullscreen-cont uk-text-justify">
-        <h1 id="title" style="font-weight: bold;">Superficie de pavimentos por municipio en la ZMM</h1> 
+    <div class="fullscreen-cont uk-text-justify uk-light" style="color: black;">
+        <h1 id="title" style="font-weight: bold; color: black;">Superficie de pavimentos por municipio en la ZMM</h1>
         <p>
-            La tabla a continuación desglosa las superficies pavimentadas para los municipios que conforman la ZMM y que se observan en el mapa de la expansión urbana correspondiente al año 2019. Los cálculos de superficie pavimentada no incluyen el área de banquetas, sino solamente de vialidades. Esta superficie fue obtenida a partir del procesamiento de los archivos de planimetría catastral. La población de 2019 se obtuvo de las proyecciones del Consejo Nacional de Población (CONAPO) y es el total municipal. El área total desglosa la superficie territorial del límite municipal reportado por el Instituto Nacional de Estadística y Geografía (INEGI). El área urbanizada corresponde a la superficie del municipio que se encuentra urbanizada y fue calculada a partir de las imágenes Landsat. Finalmente, las dos últimas columnas reportan el número de metros per cápita de superficie pavimentada por habitante en el municipio y el porcentaje de la superficie urbanizada que corresponde a las vialidades.
+            La tabla a continuación desglosa las superficies pavimentadas para los municipios que conforman la ZMM y que se
+            observan en el mapa de la expansión urbana correspondiente al año 2019. Los cálculos de superficie pavimentada
+            no incluyen el área de banquetas, sino solamente de vialidades. Esta superficie fue obtenida a partir del
+            procesamiento de los archivos de planimetría catastral. La población de 2019 se obtuvo de las proyecciones del
+            Consejo Nacional de Población (CONAPO) y es el total municipal. El área total desglosa la superficie territorial
+            del límite municipal reportado por el Instituto Nacional de Estadística y Geografía (INEGI). El área urbanizada
+            corresponde a la superficie del municipio que se encuentra urbanizada y fue calculada a partir de las imágenes
+            Landsat. Finalmente, las dos últimas columnas reportan el número de metros per cápita de superficie pavimentada
+            por habitante en el municipio y el porcentaje de la superficie urbanizada que corresponde a las vialidades.
         </p>
         <p>
-            El municipio de Monterrey tiene un promedio de 39.8 metros cuadrados de calle por habitante. Guadalupe y San Nicolás de los Garza tienen 29 metros por habitante y Santiago 110 metros cuadrados. El caso de Santiago llama la atención: es un municipio con una amplia infraestructura vial para la relativa baja población con que cuenta. Respecto al porcentaje de calles, este fluctúa entre 20-25% del área en los municipios del área núcleo de la zona metropolitana. En promedio, los municipios en la periferia urbana como General Zuazua, Salinas Victoria y Garza García cuentan con un 10-19% de superficie urbanizada dedicada a las vialidades, un porcentaje menor que las zonas consolidadas de la ciudad. Esto significa que la periferia urbana se encuentra aún en proceso de consolidación. Seguramente, el área de vialidades se incrementará en los años subsecuentes.
-        </p> 
-        <p>
-            En general, el porcentaje total de área de pavimentos (sin incluir banquetas) en Monterrey es el 20% de la superficie urbanizada, lo cual involucra un total de 39 metros cuadrados per cápita.
+            El municipio de Monterrey tiene un promedio de 39.8 metros cuadrados de calle por habitante. Guadalupe y San
+            Nicolás de los Garza tienen 29 metros por habitante y Santiago 110 metros cuadrados. El caso de Santiago llama
+            la atención: es un municipio con una amplia infraestructura vial para la relativa baja población con que cuenta.
+            Respecto al porcentaje de calles, este fluctúa entre 20-25% del área en los municipios del área núcleo de la
+            zona metropolitana. En promedio, los municipios en la periferia urbana como General Zuazua, Salinas Victoria y
+            Garza García cuentan con un 10-19% de superficie urbanizada dedicada a las vialidades, un porcentaje menor que
+            las zonas consolidadas de la ciudad. Esto significa que la periferia urbana se encuentra aún en proceso de
+            consolidación. Seguramente, el área de vialidades se incrementará en los años subsecuentes.
         </p>
-
+        <p>
+            En general, el porcentaje total de área de pavimentos (sin incluir banquetas) en Monterrey es el 20% de la
+            superficie urbanizada, lo cual involucra un total de 39 metros cuadrados per cápita.
+        </p>
+    
         <table>
             <thead>
                 <td>Municipio</td>
@@ -365,7 +410,7 @@
                     <td>3,518,636</td>
                     <td>17.4%</td>
                     <td>31.3</td>
-                </tr> 
+                </tr>
                 <tr>
                     <td>El Carmen</td>
                     <td> 47,326</td>
@@ -386,7 +431,7 @@
                 </tr>
                 <tr>
                     <td>Abasolo</td>
-                    <td>  2,918</td>
+                    <td> 2,918</td>
                     <td>46,863,758</td>
                     <td>1,583,965</td>
                     <td>200,523</td>
@@ -395,7 +440,7 @@
                 </tr>
             </tbody>
             <tfoot>
-                <td>Totales	</td>
+                <td>Totales </td>
                 <td>5,067,452</td>
                 <td>7,345,339,638</td>
                 <td>973,118,373</td>
@@ -404,29 +449,40 @@
                 <td>38.6</td>
             </tfoot>
         </table>
-
+    
         <br>
         <p>
-            Para referencia del lector o lectora, existe un estudio realizado por ONU Habitat en el año 2013, en el cual se realiza un comparativo del área dedicada a calles en ciudades alrededor del mundo. El documento puede ser consultado en esta <a href="https://unhabitat.org/sites/default/files/2020/08/streets_as_public_spaces_and_drivers_of_urban_prosperity.pdf" style="color:#7165c8 ;">liga.</a>
+            Para referencia del lector o lectora, existe un estudio realizado por ONU Habitat en el año 2013, en el cual se
+            realiza un comparativo del área dedicada a calles en ciudades alrededor del mundo. El documento puede ser
+            consultado en esta <a
+                href="https://unhabitat.org/sites/default/files/2020/08/streets_as_public_spaces_and_drivers_of_urban_prosperity.pdf"
+                style="color:#2D5066 ;">liga.</a>
         </p>
-
+    
         <p>
-            La página 108 de dicho reporte indica que el área de calles en las zonas núcleo de las ciudades ronda entre 23% (Los Angeles) y 33% (Toronto). El área dedicada en la periferia urbana ronda entre 8% (Calgary) y 13% (Barcelona). Dicho reporte incluye los cálculos para Guadalajara y la Ciudad de México, con un 21.8 y 23.4 para las áreas centrales, respectivamente, y con un 12% y 10% para las zonas de suburbio. De esta forma, el porcentaje de superficie dedicado a calles en Monterrey es similar al porcentaje en Ciudad de México y Guadalajara en las zonas núcleo de la ciudad, pero ligeramente superior en las zonas periféricas de la ciudad. En términos de porcentajes de superficie de pavimentos, el caso de Monterrey sería similar a la ciudad de Cape Town en Sudáfrica.
+            La página 108 de dicho reporte indica que el área de calles en las zonas núcleo de las ciudades ronda entre 23%
+            (Los Angeles) y 33% (Toronto). El área dedicada en la periferia urbana ronda entre 8% (Calgary) y 13%
+            (Barcelona). Dicho reporte incluye los cálculos para Guadalajara y la Ciudad de México, con un 21.8 y 23.4 para
+            las áreas centrales, respectivamente, y con un 12% y 10% para las zonas de suburbio. De esta forma, el
+            porcentaje de superficie dedicado a calles en Monterrey es similar al porcentaje en Ciudad de México y
+            Guadalajara en las zonas núcleo de la ciudad, pero ligeramente superior en las zonas periféricas de la ciudad.
+            En términos de porcentajes de superficie de pavimentos, el caso de Monterrey sería similar a la ciudad de Cape
+            Town en Sudáfrica.
         </p>
-
-
+    
+    
     </div>
-
+    
     <!--Sección: Ciclo de Mantenimiento de los Pavimentos-->
     <div class="fullscreen-cont" id="mantenimiento">
-        <h1 id="title" style="font-weight: bold;">Ciclo de Mantenimiento de Pavimentos</h1> 
+        <h1 id="title" style="font-weight: bold; color: black;">Ciclo de Mantenimiento de Pavimentos</h1>
         <ul class="tabs">
             <li class="active buttonHome">Vialidades Primarias</li>
             <li class="buttonHome">Vialidades Secundiarias</li>
         </ul>
-
+    
         <ul class="tabs-content">
-            <li class="active" >
+            <li class="active">
                 <img src="./img/Vialidades/primaria.png">
             </li>
             <li>
@@ -435,45 +491,66 @@
         </ul>
     </div>
     <div class="fullscreen-cont" id="costos">
-        <h1 id="title" style="font-weight: bold; padding-bottom: 2rem;">Costo de reposición de pavimentos</h1> 
-        <div style="display: block;" class="uk-text-justify">
+        <h1 id="title" style="font-weight: bold; padding-bottom: 2rem; color: black;">Costo de reposición de pavimentos</h1>
+        <div style="display: block; color: black;" class="uk-text-justify">
             <p>
-                La construcción de este escenario se realizó a partir de dos fuentes de información: el costo promedio de reposición de pavimentos por metro cuadrado y la superficie de pavimentos.
+                La construcción de este escenario se realizó a partir de dos fuentes de información: el costo promedio de
+                reposición de pavimentos por metro cuadrado y la superficie de pavimentos.
             </p>
             <p>
-                El costo promedio de reposición se aproximó a partir de entrevistas con expertos en el tema: desarrolladores privados, académicos y funcionarios públicos de obras públicas. Las entrevistas indagaron acerca del ciclo de vida de las vialidades en función del mantenimiento otorgado y sobre el costo promedio de los diferentes tipos de intervención. A partir de esta fuente de información, se aproximó el siguiente escenario genérico para estimar un costo de reposición promedio para la ciudad: a) el retiro y reposición de 6 centímetros de carpeta asfáltica en vialidades primarias cada 5 años; b) el retiro y reposición de 4 centímetros de carpeta asfáltica cada 10 años en las vialidades secundarias; c) el retiro y reposición de 4 centímetros de carpeta asfáltica cada 40 años para vialidades locales. Asimismo, contempla bacheo superficial en el 7% de la vialidad al momento de hacer el recarpeteo.
+                El costo promedio de reposición se aproximó a partir de entrevistas con expertos en el tema: desarrolladores
+                privados, académicos y funcionarios públicos de obras públicas. Las entrevistas indagaron acerca del ciclo
+                de vida de las vialidades en función del mantenimiento otorgado y sobre el costo promedio de los diferentes
+                tipos de intervención. A partir de esta fuente de información, se aproximó el siguiente escenario genérico
+                para estimar un costo de reposición promedio para la ciudad: a) el retiro y reposición de 6 centímetros de
+                carpeta asfáltica en vialidades primarias cada 5 años; b) el retiro y reposición de 4 centímetros de carpeta
+                asfáltica cada 10 años en las vialidades secundarias; c) el retiro y reposición de 4 centímetros de carpeta
+                asfáltica cada 40 años para vialidades locales. Asimismo, contempla bacheo superficial en el 7% de la
+                vialidad al momento de hacer el recarpeteo.
             </p>
             <p>
-                Los cálculos están precios del 2019. El costo promedio por a) es de $302 pesos por metro cuadrado. El costo promedio por b) y c) es de $190 pesos. El costo de bacheo superficial es de $320 pesos por metro cuadrado.
+                Los cálculos están precios del 2019. El costo promedio por a) es de $302 pesos por metro cuadrado. El costo
+                promedio por b) y c) es de $190 pesos. El costo de bacheo superficial es de $320 pesos por metro cuadrado.
             </p>
             <p>
-                Este escenario base no contempla la reconstrucción de elementos de la base hidráulica, sub-base hidráulica o subrasante de la vialidad. El escenario contempla solamente la reposición de la carpeta asfáltica. Se tomó este escenario como punto de referencia porque de acuerdo con los entrevistados, éste es el tipo de tratamiento más común y extendido en la Zona Metropolitana de Monterrey para mantener las vialidades en buen estado.
+                Este escenario base no contempla la reconstrucción de elementos de la base hidráulica, sub-base hidráulica o
+                subrasante de la vialidad. El escenario contempla solamente la reposición de la carpeta asfáltica. Se tomó
+                este escenario como punto de referencia porque de acuerdo con los entrevistados, éste es el tipo de
+                tratamiento más común y extendido en la Zona Metropolitana de Monterrey para mantener las vialidades en buen
+                estado.
             </p>
             <p>
-                La identificación de las vialidades por tipo se realizó a partir de los anchos de vialidad conforme con la Ley de Desarrollo Urbano del Estado de Nuevo León del 2009. Se consideran vialidades primarias aquéllas con más de 44 metros de ancho (sin incluir banquetas), secundarias entre 10 y 44 metros de ancho y locales con menos de 10 metros de ancho.
+                La identificación de las vialidades por tipo se realizó a partir de los anchos de vialidad conforme con la
+                Ley de Desarrollo Urbano del Estado de Nuevo León del 2009. Se consideran vialidades primarias aquéllas con
+                más de 44 metros de ancho (sin incluir banquetas), secundarias entre 10 y 44 metros de ancho y locales con
+                menos de 10 metros de ancho.
             </p>
-
+    
         </div>
-
+    
         <canvas id="costChart" width="350" height="275"></canvas>
     </div>
-   
-        <!-- This is the modal -->
-    <div id="helpModal"  class="uk-flex-top" uk-modal>
+    
+    <!-- This is the modal -->
+    <div id="helpModal" class="uk-flex-top" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="color:black !important">
     
             <button class="uk-modal-close-default" type="button" uk-close></button>
-            
+    
             <h2 class="uk-modal-title">Outside</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                anim id est laborum.</p>
     
         </div>
     </div>
-   
+    
     
     <script>
         //mover a un script propio
-        Chart.defaults.global.defaultFontColor = "#fff";
+        Chart.defaults.global.defaultFontColor = "rgb(25,45,58)";
 
         let cFinPrim = 10;
         let cFinSec = 20;
@@ -481,22 +558,22 @@
         let costoTotal = 40;
 
         let escenariosData = {
-                label: 'Escenario',
-                data: [cFinPrim, cFinSec, cFinTer,costoTotal],
-                backgroundColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgb(153,43,129)'
-                ],
-                borderColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgb(153,43,129)'
-                ],
-                borderWidth: 2,
-                hoverBorderWidth: 0
+            label: 'Escenario',
+            data: [cFinPrim, cFinSec, cFinTer, costoTotal],
+            backgroundColor: [
+                'rgb(82, 125, 154)',
+                'rgb(82, 125, 154)',
+                'rgb(82, 125, 154)',
+                'rgb(45, 80, 102)'
+            ],
+            borderColor: [
+                'rgb(82, 125, 154)',
+                'rgb(82, 125, 154)',
+                'rgb(82, 125, 154)',
+                'rgb(45, 80, 102)'
+            ],
+            borderWidth: 2,
+            hoverBorderWidth: 0
         };
 
         var formatter = new Intl.NumberFormat('en-US', {
@@ -508,7 +585,7 @@
             maximumFractionDigits: 1,
         });
 
-        function sliderReset(){
+        function sliderReset() {
             //
             document.getElementById("fMantPrim").value = 5;
             document.getElementById("fMantSec").value = 15;
@@ -517,7 +594,7 @@
             document.getElementById("GCarpPrim").value = 6;
             document.getElementById("GCarpSec").value = 4;
             document.getElementById("GCarpTer").value = 4;
-            
+
             document.getElementById("bProfPrim").value = 0.07;
             document.getElementById("bProfSec").value = 0.05;
             document.getElementById("bProfTer").value = 0.03;
@@ -532,8 +609,8 @@
                 const bubble = wrap.querySelector(".bubble");
 
                 range.addEventListener("input", () => {
-                        setBubble(range, bubble);
-                        //calculateCostosEscenario();
+                    setBubble(range, bubble);
+                    //calculateCostosEscenario();
                 });
                 setBubble(range, bubble);
                 //calculateCostosEscenario();
@@ -557,8 +634,8 @@
                 const bubble2 = wrap.querySelector(".bubble2");
 
                 range.addEventListener("input", () => {
-                        setBubble2(range, bubble2);
-                        //calculateCostosEscenario();
+                    setBubble2(range, bubble2);
+                    //calculateCostosEscenario();
                 });
                 setBubble2(range, bubble2);
                 //calculateCostosEscenario();
@@ -569,13 +646,13 @@
                 const min = range.min ? range.min : 0;
                 const max = range.max ? range.max : 100;
                 const newVal = Number(((val - min) * 100) / (max - min));
-                let values = Math.floor((val*100));
-                bubble.innerHTML = values+"%";
+                let values = Math.floor((val * 100));
+                bubble.innerHTML = values + "%";
 
                 // Sorta magic numbers based on size of the native UI thumb
                 bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
             }
-        
+
             calculateCostosEscenario();
 
         }
@@ -587,36 +664,36 @@
                 "#4b77a9",
                 "#5f255f",
             ],
-            borderColor: "#fff"
+            borderColor: "#rgb(25,45,58)"
         }];
 
         var optionsPie = {
             legend: {
                 labels: {
                     // This more specific font property overrides the global property
-                    fontColor: 'white'
+                    fontColor: 'black'
                 }
             },
             title: {
                 display: true,
                 fontsize: 20,
                 text: 'Egresos de los municipios de la ZMM (pesos del 2019)',
-                fontColor: 'white'
+                fontColor: 'rgb(25,45,58)'
             },
             tooltips: {
                 enabled: true
             },
             plugins: {
                 datalabels: {
-                formatter: (value, ctx) => {
+                    formatter: (value, ctx) => {
 
-                    let sum = ctx.dataset._meta[0].total;
-                    let percentage = (value * 100 / sum).toFixed(2) + "%";
-                    return percentage;
+                        let sum = ctx.dataset._meta[0].total;
+                        let percentage = (value * 100 / sum).toFixed(2) + "%";
+                        return percentage;
 
 
-                },
-                color: '#fff',
+                    },
+                    color: '#fff',
                 },
             }
         };
@@ -624,7 +701,7 @@
         var costoAnualChart = new Chart(costoAnual, {
             type: 'pie',
             data: {
-            labels: ['Pavimentos', 'El resto del gasto público'],
+                labels: ['Pavimentos', 'El resto del gasto público'],
                 datasets: dataPie
             },
             options: optionsPie
@@ -640,17 +717,17 @@
                 legend: {
                     labels: {
                         // This more specific font property overrides the global property
-                        fontColor: 'white'
+                        fontColor: 'rgb(25,45,58)'
                     }
                 },
                 tooltips: {
                     callbacks: {
-                        label: function(tooltipItem, data) {
+                        label: function (tooltipItem, data) {
                             var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                            if(parseInt(value) >= 1000){
-                                return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Millones de pesos";
+                            if (parseInt(value) >= 1000) {
+                                return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " Millones de pesos";
                             } else {
-                                return '$' + value+" Millones de pesos";
+                                return '$' + value + " Millones de pesos";
                             }
                         }
                     } // end callbacks:
@@ -658,23 +735,23 @@
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero:true,
-                            callback: function(value, index, values) {
-                                if(parseInt(value) >= 1000){
-                                return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            beginAtZero: true,
+                            callback: function (value, index, values) {
+                                if (parseInt(value) >= 1000) {
+                                    return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                 } else {
-                                return '$' + value;
+                                    return '$' + value;
                                 }
                             },
-                            fontColor: 'white'    
+                            fontColor: 'rgb(25,45,58)'
                         },
                         scaleLabel: {
                             display: true,
                             labelString: 'Costo por año por tipo de vialidad (Millones de pesos mexicanos)',
-                            fontColor: 'white'
+                            fontColor: 'rgb(25,45,58)'
                         }
                     }],
-                    xAxes:[{
+                    xAxes: [{
                         ticks: {
                             autoSkip: false,
                             maxRotation: 0,
@@ -694,8 +771,8 @@
             }
         });
 
-        function calculateCostosEscenario(){
-            let area = [31582743.1658497,36331975.2749692,127911345.271943,195826064]
+        function calculateCostosEscenario() {
+            let area = [31582743.1658497, 36331975.2749692, 127911345.271943, 195826064]
             let costo = 5300;
             let costoBachP = 750;
             let costoBachS = 170;
@@ -708,7 +785,7 @@
             let GCarpPrim = document.getElementById("GCarpPrim").value;
             let GCarpSec = document.getElementById("GCarpSec").value;
             let GCarpTer = document.getElementById("GCarpTer").value;
-            
+
             let bProfPrim = document.getElementById("bProfPrim").value;
             let bProfSec = document.getElementById("bProfSec").value;
             let bProfTer = document.getElementById("bProfTer").value;
@@ -718,102 +795,102 @@
             let bSupTer = document.getElementById("bSupTer").value;
 
             //Costos Finales
-            cFinPrim = +((area[0]/fMantPrim*(costo*GCarpPrim/100)) + (area[0]/fMantPrim*bProfPrim*costoBachP)+(area[0]*bSupPrim*costoBachS)).toFixed(4);
-            cFinSec = +((area[1]/fMantSec*(costo*GCarpSec/100)) + (area[1]/fMantSec*bProfSec*costoBachP)+(area[1]*bSupSec*costoBachS)).toFixed(4);
-            cFinTer = +((area[2]/fMantTer*(costo*GCarpTer/100)) + (area[2]/fMantTer*bProfTer*costoBachP)+(area[2]*bSupTer*costoBachS)).toFixed(4);
-            costoTotal = (cFinPrim+cFinSec+cFinTer);
+            cFinPrim = +((area[0] / fMantPrim * (costo * GCarpPrim / 100)) + (area[0] / fMantPrim * bProfPrim * costoBachP) + (area[0] * bSupPrim * costoBachS)).toFixed(4);
+            cFinSec = +((area[1] / fMantSec * (costo * GCarpSec / 100)) + (area[1] / fMantSec * bProfSec * costoBachP) + (area[1] * bSupSec * costoBachS)).toFixed(4);
+            cFinTer = +((area[2] / fMantTer * (costo * GCarpTer / 100)) + (area[2] / fMantTer * bProfTer * costoBachP) + (area[2] * bSupTer * costoBachS)).toFixed(4);
+            costoTotal = (cFinPrim + cFinSec + cFinTer);
 
             //1000000
-            var cFinPrim2 = +((area[0]/fMantPrim*(costo*GCarpPrim/100)) + (area[0]/fMantPrim*bProfPrim*costoBachP)+(area[0]*bSupPrim*costoBachS)).toFixed(4)/1000000;
-            var cFinSec2 = +((area[1]/fMantSec*(costo*GCarpSec/100)) + (area[1]/fMantSec*bProfSec*costoBachP)+(area[1]*bSupSec*costoBachS)).toFixed(4)/1000000;
-            var cFinTer2 = +((area[2]/fMantTer*(costo*GCarpTer/100)) + (area[2]/fMantTer*bProfTer*costoBachP)+(area[2]*bSupTer*costoBachS)).toFixed(4)/1000000;
-            var costoTotal2 = (cFinPrim2+cFinSec2+cFinTer2);
+            var cFinPrim2 = +((area[0] / fMantPrim * (costo * GCarpPrim / 100)) + (area[0] / fMantPrim * bProfPrim * costoBachP) + (area[0] * bSupPrim * costoBachS)).toFixed(4) / 1000000;
+            var cFinSec2 = +((area[1] / fMantSec * (costo * GCarpSec / 100)) + (area[1] / fMantSec * bProfSec * costoBachP) + (area[1] * bSupSec * costoBachS)).toFixed(4) / 1000000;
+            var cFinTer2 = +((area[2] / fMantTer * (costo * GCarpTer / 100)) + (area[2] / fMantTer * bProfTer * costoBachP) + (area[2] * bSupTer * costoBachS)).toFixed(4) / 1000000;
+            var costoTotal2 = (cFinPrim2 + cFinSec2 + cFinTer2);
 
             //console.log(cFinPrim);
             //console.log(cFinSec);
             //console.log(cFinTer)
-            
-            let costo2 =[320,190,190];
+
+            let costo2 = [320, 190, 190];
             let costoBachP2 = 750;
             let costoBachS2 = 170;
 
             //Costos Anuales
-            let primarias = [18234806.1762869,19766071.5549363,21158227.0244389,24341160.437591,26294034.8989525,29284327.3060617,31582743.1658497];
-            let secundarias = [11265632.9142413,14352345.1188317,15966692.222525,22150017.9062825,27548366.0303522,33081500.998636,36331975.2749692];
-            let terciarias = [46407721.4074635,56544631.7883364,62745778.073591,79908868.0204406,97077561.340456,116000002.278598,127911345.271943];
+            let primarias = [18234806.1762869, 19766071.5549363, 21158227.0244389, 24341160.437591, 26294034.8989525, 29284327.3060617, 31582743.1658497];
+            let secundarias = [11265632.9142413, 14352345.1188317, 15966692.222525, 22150017.9062825, 27548366.0303522, 33081500.998636, 36331975.2749692];
+            let terciarias = [46407721.4074635, 56544631.7883364, 62745778.073591, 79908868.0204406, 97077561.340456, 116000002.278598, 127911345.271943];
             let totalHist = [75908160.50, 90663048.46, 99870697.32, 126400046.36, 150919962.27, 178365830.58, 195826063.71];
 
             //Orden Vial
-            let primariasVial = [18211291.16,19724442.89,20915426.8,23961896.87,25703992.48,28344300.12,29875128.39];
-            let carreteraUno = [23515.02015,41628.66436,242800.2251,379263.5651,590042.4176,940027.1829,1707614.774];
-            let carreteraDos = [18234806.18,19766071.55,21158227.02,24341160.44,26294034.9,29284327.31,31582743.17];
-            let secundariasVial = [11255703.22,14352345.12,15966692.22,21969416.07,27351950,32696959.1,35675175.95];
-            let ruralesVial = [9929.698505,0,0,180601.8344,196416.0295,384541.8944,656799.3221];
-            let ruralesVialDos = [11265632.91,14352345.12,15966692.22,22150017.91,27548366.03,33081501,36331975.27];
-            let terciariaVial = [46407721.41,56544631.79,62745778.07,79908868.02,97077561.34,116000002.3,127911345.3];
+            let primariasVial = [18211291.16, 19724442.89, 20915426.8, 23961896.87, 25703992.48, 28344300.12, 29875128.39];
+            let carreteraUno = [23515.02015, 41628.66436, 242800.2251, 379263.5651, 590042.4176, 940027.1829, 1707614.774];
+            let carreteraDos = [18234806.18, 19766071.55, 21158227.02, 24341160.44, 26294034.9, 29284327.31, 31582743.17];
+            let secundariasVial = [11255703.22, 14352345.12, 15966692.22, 21969416.07, 27351950, 32696959.1, 35675175.95];
+            let ruralesVial = [9929.698505, 0, 0, 180601.8344, 196416.0295, 384541.8944, 656799.3221];
+            let ruralesVialDos = [11265632.91, 14352345.12, 15966692.22, 22150017.91, 27548366.03, 33081501, 36331975.27];
+            let terciariaVial = [46407721.41, 56544631.79, 62745778.07, 79908868.02, 97077561.34, 116000002.3, 127911345.3];
 
             //1990
-            let primNov = (primarias[0]/fMantPrim*costo2[0]) + (primarias[0]/fMantPrim*bProfPrim*costoBachP2) + (primarias[0]*bSupPrim*costoBachS2);
-            let secNov = (secundarias[0]/fMantSec*costo2[1]) + (secundarias[0]/fMantSec*bProfSec*costoBachP2) + (secundarias[0]*bSupSec*costoBachS2);
-            let terNov = (terciarias[0]/fMantTer*costo2[2]) + (terciarias[0]/fMantTer*bProfTer*costoBachP2) + (terciarias[0]*bSupTer*costoBachS2);
-            let totalNov = primNov+secNov+terNov;
+            let primNov = (primarias[0] / fMantPrim * costo2[0]) + (primarias[0] / fMantPrim * bProfPrim * costoBachP2) + (primarias[0] * bSupPrim * costoBachS2);
+            let secNov = (secundarias[0] / fMantSec * costo2[1]) + (secundarias[0] / fMantSec * bProfSec * costoBachP2) + (secundarias[0] * bSupSec * costoBachS2);
+            let terNov = (terciarias[0] / fMantTer * costo2[2]) + (terciarias[0] / fMantTer * bProfTer * costoBachP2) + (terciarias[0] * bSupTer * costoBachS2);
+            let totalNov = primNov + secNov + terNov;
 
             //1995
-            let primNovCinc = (primarias[1]/fMantPrim*costo2[0]) + (primarias[1]/fMantPrim*bProfPrim*costoBachP2) + (primarias[1]*bSupPrim*costoBachS2);
-            let secNovCinc = (secundarias[1]/fMantSec*costo2[1]) + (secundarias[1]/fMantSec*bProfSec*costoBachP2) + (secundarias[1]*bSupSec*costoBachS2);
-            let terNovCinc = (terciarias[1]/fMantTer*costo2[2]) + (terciarias[1]/fMantTer*bProfTer*costoBachP2) + (terciarias[1]*bSupTer*costoBachS2);
-            let totalNovCinc = primNovCinc+secNovCinc+terNovCinc;
+            let primNovCinc = (primarias[1] / fMantPrim * costo2[0]) + (primarias[1] / fMantPrim * bProfPrim * costoBachP2) + (primarias[1] * bSupPrim * costoBachS2);
+            let secNovCinc = (secundarias[1] / fMantSec * costo2[1]) + (secundarias[1] / fMantSec * bProfSec * costoBachP2) + (secundarias[1] * bSupSec * costoBachS2);
+            let terNovCinc = (terciarias[1] / fMantTer * costo2[2]) + (terciarias[1] / fMantTer * bProfTer * costoBachP2) + (terciarias[1] * bSupTer * costoBachS2);
+            let totalNovCinc = primNovCinc + secNovCinc + terNovCinc;
 
             //2000
-            let primDos = (primarias[2]/fMantPrim*costo2[0]) + (primarias[2]/fMantPrim*bProfPrim*costoBachP2) + (primarias[2]*bSupPrim*costoBachS2);
-            let secDos = (secundarias[2]/fMantSec*costo2[1]) + (secundarias[2]/fMantSec*bProfSec*costoBachP2) + (secundarias[2]*bSupSec*costoBachS2);
-            let terDos = (terciarias[2]/fMantTer*costo2[2]) + (terciarias[2]/fMantTer*bProfTer*costoBachP2) + (terciarias[2]*bSupTer*costoBachS2);
-            let totalDos = primDos+secDos+terDos;
+            let primDos = (primarias[2] / fMantPrim * costo2[0]) + (primarias[2] / fMantPrim * bProfPrim * costoBachP2) + (primarias[2] * bSupPrim * costoBachS2);
+            let secDos = (secundarias[2] / fMantSec * costo2[1]) + (secundarias[2] / fMantSec * bProfSec * costoBachP2) + (secundarias[2] * bSupSec * costoBachS2);
+            let terDos = (terciarias[2] / fMantTer * costo2[2]) + (terciarias[2] / fMantTer * bProfTer * costoBachP2) + (terciarias[2] * bSupTer * costoBachS2);
+            let totalDos = primDos + secDos + terDos;
 
             //2005
-            let primDosCinc = (primarias[3]/fMantPrim*costo2[0]) + (primarias[3]/fMantPrim*bProfPrim*costoBachP2) + (primarias[3]*bSupPrim*costoBachS2);
-            let secDosCinc = (secundarias[3]/fMantSec*costo2[1]) + (secundarias[3]/fMantSec*bProfSec*costoBachP2) + (secundarias[3]*bSupSec*costoBachS2);
-            let terDosCinc = (terciarias[3]/fMantTer*costo2[2]) + (terciarias[3]/fMantTer*bProfTer*costoBachP2) + (terciarias[3]*bSupTer*costoBachS2);
-            let totalDosCinc = primDosCinc+secDosCinc+terDosCinc;
+            let primDosCinc = (primarias[3] / fMantPrim * costo2[0]) + (primarias[3] / fMantPrim * bProfPrim * costoBachP2) + (primarias[3] * bSupPrim * costoBachS2);
+            let secDosCinc = (secundarias[3] / fMantSec * costo2[1]) + (secundarias[3] / fMantSec * bProfSec * costoBachP2) + (secundarias[3] * bSupSec * costoBachS2);
+            let terDosCinc = (terciarias[3] / fMantTer * costo2[2]) + (terciarias[3] / fMantTer * bProfTer * costoBachP2) + (terciarias[3] * bSupTer * costoBachS2);
+            let totalDosCinc = primDosCinc + secDosCinc + terDosCinc;
 
             //2010
-            let primDosDiez = (primarias[4]/fMantPrim*costo2[0]) + (primarias[4]/fMantPrim*bProfPrim*costoBachP2) + (primarias[4]*bSupPrim*costoBachS2);
-            let secDosDiez= (secundarias[4]/fMantSec*costo2[1]) + (secundarias[4]/fMantSec*bProfSec*costoBachP2) + (secundarias[4]*bSupSec*costoBachS2);
-            let terDosDiez = (terciarias[4]/fMantTer*costo2[2]) + (terciarias[4]/fMantTer*bProfTer*costoBachP2) + (terciarias[4]*bSupTer*costoBachS2);
-            let totalDosDiez = primDosDiez+secDosDiez+terDosDiez;
+            let primDosDiez = (primarias[4] / fMantPrim * costo2[0]) + (primarias[4] / fMantPrim * bProfPrim * costoBachP2) + (primarias[4] * bSupPrim * costoBachS2);
+            let secDosDiez = (secundarias[4] / fMantSec * costo2[1]) + (secundarias[4] / fMantSec * bProfSec * costoBachP2) + (secundarias[4] * bSupSec * costoBachS2);
+            let terDosDiez = (terciarias[4] / fMantTer * costo2[2]) + (terciarias[4] / fMantTer * bProfTer * costoBachP2) + (terciarias[4] * bSupTer * costoBachS2);
+            let totalDosDiez = primDosDiez + secDosDiez + terDosDiez;
 
             //2015
-            let primDDiezCinc = (primarias[5]/fMantPrim*costo2[0]) + (primarias[5]/fMantPrim*bProfPrim*costoBachP2) + (primarias[5]*bSupPrim*costoBachS2);
-            let secDDiezCinc = (secundarias[5]/fMantSec*costo2[1]) + (secundarias[5]/fMantSec*bProfSec*costoBachP2) + (secundarias[5]*bSupSec*costoBachS2);
-            let terDDiezCinc = (terciarias[5]/fMantTer*costo2[2]) + (terciarias[5]/fMantTer*bProfTer*costoBachP2) + (terciarias[5]*bSupTer*costoBachS2);
-            let totalDDiezCinc = primDDiezCinc+secDDiezCinc+terDDiezCinc;
+            let primDDiezCinc = (primarias[5] / fMantPrim * costo2[0]) + (primarias[5] / fMantPrim * bProfPrim * costoBachP2) + (primarias[5] * bSupPrim * costoBachS2);
+            let secDDiezCinc = (secundarias[5] / fMantSec * costo2[1]) + (secundarias[5] / fMantSec * bProfSec * costoBachP2) + (secundarias[5] * bSupSec * costoBachS2);
+            let terDDiezCinc = (terciarias[5] / fMantTer * costo2[2]) + (terciarias[5] / fMantTer * bProfTer * costoBachP2) + (terciarias[5] * bSupTer * costoBachS2);
+            let totalDDiezCinc = primDDiezCinc + secDDiezCinc + terDDiezCinc;
 
             //2019
-            let primDDiezNuev = (primarias[6]/fMantPrim*costo2[0]) + (primarias[6]/fMantPrim*bProfPrim*costoBachP2) + (primarias[6]*bSupPrim*costoBachS2);
-            let secDDiezNuev = (secundarias[6]/fMantSec*costo2[1]) + (secundarias[6]/fMantSec*bProfSec*costoBachP2) + (secundarias[6]*bSupSec*costoBachS2);
-            let terDDiezNuev = (terciarias[6]/fMantTer*costo2[2]) + (terciarias[6]/fMantTer*bProfTer*costoBachP2) + (terciarias[6]*bSupTer*costoBachS2);
-            let totalDDiezNuev = primDDiezNuev+secDDiezNuev+terDDiezNuev;
+            let primDDiezNuev = (primarias[6] / fMantPrim * costo2[0]) + (primarias[6] / fMantPrim * bProfPrim * costoBachP2) + (primarias[6] * bSupPrim * costoBachS2);
+            let secDDiezNuev = (secundarias[6] / fMantSec * costo2[1]) + (secundarias[6] / fMantSec * bProfSec * costoBachP2) + (secundarias[6] * bSupSec * costoBachS2);
+            let terDDiezNuev = (terciarias[6] / fMantTer * costo2[2]) + (terciarias[6] / fMantTer * bProfTer * costoBachP2) + (terciarias[6] * bSupTer * costoBachS2);
+            let totalDDiezNuev = primDDiezNuev + secDDiezNuev + terDDiezNuev;
 
             let costoString = formatter.format(costoTotal);
 
-            document.getElementById("totalCostText").innerHTML  = "Costo Total: "+costoString;
-
+            //document.getElementById("totalCostText").innerHTML  = "Costo Total: "+costoString;
+            document.getElementById("totalCostText").innerHTML = costoString;
             //UPDATES!
             //data: [cFinPrim, cFinSec, cFinTer,costoTotal],
             let escenariosDatas = {
                 label: 'Escenario',
-                data: [ Math.floor(cFinPrim2), Math.floor(cFinSec2), Math.floor(cFinTer2),Math.floor(costoTotal2)],
+                data: [Math.floor(cFinPrim2), Math.floor(cFinSec2), Math.floor(cFinTer2), Math.floor(costoTotal2)],
                 backgroundColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgb(153,43,129)'
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(45, 80, 102)'
                 ],
                 borderColor: [
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgba(210, 65, 111)',
-                    'rgb(153,43,129)'
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(82, 125, 154)',
+                    'rgb(45, 80, 102)'
                 ],
                 borderWidth: 2,
                 hoverBorderWidth: 0
@@ -823,20 +900,20 @@
 
             escenariosChart.update();
 
-            let porcentajeCosto = +((costoTotal/24186825819.8267)*100).toFixed(2);
-            let losOtros = (100-porcentajeCosto);
+            let porcentajeCosto = +((costoTotal / 24186825819.8267) * 100).toFixed(2);
+            let losOtros = (100 - porcentajeCosto);
 
             //console.log(porcentajeCosto);
             //console.log(losOtros)
 
             let dataPieInternal = {
-                label:'Porcentajes de costo',
-                data: [porcentajeCosto,losOtros],
+                label: 'Porcentajes de costo',
+                data: [porcentajeCosto, losOtros],
                 backgroundColor: [
-                    "#992B81",
-                    "#20174E"
+                    'rgb(82, 125, 154)',
+                    'rgb(45, 80, 102)'
                 ],
-                borderColor: "#121212",
+                borderColor: "#E4E3DF",
                 borderWidth: 4,
                 hoverBorderWidth: 0
             };
@@ -844,17 +921,17 @@
             costoAnualChart.data.datasets[0] = dataPieInternal;
 
             costoAnualChart.update();
-            
+
 
         }
 
         calculateCostosEscenario();
 
-        function lockSliders(){
-        
+        function lockSliders() {
+
         }
 
-        function mainTab(){
+        function mainTab() {
             calculateCostosEscenario();
         }
 
@@ -864,8 +941,8 @@
             const bubble = wrap.querySelector(".bubble");
 
             range.addEventListener("input", () => {
-                    setBubble(range, bubble);
-                    //calculateCostosEscenario();
+                setBubble(range, bubble);
+                //calculateCostosEscenario();
             });
             setBubble(range, bubble);
             //calculateCostosEscenario();
@@ -889,8 +966,8 @@
             const bubble2 = wrap.querySelector(".bubble2");
 
             range.addEventListener("input", () => {
-                    setBubble2(range, bubble2);
-                    //calculateCostosEscenario();
+                setBubble2(range, bubble2);
+                //calculateCostosEscenario();
             });
             setBubble2(range, bubble2);
             //calculateCostosEscenario();
@@ -901,17 +978,17 @@
             const min = range.min ? range.min : 0;
             const max = range.max ? range.max : 100;
             const newVal = Number(((val - min) * 100) / (max - min));
-            let values = Math.floor((val*100));
-            bubble.innerHTML = values+"%";
+            let values = Math.floor((val * 100));
+            bubble.innerHTML = values + "%";
 
             // Sorta magic numbers based on size of the native UI thumb
             bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
         }
-        
+
 
     </script>
-
-
+    
+    
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -926,11 +1003,11 @@
                 x.querySelector('i').className = "fa fa-bars";
             }
         }
-        document.querySelectorAll('.tabs').forEach(tabs=>{
-            tabs.querySelectorAll('li').forEach((tabSelector, i)=>{
-                tabSelector.addEventListener('click', ()=>{
-                    tabSelector.parentNode.querySelectorAll('.tabs li').forEach(l=>l.classList.remove('active'));
-                    tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li').forEach(l=>l.classList.remove('active'));
+        document.querySelectorAll('.tabs').forEach(tabs => {
+            tabs.querySelectorAll('li').forEach((tabSelector, i) => {
+                tabSelector.addEventListener('click', () => {
+                    tabSelector.parentNode.querySelectorAll('.tabs li').forEach(l => l.classList.remove('active'));
+                    tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li').forEach(l => l.classList.remove('active'));
                     tabSelector.classList.add('active');
                     tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li')[i].classList.add('active')
                 })
@@ -938,5 +1015,5 @@
         });
     </script>
     <script src="./js/otherCharts.js"></script>
-
-</body>
+    
+    </body>

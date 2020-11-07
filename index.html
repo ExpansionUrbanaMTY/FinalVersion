@@ -40,16 +40,14 @@
 </head>
 <body>
     <div id="nav" style=" z-index: 1000;">
-        <img src="img/logos/logo-final.png" height="50px" style="height: 50 !important;">
-        <h4 style="all: revert;">Expansión Urbana de Monterrey</h4>
+        <img src="img/logos/NewLogo.png"  style="height: 80 !important;">
         <ul>
             <li><a href="index.html" class="activeNav">Inicio</a></li>
-            <li><a href="costos.html">Costos</a></li>
-            <li><a href="formaurbana.html">Forma</a></li>
-            <li><a href="funcionurbana.html">Función</a></li>
-            <li><a href="egresos.html">Finanzas</a></li>
+            <li><a href="expansion.html">Expansión Urbana</a></li>
+            <li><a href="">Morfología Urbana</a></li>
             <li><a href="atlas.html">Calles</a></li>
-            <li><a href="metodologia.html">Metodología</a></li>
+            <li><a href="">Finanzas</a></li>
+            <li><a href="costos.html">Costos</a></li>
             <li><a href="equipo.html">Equipo</a></li>
         </ul>
         <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
@@ -57,105 +55,35 @@
         </a>
     </div>
 
-    <div id="map-container" style="padding-top: 16px !important;">
+    <div class="uk-child-width-expand@s uk-grid-small uk-grid-match" uk-grid>
+        <div>
+            <div style="
+                padding-left: 40px;padding-top: 0 !important; color:black; height: 90vh;
+                background: linear-gradient(90deg, #E4E3DF, #cfcec9);
+            ">
+                <article class="uk-article" style="padding-right: 10px;">
+                    <div>
+                        <p class="uk-text-justify" id="cluster-text" style="font-size: larger;">  
+                            <h3 style="color: black;">Expansión Urabana de Monterrey</h3>
+                            <p class="uk-text-justify">Esta investigación ha sido posible gracias al apoyo financiero de la Fundación FEMSA a través del Tecnológico de Monterrey. Los recursos fueron utilizados para la compra de equipo, licencias de software y el sostenimiento del equipo de investigación durante un año.</p>
+                            <p class="uk-text-justify">Agradecemos a la Secretaría de Infraestructura del gobierno del Estado de Nuevo León abrirnos las puertas para consultar los archivos cartográficos catastrales. Asimismo, agradecemos al personal y dirección del Instituto Registra! y Catastral del Estado de Nuevo León las facilidades otorgadas durante nuestras visitas y compartirnos información crucial para el cálculo de anchos de vialidades. </p>
+                            <p class="uk-text-justify">Agradecemos y reconocemos la generosidad de Centro de Colaboración Geoespacial de la Secretaría de Desarrollo Sustentable del gobierno del estado de Nuevo León, que nos compartió información geográfica valiosa de sus acervos para guiar este trabajo. </p>
+                            <p class="uk-text-justify">Agradecemos el apoyo del Consejo de Nuevo Léon para abrirnos puertas con las administraciones de los municipios de la ZMM y poder gestionar las entrevistas a profundidad. </p>
+                            <p class="uk-text-justify">Agradecemos el apoyo y participación de las empresas Terra Regia y U-Calli para validar las estimaciones del costo de mantenimiento de vialidades. </p>
+                        </p>
+                    </div>
 
-        <h1 id="title" style="font-weight: 900; font-size: 1.30rem;">
-            <img src="./img/titleindex.png" width="38%">
-        </h1> 
-
-        <div id="map"></div>
-
-        <!-- <div style="position: absolute; background:black; z-index: 99; right:24px; top: 4rem; font-size: 1.8rem; margin-top: 10%; border-radius: 25px;" id = "boxythingy">
-            <span style="font-weight: 600" id="texto-año">&nbsp;&nbsp; 2019:</span> &nbsp; <br>
-            <span style="white-space: nowrap;" id="superficie-año"> &nbsp;&nbsp; 926 </span> &nbsp;km<sup>2</sup> &nbsp;&nbsp; 
-        </div> -->
-
-        <div id="sidebar">
-            <div id="sidebar-slider">
-                <div style="flex: 1;">
-                    <span class="tooltip">1990</span>
-                    <input id="slider" type="range" min="0" max="6" step="1" value="6" style="outline:none !important;"/>
-                    <span class="tooltip">2019</span>
-                </div>
-                <button id="autoplay" style="background-color: #D1426F; border:none; height: 30px; width: 30px;">
-                    <i class="fa fa-play" aria-hidden="true" style="color:white;"></i>
-                </button>
-                <div>
-                    
-                </div>
-            </div>
-
-            <div style="flex: 1;" id="sidebar-graphs">
-                <div id="graphs">
-                    <ul class="tabs">
-                        <li class="buttonHome">Población</li>
-                        <li class="buttonHome">Superficies</li>
-                        <li class="active buttonHome">Densidad Poblacional</li>
-                    </ul>
-    
-                    <ul class="tabs-content">
-                        <li style="height:275">
-                            <canvas id="populationChart" width="200" height="180"></canvas>
-                            <p class="uk-text-justify">
-                                La población de la Zona Metropolitana de Monterrey (ZMM) ha aumentado de forma constante entre los años 1990 y 2019. Pasó de albergar una población de 2,614,841 habitantes a 4,859,863, es decir que tuvo un crecimiento del 86% durante este periodo. La ciudad casi ha duplicado su población en un periodo de 30 años.  
-                            </p>
-    
-                            <p>
-                                * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
-                            </p>
-                        </li>
-                        <li style="height:275">
-                            <canvas id="extensionsChart" width="200" height="180"></canvas>
-                            <p class="uk-text-justify">
-                                La mancha urbana del área metropolitana ha crecido a mayor velocidad que el cambio poblacional. Mientras que la 
-                                población total se duplicó en 30 años, la huella territorial de la ciudad creció casi tres veces en el mismo período. 
-                            </p>
-                            <p class="uk-text-justify">
-                                No obstante, esta expansión no ha sido proporcional a lo largo de los años, el principal periodo de expansión 
-                                fue entre el 2000 y 2010, cuando la ciudad se expandió en 53% respecto al año 2000, esto fue un crecimiento mayor 
-                                al sucedido entre 1990 y 2000, cuando la mancha urbana creció 32%. Entre el 2010 y 2016 la expansión de la mancha 
-                                urbana parece desacelerarse, siendo el periodo con la menor expansión porcentual, de tan sólo el 23%, sin embargo, 
-                                esto significó un crecimiento de 157 kilómetros cuadrados, así que, en números concretos, fue una expansión más 
-                                grande que la sucedida entre 1990 y 2000 que fue de 109 kilómetros cuadrados.
-                            </p>
-                            <p class="uk-text-justify">
-                                Tanto la zona núcleo como la zona de complemento de la ciudad han experimentado grandes incrementos en superficie, 
-                                aumentando en 145% y 182%, respectivamente, con respecto al año de 1990. La relación entre área núcleo y complemento 
-                                ha disminuido en este periodo de tiempo, pasando ser 10.27 kilómetros cuadrados de núcleo por cada kilómetro cuadrado 
-                                de complemento a ser de 8.95.
-                            </p>
-                            <p>
-                                * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
-                            </p>
-                        </li>
-                        
-                        <li class="active"style="height:275">
-                            <canvas id="densityChart" width="200" height="180"></canvas>
-                            <p class="uk-text-justify">
-                                La densidad de la Zona Metropolitana de Monterrey (ZMM) ha caído drásticamente. Pasó de ser 7,746.5 habitantes por 
-                                kilómetro cuadrado en 1990 a 5,248 en 2019. Una reducción total del 32% en el periodo de 30 años. Esta disminución 
-                                en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de 
-                                las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Las 
-                                áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 
-                                1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del 
-                                núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes 
-                                por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y 
-                                desconectado del resto de la ciudad.</p>
-                            <p>
-                                * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
-                            </p>
-                        </li>
-                        
-                    </ul>
-                </div>
+                </article>
             </div>
         </div>
-    </div>  
-    
+        <div>
+            <div class="uk-card uk-text-center" style="background-color: #E4E3DF; margin-left: -15px; width: 70% !important;">
+                    <div id="map" style="height: 100%"></div>
+            </div>
+        </div>
+    </div>
     
 
-
-    
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -181,9 +109,21 @@
             })
         })
 
-        UIkit.offcanvas('#offcanvas-overlay').toggle();
+        // UIkit.offcanvas('#offcanvas-overlay').toggle();
+
+        mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJjazg1OHpseHcwMG1lM2VrbGo1emY5enVzIn0.v27OOfnnNHFavaO04-affQ';
+        let map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/roponmx/ckgiiclqk1w7s19o9kavul2ta',
+            center:[-100.25646, 25.67678],
+            zoom: 8.8
+        });
+
+
+
+
     </script>
-    <script src="./map.js?a"></script>
-    <script src="./js/charts.js"></script>
+    <!-- <script src="./map.js?a"></script> -->
+    <script src="./js/charts.js"></script> 
 
 </body>

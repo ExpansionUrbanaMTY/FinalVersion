@@ -1,0 +1,178 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expansión Urbana Mty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
+    <!--MapBox-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+    <!-- d3 -->
+    <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- chartjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"charset="utf-8"></script>
+    
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <!--Carousel-->
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWNMHKJPW1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QWNMHKJPW1');
+    </script>		
+
+</head>
+<body>
+    <div id="nav" style=" z-index: 1000;">
+        <img src="img/logos/NewLogo.png"  style="height: 70 !important;">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="expansion.html" class="activeNav">Expansión Urbana</a></li>
+            <li><a href="">Morfología Urbana</a></li>
+            <li><a href="atlas.html">Calles</a></li>
+            <li><a href="">Finanzas</a></li>
+            <li><a href="">Costos</a></li>
+            <li><a href="equipo.html">Equipo</a></li>
+        </ul>
+        <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div id="map-container" style="padding-top: 16px !important;">
+
+        <div id="map"></div>
+
+        <div id="sidebar" style="background-color: #E4E3DF;">
+            <div id="sidebar-slider">
+                <div style="flex: 1;">
+                    <span class="tooltip">1990</span>
+                    <input id="slider" type="range" min="0" max="6" step="1" value="6" style="outline:none !important;"/>
+                    <span class="tooltip">2019</span>
+                </div>
+                <button id="autoplay" style="background-color: #2D5066; border:none; height: 30px; width: 30px;">
+                    <i class="fa fa-play" aria-hidden="true" style="color:white;"></i>
+                </button>
+                <div>
+                    
+                </div>
+            </div>
+
+            <div style="flex: 1;" id="sidebar-graphs">
+                <div id="graphs">
+                    <ul class="tabs">
+                        <li class="buttonHome">Población</li>
+                        <li class="buttonHome">Superficies</li>
+                        <li class="active buttonHome">Densidad Poblacional</li>
+                    </ul>
+    
+                    <ul class="tabs-content">
+                        <li style="height:275">
+                            <canvas id="populationChart" width="200" height="180"></canvas>
+                            <p class="uk-text-justify">
+                                La población de la Zona Metropolitana de Monterrey (ZMM) ha aumentado de forma constante entre los años 1990 y 2019. Pasó de albergar una población de 2,614,841 habitantes a 4,859,863, es decir que tuvo un crecimiento del 86% durante este periodo. La ciudad casi ha duplicado su población en un periodo de 30 años.  
+                            </p>
+    
+                            <p>
+                                * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
+                            </p>
+                        </li>
+                        <li style="height:275">
+                            <canvas id="extensionsChart" width="200" height="180"></canvas>
+                            <p class="uk-text-justify">
+                                La mancha urbana del área metropolitana ha crecido a mayor velocidad que el cambio poblacional. Mientras que la 
+                                población total se duplicó en 30 años, la huella territorial de la ciudad creció casi tres veces en el mismo período. 
+                            </p>
+                            <p class="uk-text-justify">
+                                No obstante, esta expansión no ha sido proporcional a lo largo de los años, el principal periodo de expansión 
+                                fue entre el 2000 y 2010, cuando la ciudad se expandió en 53% respecto al año 2000, esto fue un crecimiento mayor 
+                                al sucedido entre 1990 y 2000, cuando la mancha urbana creció 32%. Entre el 2010 y 2016 la expansión de la mancha 
+                                urbana parece desacelerarse, siendo el periodo con la menor expansión porcentual, de tan sólo el 23%, sin embargo, 
+                                esto significó un crecimiento de 157 kilómetros cuadrados, así que, en números concretos, fue una expansión más 
+                                grande que la sucedida entre 1990 y 2000 que fue de 109 kilómetros cuadrados.
+                            </p>
+                            <p class="uk-text-justify">
+                                Tanto la zona núcleo como la zona de complemento de la ciudad han experimentado grandes incrementos en superficie, 
+                                aumentando en 145% y 182%, respectivamente, con respecto al año de 1990. La relación entre área núcleo y complemento 
+                                ha disminuido en este periodo de tiempo, pasando ser 10.27 kilómetros cuadrados de núcleo por cada kilómetro cuadrado 
+                                de complemento a ser de 8.95.
+                            </p>
+                            <p>
+                                * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
+                            </p>
+                        </li>
+                        
+                        <li class="active"style="height:275">
+                            <canvas id="densityChart" width="200" height="180"></canvas>
+                            <p class="uk-text-justify">
+                                La densidad de la Zona Metropolitana de Monterrey (ZMM) ha caído drásticamente. Pasó de ser 7,746.5 habitantes por 
+                                kilómetro cuadrado en 1990 a 5,248 en 2019. Una reducción total del 32% en el periodo de 30 años. Esta disminución 
+                                en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de 
+                                las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Las 
+                                áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 
+                                1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del 
+                                núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes 
+                                por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y 
+                                desconectado del resto de la ciudad.</p>
+                            <p>
+                                * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
+                            </p>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+    
+
+
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
+        function mobileNav() {
+            var x = document.getElementById("nav");
+            if (x.className === "nav") {
+                x.className += " responsive";
+                x.querySelector('i').className = "fa fa-close";
+            } else {
+                x.className = "nav";
+                x.querySelector('i').className = "fa fa-bars";
+            }
+        }
+        document.querySelectorAll('.tabs').forEach(tabs=>{
+            tabs.querySelectorAll('li').forEach((tabSelector, i)=>{
+                tabSelector.addEventListener('click', ()=>{
+                    tabSelector.parentNode.querySelectorAll('.tabs li').forEach(l=>l.classList.remove('active'));
+                    tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li').forEach(l=>l.classList.remove('active'));
+                    tabSelector.classList.add('active');
+                    tabSelector.parentNode.parentNode.querySelectorAll('.tabs-content li')[i].classList.add('active')
+                })
+            })
+        })
+
+        UIkit.offcanvas('#offcanvas-overlay').toggle();
+    </script>
+    <script src="./map.js?a"></script>
+    <script src="./js/charts.js"></script>
+
+</body>
