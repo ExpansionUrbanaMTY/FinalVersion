@@ -853,7 +853,7 @@ hr.rounded {
     top:0;
     bottom:0; 
     width:100%;
-    height:540px; 
+    height:85vh; 
     
 }
 
@@ -868,14 +868,27 @@ hr.rounded {
     top:0;
     bottom:0; 
     width:100% !important;
-    height:540px;    
+    height:50vh;    
+}
+
+.grafica_containerb{
+    top:0;
+    bottom:0; 
+    width:100% !important;
+    height:60vh;    
 }
 
 .grafica_container2{
     top:0;
     bottom:0; 
     width:100% !important;
-    height:600px;    
+    height:46vh;    
+}
+.grafica_container2b{
+    top:0;
+    bottom:0; 
+    width:100% !important;
+    height:38vh;    
 }
 
 .grafica_sidemap {
@@ -900,14 +913,14 @@ hr.rounded {
    }
 
 .legend {
-    background-color: #292929;
+    background-color: #b4b4b3;
     max-width: fit-content;
     display:inline-block;
     color: rgb(233, 232, 232);
     font-size: 80%;
     padding: 10px;
     position: relative;
-    top: 250px;
+    top: -10px;
     left: 20px;
 
 }
@@ -935,6 +948,15 @@ hr.rounded {
     width: 30px;
 
 }
+
+.uk-tab > .uk-active > a {
+    color: #333;
+    border-color: transparent;
+    background-color: #b4b4b3;
+}
+
+
+
 @media screen and (max-width: 1000px) {
     /* Hace que se vea el hamburger menu */
     #nav a.icon {

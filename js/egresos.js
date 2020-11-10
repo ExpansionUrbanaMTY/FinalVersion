@@ -1,27 +1,14 @@
-mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJja2MyajhuMjIwMGxhMnN1bTRudTk5MmlxIn0.FaHKa4n3CaUvaTKcwLXXGw';
 var activeYear = document.getElementById('select-bubbles').value;
 var activeTab = 'b';
-var activeMun = 'Monterrey';
 var selectMun = document.getElementById('select-mun');
 var btnRec = document.getElementById('recBtn');
 var btnHist = document.getElementById('histBtn');
 var yearBubbles = document.getElementById('select-bubbles');
-var sliderYear = document.getElementById('slider-years');
-var labelMun = document.getElementById('state-label');
-var pcontents = {'1':1990,'2':2000,'3':2010,'4':2015,'5':2018}; 
 var commaValues = d3.format('$,.0f');
 
 const muncolors = {"Abasolo": "#89C5DA", "Apodaca": "#DA5724","Cadereyta": "#74D944","Ciénaga de Flores": "#CE50CA","El Carmen": "#3F4921","García": "#C0717C", 
     "General Escobedo": "#CBD588", "General Zuazua": "#5F7FC7", "Guadalupe": "#673770", "Juárez": "#D3D93E", "Monterrey": "#c84248","Pesquería": "#508578",
     "Salinas Victoria": "#D7C1B1", "San Nicolás": "#689030","San Pedro": "#8569D5", "Santa Catarina": "#CD9BCD", "Santiago": "#D14285"};
-
-
-var map_mun = new mapboxgl.Map({
-    container: 'map_mun',
-    style: 'mapbox://styles/mapbox/dark-v10',
-    center: [-100.3155448, 25.82164],
-    zoom: 8.0
-});
 
 function renderBubbles() {
     Plotly.d3.csv('./data/propinvajustado.csv', function(data) {
@@ -64,14 +51,15 @@ function renderBubbles() {
                 },
                 hoverformat:'$,.2f'
             },
-            plot_bgcolor: '#212121',
-            paper_bgcolor:'#141414',
+            plot_bgcolor: '#E4E3DF',
+            paper_bgcolor:'#E4E3DF',
             hovermode: 'closest',
-            legend: {x:1,y:1,font:{size:12}},
-            margin : {l:90,r:40,t:80,b:80},
+            legend: {x:1,y:1,font:{size:6}},
+            margin : {l:60,r:0,t:50,b:50},
             pad:{t:0,r:0,b:0,l:0},
             font : {
-                color:'#bcbcbc'
+                color:'#000000',
+                size: 8
             },
             showlegend:true
         }; 
@@ -95,9 +83,9 @@ function renderBubbles() {
                             line: {color:'#141414'}
                         },
                         text: [initData[3][i]],
-                        hovertemplate: '<b>%{text}<b>' +
-                        '<br><b>Población: </b>%{marker.size:,}'
-                        + '<br><b>Gasto en inversión (per cap.): </b>%{x}' + '<br><b>Ingresos propios (per cap.): </b>%{y}' + '<extra></extra>'
+                        hovertemplate: '%{text}' +
+                        '<br>Población: %{marker.size:,}'
+                        + '<br>Gasto en inversión (per cap.): %{x}' + '<br>Ingresos propios (per cap.): %{y}' + '<extra></extra>'
                     }
                 )
             }
@@ -125,9 +113,9 @@ function renderBubbles() {
                             line: {color:'#141414'}
                         },
                         text: [initData[3][i]],
-                        hovertemplate: '<b>%{text}<b>' +
-                        '<br><b>Población: </b>%{marker.size}'
-                        + '<br><b>Gasto en inversión (per cap.): </b>%{x}' + '<br><b>Ingresos propios (per cap.): </b>%{y}' + '<extra></extra>'
+                        hovertemplate: '%{text}' +
+                        '<br>Población: %{marker.size:,}'
+                        + '<br>Gasto en inversión (per cap.): %{x}' + '<br>Ingresos propios (per cap.): %{y}' + '<extra></extra>'
                     }
                 )
             }
@@ -154,17 +142,11 @@ function renderBubbles() {
     });
 
 }
-
 function renderIngresos() {
     Plotly.d3.csv('./data/ingegajustado.csv', function (data) {
         function municipioFilter(mun,tipo) {
             return data.filter(function (d) {
                 return(d.mun === mun && d.t === tipo)});
-        }
-
-        function tipoFilter(mun, tipo,y) {
-            return data.filter(function (d) {
-                return(d.mun === mun && d.t === tipo && d.year == y)});
         }
 
         function processIng(mun,t) {
@@ -217,17 +199,8 @@ function renderIngresos() {
             return [dataGasto.map(Number), dataInv.map(Number), dataDeuda.map(Number), dataOtros.map(Number), periodo.map(Number)];
         }
 
-       function processDist(mun,tipo,y) {
-            var set = tipoFilter(mun,tipo,y); 
-            var dataConc = [], dataMonto = [];
-            for(var i = 0; i < set.length; i++) {
-                dataConc.push(set[i]['concepto']);
-                dataMonto.push(set[i]['monto']); 
-            }
-            
-            return [dataConc, dataMonto.map(Number)]; 
 
-        }
+
 
         var config = {
             displayModeBar: false,
@@ -235,13 +208,7 @@ function renderIngresos() {
             responsive:true
         };
 
-        var config2 = {
-            displayModeBar: false,
-            displayLogo: false,
-            responsive:true,
-            staticPlot:true
-        };
-
+    
         var layout = {
             xaxis: {
                 title: {
@@ -254,14 +221,15 @@ function renderIngresos() {
                 },
                 hoverformat:'$,.0f'
             },
-            plot_bgcolor: '#212121',
-            paper_bgcolor:'#141414',
+            plot_bgcolor: '#E4E3DF',
+            paper_bgcolor:'#E4E3DF',
             hovermode: 'x unified',
-            legend: {x:-0.04, xanchor:'left',y:1.1,orientation:'h'},
-            margin : {l:90,r:40,t:80,b:80},
+            legend: {x:-0.04, xanchor:'left',y:1.1,orientation:'h', font:{size:8}},
+            margin : {l:45,r:10,t:0,b:20},
             pad:{t:0,r:0,b:0,l:0},
             font : {
-                color:'#bcbcbc'
+                color:'#000000',
+                size: 8
             }
         }; 
 
@@ -277,54 +245,15 @@ function renderIngresos() {
                 },
                 hoverformat:'$,.0f'
             },
-            plot_bgcolor: '#212121',
-            paper_bgcolor:'#141414',
+            plot_bgcolor: '#E4E3DF',
+            paper_bgcolor:'#E4E3DF',
             hovermode: 'x unified',
-            legend: {x:-0.04, xanchor:'left',y:1.1,orientation:'h'},
-            margin : {l:90,r:40,t:80,b:80},
+            legend: {x:-0.04, xanchor:'left',y:1.1,orientation:'h', font:{size:8}},
+            margin : {l:45,r:10,t:0,b:20},
             pad:{t:0,r:0,b:0,l:0},
             font : {
-                color:'#bcbcbc'
-            }
-        }; 
-
-        var layout3 = {
-            xaxis: {
-                title: {
-                  text: 'Ingresos',
-                }
-            },
-            yaxis: {
-                title: {
-                  text: 'Monto (MXN)',
-                }
-            },
-            plot_bgcolor: '#212121',
-            paper_bgcolor:'#141414',
-            margin : {l:80,r:40,t:20,b:60},
-            pad:{t:0,r:0,b:0,l:0},
-            font : {
-                color:'#bcbcbc'
-            }
-        }; 
-
-        var layout4 = {
-            xaxis: {
-                title: {
-                  text: 'Egresos',
-                }
-            },
-            yaxis: {
-                title: {
-                  text: 'Monto (MXN)',
-                }
-            },
-            plot_bgcolor: '#212121',
-            paper_bgcolor:'#141414',
-            margin : {l:50,r:40,t:20,b:60},
-            pad:{t:0,r:0,b:0,l:0},
-            font : {
-                color:'#bcbcbc'
+                color:'#000000',
+                size:8
             }
         }; 
 
@@ -339,7 +268,7 @@ function renderIngresos() {
                showlegend: true, 
                marker: {
                    width: 3,
-                   color: '#feca8d'
+                   color: '#182D3A'
                }, 
                hovertemplate: '<b>Propios: </b>%{y} <extra></extra>'
 
@@ -353,7 +282,7 @@ function renderIngresos() {
                 showlegend: true, 
                 marker: {
                     width: 3,
-                    color: '#f1605d'
+                    color: '#D1B0B2'
                 },
                 hovertemplate: '<b>Transf. Fed.: </b>%{y} <extra></extra>'
             }; 
@@ -366,7 +295,7 @@ function renderIngresos() {
                 showlegend: true, 
                 marker: {
                     width: 3,
-                    color: '#9e2f7f'
+                    color: '#AA4B56'
                 },
                 hovertemplate: '<b>Deuda: </b>%{y} <extra></extra>'
             };
@@ -388,7 +317,7 @@ function renderIngresos() {
                showlegend: true, 
                marker: {
                    width: 3,
-                   color: '#feca8d'
+                   color: '#C0CACE'
                }, 
                hovertemplate: '<b>Gasto corriente: </b>%{y} <extra></extra>'
 
@@ -402,7 +331,7 @@ function renderIngresos() {
                 showlegend: true, 
                 marker: {
                     width: 3,
-                    color: '#f1605d'
+                    color: '#182D3A'
                 },
                 hovertemplate: '<b>Inversión: </b>%{y} <extra></extra>'
             }; 
@@ -415,7 +344,7 @@ function renderIngresos() {
                 showlegend: true, 
                 marker: {
                     width: 3,
-                    color: '#9e2f7f'
+                    color: '#AA4B56'
                 },
                 hovertemplate: '<b>Deuda: </b>%{y} <extra></extra>'
             };
@@ -428,7 +357,7 @@ function renderIngresos() {
                 showlegend: true, 
                 marker: {
                     width: 3,
-                    color: '#440f76'
+                    color: '#D1B0B2'
                 },
                 hovertemplate: '<b>Otros: </b>%{y} <extra></extra>'
             };
@@ -438,105 +367,6 @@ function renderIngresos() {
 
         }
 
-        function setBars() {
-            var dataIng = processDist('Monterrey', 'ing' , pcontents[sliderYear.value]);
-            var dataEng = processDist('Monterrey', 'eg' , pcontents[sliderYear.value]);
-     
-            var traceIng = {
-                x: ['Propios','Trans. Fed','Deuda'],
-                y: dataIng[1],
-                width: 0.6,
-                type: 'bar',
-                text: dataIng[1].map(function(data){return String(commaValues(data/1000000)) + 'M'}),
-                textposition:'auto',
-                hoverinfo:'none',
-                marker: {
-                    color: ['#feca8d', '#f1605d', '#9e2f7f']
-                }
-            };
-
-            var traceEg = {
-                x: dataEng[0],
-                y: dataEng[1],
-                width:0.6,
-                type: 'bar',
-                text: dataEng[1].map(function(data){return String(commaValues(data/1000000)) + 'M'}),
-                textposition:'auto',
-                hoverinfo:'none',
-                marker: {
-                    color: ['#feca8d', '#f1605d', '#9e2f7f','#440f76']
-                }
-            }
-
-            Plotly.newPlot('bars1',[traceIng], layout3, config2);
-            Plotly.newPlot('bars2',[traceEg], layout4, config2);
-            
-        }
-
-        function renderMap() {
-            var shapeMun = './data/municipiosNL.geojson';
-            var muns = Object.keys(muncolors), colors = Object.values(muncolors);
-            var stepsMun = muns.map((mun,i) => {
-                return[mun, colors[i]]; 
-            });
-
-            map_mun.on('load', function() {
-                map_mun.addSource('municipios', {
-                    type:'geojson',
-                    data: shapeMun
-                });
-
-                map_mun.addLayer({
-                    'id':'mun',
-                    'type':'fill',
-                    'source':'municipios',
-                    'paint':{
-                        'fill-color':'#120b2f',
-                        'fill-opacity':0.99
-                    },
-                    'layout': {
-                        'visibility': 'visible'
-                    }
-                });
-                map_mun.addLayer({
-                    'id':'munlines',
-                    'type':'line',
-                    'source':'municipios',
-                    'paint':{
-                        'line-color':'#e6e6e6',
-                    },
-                    'layout': {
-                        'visibility': 'visible'
-                    }
-                });
-
-               map_mun.addLayer({
-                    'id':'mun_nom',
-                    'type':'symbol',
-                    'source':'municipios',
-                    'paint':{
-                        'text-color':'#e6e6e6'
-                    },
-                    'layout':{
-                        'text-field':['get', 'NOMGEO'],
-                        'text-font': ['Open Sans Semibold',
-                        'Arial Unicode MS Bold'],
-                        'text-offset': [0.4, -0.5],
-                        'text-size':12,
-                        'text-anchor': 'center',
-                        //'text-ignore-placement':true
-                        
-                    }
-                });
-
-                map_mun.on('click','mun', function(e){
-                    var munic = e.features[0].properties.NOMGEO; 
-                    activeMun = munic; 
-                    labelMun.textContent = activeMun; 
-                    updateBars(munic, pcontents[sliderYear.value]);
-                })
-            });
-        }
 
         function assignOptions() {
             var allGroup = d3.map(data, function(d){return(d.mun)}).keys(); 
@@ -546,7 +376,6 @@ function renderIngresos() {
                 selectMun.appendChild(currentOption);
             }
         }   
-
 
         function updateIng(mun) {
 
@@ -602,58 +431,21 @@ function renderIngresos() {
 
         }
 
-        function updateBars(mun, year) {
-            var updateDataing = processDist(mun,'ing',year);
-            var updateDataeg = processDist(mun,'eg',year);
-            var upIng = {
-                x: ['Propios','Trans. Fed','Deuda'],
-                y: updateDataing[1],
-                width:0.6,
-                type: 'bar',
-                text: updateDataing[1].map(function(data){return String(commaValues(data/1000000)) + 'M'}),
-                textposition:'auto',
-                hoverinfo:'none',
-                marker: {
-                    color: ['#feca8d', '#f1605d', '#9e2f7f']
-                }
-            }
-
-            var upEg = {
-                x: updateDataeg[0],
-                y: updateDataeg[1],
-                width:0.6,
-                type: 'bar',
-                text: updateDataeg[1].map(function(data){return String(commaValues(data/1000000)) + 'M'}),
-                textposition:'auto',
-                hoverinfo:'none',
-                marker: {
-                    color: ['#feca8d', '#f1605d', '#9e2f7f','#440f76']
-                }
-            }
-
-            Plotly.react('bars1', [upIng], layout3, config2);
-            Plotly.react('bars2', [upEg], layout4, config2);
-
-            
-        }
+      
 
         assignOptions(); 
         setHistIng(); 
         setHistEg(); 
-        setBars(); 
-        renderMap(); 
 
         selectMun.addEventListener('change', function () {
             updateIng(this.value); 
             updateEg(this.value); 
         });
 
-        sliderYear.addEventListener('change', function () {
-            updateBars(activeMun, pcontents[this.value]);
-        })
 
 
     });
 }
+
 renderBubbles(); 
 renderIngresos(); 

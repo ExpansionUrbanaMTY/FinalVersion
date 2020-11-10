@@ -1,0 +1,122 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expansión Urbana Mty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
+    <!-- d3 -->
+    <script src="//d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--UIKit -->
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWNMHKJPW1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QWNMHKJPW1');
+    </script>		
+</head>
+
+<body class = 'uk-height-viewport'>
+    <div id="nav" style=" z-index: 1000;">
+        <img src="img/logos/NewLogo.png"  style="height: 80 !important;">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="expansion.html">Expansión Urbana</a></li>
+            <li><a href="morfologia.html">Morfología Urbana</a></li>
+            <li><a href="atlas.html">Calles</a></li>
+            <li><a href="finanzas.html">Finanzas</a></li>
+            <li><a href="costos.html">Costos</a></li>
+            <li><a href="equipo.html">Equipo</a></li>
+        </ul>
+        <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div class = 'uk-container uk-container-expand uk-padding-remove'>
+        <div class = 'uk-grid-small uk-child-width-1-2@m' uk-grid>
+            <div class = 'uk-first-column' style="
+            background: linear-gradient(90deg, #E4E3DF, #cfcec9); height: 90vh">
+                <div class = 'uk-grid-small uk-padding-small uk-padding-remove-bottom' uk-grid>
+                    <div class = 'uk-width-1-1'>
+                        <h3 style="color: black;">Relación de ingresos/inversión por municipio</h3>
+                    </div>
+                    <div class = 'uk-width-1-1 uk-overflow-auto' style = 'height: 20vh !important'>
+                        <p class = 'uk-text-justify'>
+                            El objetivo de esta sección es identificar las fuentes de financiamiento del crecimiento territorial de la mancha urbana (participaciones federales o ingresos propios) y cómo se ha gastado (gasto corriente o inversión). Asimismo, identificar los municipios con el mayor gasto en inversión per cápita. Los municipios de la periferia urbana como García, General Zuazua, Juárez o Cadereyta han tenido un crecimiento habitacional importante en los últimos 15 años, principalmente a través de vivienda social tipo INFONAVIT.
+                        </p>
+                        <p class = 'uk-text-justify'>
+                            La pregunta es: ¿en qué medida este desarrollo territorial ha estado financiado a través de participaciones federales versus ingresos propios? La fuente de información para estos comparativos procede de los reportes de Finanzas públicas estatales y municipales de INEGI. Los ingresos y egresos se reportan en cantidades brutas de cada año, sin actualización por la inflación.
+                        </p>
+                    </div>
+                    <div class = 'uk-width-1-1'>
+                        <select class = 'uk-select uk-light uk-width-1-2' style= 'color:black; background-color: #b4b4b3; border-width: 0px 0px 0px 10px; border-color: black;' id = 'select-bubbles'>
+                            <option value = 2018>2018</option>
+                            <option value = 2015>2015</option>
+                            <option value = 2010>2010</option>
+                            <option value = 2000>2000</option>
+                            <option value = 1990>1990</option>
+                        </select>       
+                    </div>
+                    <div class = 'uk-width-1-1'>
+                        <div class = 'grafica_container2' id ='graph_bubbles'></div>   
+                    </div>
+                    <div class = 'uk-width-1-1'>
+                        <div class="uk-button-group uk-width-expand uk-flex uk-flex-center" uk-switcher ='connect: #cont_parrafo; animation: uk-animation-fade; toggle: > *'> 
+                            <button class="uk-button uk-width-1-2" id = 'recBtn' type = 'button' style = 'background-color: #b4b4b3;'>Rec. incorporación</button>
+                            <button class="uk-button uk-width-1-2" id = 'histBtn' type = 'button' style = 'background-color: #b4b4b3;'>Históricos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class = 'uk-padding-remove'>
+                <div class = 'uk-grid-small uk-padding-small uk-padding-remove-bottom' uk-grid>
+                    <div class = 'uk-width-1-1'>
+                        <h3 style="color: black;">Ingresos y egresos históricos por municipio: 2018 - 1990</h3>
+                    </div>
+                    <div class = 'uk-width-1-1'>
+                        <div class = 'grafica_container2b' id = 'historico_1'></div>
+                    </div>
+                    <div class = 'uk-width-1-1' style = 'margin-top: 0 !important'>
+                        <div class = 'grafica_container2b' id = 'historico_2'></div>
+                    </div>
+                    <div class = 'uk-width-1-1' style = 'margin-top: 0 !important'>
+                        <select class = 'uk-select' style = 'color: black;background-color: #cfcec9'id = 'select-mun'>
+                        </select>   
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <script src='./js/egresos.js'></script>
+    <script>
+      function mobileNav() {
+            var x = document.getElementById("nav");
+            if (x.className === "nav") {
+                x.className += " responsive";
+                x.querySelector('i').className = "fa fa-close";
+            } else {
+                x.className = "nav";
+                x.querySelector('i').className = "fa fa-bars";
+            }
+        }
+
+    </script>
+
+
+</body>
