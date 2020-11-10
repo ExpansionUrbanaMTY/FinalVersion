@@ -1,5 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJja2MyajhuMjIwMGxhMnN1bTRudTk5MmlxIn0.FaHKa4n3CaUvaTKcwLXXGw';
-const colors = ['#fcfdbf', '#feca8d', '#fd9668', '#f1605d', '#cd4071', '#9e2f7f', '#721f81', '#440f76', '#180f3d', '#000004']; 
+const colors = ['#6B0F1A', '#C2737C', '#CEABB1', '#E4E3DF', '#ffffff', '#BEE7E8', '#94B5B8', '#527D9A', '#2D5066', '#182D3A']; 
 const thresholds = {'dist_cbd':[4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
 'Emp10_19':[-1999, 383, 2765, 5147, 7529, 9911, 12293, 14675, 17057, 19439],
 'Pop0_16':[-17405, -1855, 13695, 29245, 44795, 60345, 75895, 91445, 106995, 122545],
@@ -31,7 +31,7 @@ var commaFloat = d3.format(',.4f');
 
 var map_dist = new mapboxgl.Map({
     container: 'map_dist',
-    style: 'mapbox://styles/mapbox/dark-v10',
+    style: 'mapbox://styles/roponmx/ckgiiclqk1w7s19o9kavul2ta',
     center: [-100.310015, 25.668289],
     zoom: 8.8
 });
@@ -353,7 +353,7 @@ function makePlot(viv0,viv1,pop0,pop1,distancia) {
         showlegend:true,
         marker: {
             width:3,
-            color: '#440f76'
+            color: '#C0CACE'
         }
     };
     var trace_viv1 = {
@@ -364,7 +364,7 @@ function makePlot(viv0,viv1,pop0,pop1,distancia) {
         showlegend:true,
         marker: {
             width:3,
-            color: '#9e2f7f'
+            color: '#182D3A'
         }
     };
 
@@ -376,7 +376,7 @@ function makePlot(viv0,viv1,pop0,pop1,distancia) {
         showlegend:true,
         marker: {
             width:3,
-            color: '#f1605d'
+            color: '#D1B0B2'
         }
     };
     var trace_pop1 = {
@@ -388,7 +388,7 @@ function makePlot(viv0,viv1,pop0,pop1,distancia) {
 
         marker: {
             width:3,
-            color: '#feca8d'
+            color: '#AA4B56'
         }
     };
 
@@ -412,14 +412,14 @@ function makePlot(viv0,viv1,pop0,pop1,distancia) {
             },
             hoverformat:',.2f'
         },
-        plot_bgcolor: '#212121',
-        paper_bgcolor:'#141414',
+        plot_bgcolor: '#E4E3DF',
+        paper_bgcolor:'#E4E3DF',
         hovermode: 'x unified',
         legend: {x:1,xanchor:'right',y:1},
         margin : {l:90,r:40,t:80,b:80},
         pad:{t:0,r:0,b:0,l:0},
         font : {
-            color:'#bcbcbc'
+            color:'#000000'
         }
     }; 
 
@@ -467,14 +467,14 @@ function renderDenue() {
                 },
                 hoverformat:',.2f'
             },
-            plot_bgcolor: '#212121',
-            paper_bgcolor:'#141414',
+            plot_bgcolor: '#E4E3DF',
+            paper_bgcolor:'#E4E3DF',
             hovermode: 'x unified',
             legend: {x:1,xanchor:'right',y:1},
             margin : {l:90,r:40,t:80,b:80},
             pad:{t:0,r:0,b:0,l:0},
             font : {
-                color:'#bcbcbc'
+                color:'#000000'
             }
         }; 
 
@@ -490,7 +490,7 @@ function renderDenue() {
                 showlegend:true,
                 marker: {
                     width:3,
-                    color: '#feca8d'
+                    color: '#C0CACE'
                 }
             };
             var trace_ind = {
@@ -501,7 +501,7 @@ function renderDenue() {
                 showlegend:true,
                 marker: {
                     width:3,
-                    color: '#f1605d'
+                    color: '#182D3A'
                 }
             };
         
@@ -513,7 +513,7 @@ function renderDenue() {
                 showlegend:true,
                 marker: {
                     width:3,
-                    color: '#9e2f7f'
+                    color: '#D1B0B2'
                 }
             };
             var trace_serv = {
@@ -525,7 +525,7 @@ function renderDenue() {
         
                 marker: {
                     width:3,
-                    color: '#440f76'
+                    color: '#AA4B56'
                 }
             };
 
