@@ -1,4 +1,4 @@
-s//lectura de datos
+//lectura de datos
 async function readData(){
     let poblacion = await d3.csv('./data/Poblacion.csv');
     let densidad = await d3.csv('./data/DensidadPob.csv');
