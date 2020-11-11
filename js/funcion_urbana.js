@@ -1,8 +1,9 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJja2MyajhuMjIwMGxhMnN1bTRudTk5MmlxIn0.FaHKa4n3CaUvaTKcwLXXGw';
-const colors = ['#6B0F1A', '#C2737C', '#CEABB1', '#E4E3DF', '#ffffff', '#BEE7E8', '#94B5B8', '#527D9A', '#2D5066', '#182D3A']; 
+const colors = ['#182D3A', '#2D5066', '#527D9A', '#94B5B8', '#BEE7E8', '#ffffff', '#E4E3DF', '#CEABB1', '#C2737C', '#6B0F1A']; 
+const colors_seq = ['#ebfcfd', '#b8e0e4', '#88c6d2', '#65a8c6', '#4e8aba', '#416cae', '#3e4d92', '#323467', '#1d1e3a', '#030512']; 
 const thresholds = {'dist_cbd':[4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
-'Emp10_19':[-1999, 383, 2765, 5147, 7529, 9911, 12293, 14675, 17057, 19439],
 'Pop0_16':[-17405, -1855, 13695, 29245, 44795, 60345, 75895, 91445, 106995, 122545],
+'Emp10_19':[-1999, 383, 2765, 5147, 7529, 9911, 12293, 14675, 17057, 19439],
 'AreaC':[0.1, 0.172, 0.243, 0.314, 0.385, 0.456, 0.527, 0.598, 0.669, 0.74],
 'CUS':[0.17, 0.31, 0.45, 0.59, 0.73, 0.87, 1.01, 1.15, 1.29, 1.43],
 'Densidad90':[338, 676, 1014, 1352, 1690, 2028, 2366, 2704, 3042, 3380],
@@ -36,6 +37,14 @@ var map_dist = new mapboxgl.Map({
     zoom: 8.8
 });
 
+var map_grad = new mapboxgl.Map({
+    container: 'map_grad',
+    style: 'mapbox://styles/roponmx/ckgiiclqk1w7s19o9kavul2ta',
+    center: [-100.310015, 25.668289],
+    zoom: 8.8
+});
+
+
 function changeText(s) {
     document.getElementById('cus_text').textContent = cardcontent[s];
 }
@@ -51,16 +60,16 @@ function changeLegend(s) {
 
 function forceHide() {
     if(!(activeLayer === ''))  {
-        if(map_dist.getLayoutProperty(activeLayer, 'visibility') == 'visible') {
-            map_dist.setLayoutProperty(activeLayer, 'visibility', 'none');
+        if(map_grad.getLayoutProperty(activeLayer, 'visibility') == 'visible') {
+            map_grad.setLayoutProperty(activeLayer, 'visibility', 'none');
         }
     }   
 }
 
 function displayLayer(s) {
-    if(map_dist.getLayoutProperty(s, 'visibility') != 'visible') {
+    if(map_grad.getLayoutProperty(s, 'visibility') != 'visible') {
         forceHide();
-        map_dist.setLayoutProperty(s, 'visibility','visible');
+        map_grad.setLayoutProperty(s, 'visibility','visible');
         activeLayer = s; 
     }
     changeLegend(s); 
@@ -87,21 +96,57 @@ Promise.all(loadFiles).then(function (data){
         return feature;
     });
     var margedGeoJSON = data[0];
+    console.log(margedGeoJSON); 
+
     var rows = Object.keys(thresholds);
-    var stepsList = thresholds['dist_cbd'].map((num,i) => {
-        return[num,colors[i]]; 
+
+    var stepsDist = thresholds['dist_cbd'].map((num,i) => {
+        return[num,colors_seq[i]]; 
     });
-    console.log(stepsList); 
 
     map_dist.on('load', function() {
-
-        map_dist.addSource('gradiente', {
+        map_dist.addSource('dist', {
             type:'geojson',
             data:margedGeoJSON
         });
 
         map_dist.addLayer({
             'id':'dist_cbd',
+            'type':'fill',
+            'source':'dist',
+            'paint':{
+                'fill-color':'#088',
+                'fill-opacity':0.80
+            },
+            'paint': {
+                'fill-color': {
+                    property: 'dist_cbd',
+                    stops: stepsDist
+                },
+                'fill-opacity':0.9
+            },
+            'layout': {
+                'visibility': 'visible'
+            }
+        });
+    });
+
+
+
+    var stepsList = thresholds['Pop0_16'].map((num,i) => {
+        return[num,colors[i]]; 
+    });
+  
+
+    map_grad.on('load', function() {
+
+        map_grad.addSource('gradiente', {
+            type:'geojson',
+            data:margedGeoJSON
+        });
+
+        map_grad.addLayer({
+            'id':'Pop0_16',
             'type':'fill',
             'source':'gradiente',
             'paint':{
@@ -110,7 +155,7 @@ Promise.all(loadFiles).then(function (data){
             },
             'paint': {
                 'fill-color': {
-                    property: 'dist_cbd',
+                    property: 'Pop0_16',
                     stops: stepsList
                 },
                 'fill-opacity':0.9
@@ -120,15 +165,15 @@ Promise.all(loadFiles).then(function (data){
             }
         });
 
-        activeLayer = 'dist_cbd' 
+        activeLayer = 'Pop0_16' 
 
-        rows.slice(1).forEach(header => {
+        rows.slice(2).forEach(header => {
 
             stepsList = thresholds[header].map((num,i) => {
                 return[num,colors[i]]; 
             });
 
-            map_dist.addLayer({
+            map_grad.addLayer({
                 'id':header,
                 'type':'fill',
                 'source':'gradiente',
@@ -166,13 +211,13 @@ Promise.all(loadFiles).then(function (data){
             closeButton: false,
         });
 
-        map_dist.on('click', 'Emp10_19', function(e) {
-            map_dist.getCanvas().style.cursor = 'pointer'; 
-            empPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + commaValues(e.features[0].properties.Emp10_19)).addTo(map_dist);
+        map_grad.on('click', 'Emp10_19', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            empPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + commaValues(e.features[0].properties.Emp10_19)).addTo(map_grad);
         });
 
-        map_dist.on('mouseleave', 'Emp10_19', function(e) {
-            map_dist.getCanvas().style.cursor = '';
+        map_grad.on('mouseleave', 'Emp10_19', function(e) {
+            map_grad.getCanvas().style.cursor = '';
             empPointer.remove(); 
         });
 
@@ -180,13 +225,13 @@ Promise.all(loadFiles).then(function (data){
             closeButton: false,
         });
 
-        map_dist.on('click', 'Pop0_16', function(e) {
-            map_dist.getCanvas().style.cursor = 'pointer'; 
-            popPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + commaValues(e.features[0].properties.Pop0_16)).addTo(map_dist);
+        map_grad.on('click', 'Pop0_16', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            popPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + commaValues(e.features[0].properties.Pop0_16)).addTo(map_grad);
         });
 
-        map_dist.on('mouseleave', 'Pop0_16', function(e) {
-            map_dist.getCanvas().style.cursor = '';
+        map_grad.on('mouseleave', 'Pop0_16', function(e) {
+            map_grad.getCanvas().style.cursor = '';
             popPointer.remove(); 
         });
 
@@ -194,13 +239,13 @@ Promise.all(loadFiles).then(function (data){
             closeButton: false,
         });
 
-        map_dist.on('click', 'AreaC', function(e) {
-            map_dist.getCanvas().style.cursor = 'pointer'; 
-            acPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: </b>' + formatFloat(e.features[0].properties.AreaC)).addTo(map_dist);
+        map_grad.on('click', 'AreaC', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            acPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: </b>' + formatFloat(e.features[0].properties.AreaC)).addTo(map_grad);
         });
 
-        map_dist.on('mouseleave', 'AreaC', function(e) {
-            map_dist.getCanvas().style.cursor = '';
+        map_grad.on('mouseleave', 'AreaC', function(e) {
+            map_grad.getCanvas().style.cursor = '';
             acPointer.remove(); 
         });
 
@@ -208,13 +253,13 @@ Promise.all(loadFiles).then(function (data){
             closeButton: false,
         });
         
-        map_dist.on('click', 'CUS', function(e) {
-            map_dist.getCanvas().style.cursor = 'pointer'; 
-           cusPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>CUS.: </b>' + formatFloat(e.features[0].properties.CUS)).addTo(map_dist);
+        map_grad.on('click', 'CUS', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+           cusPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>CUS.: </b>' + formatFloat(e.features[0].properties.CUS)).addTo(map_grad);
         });
 
-        map_dist.on('mouseleave', 'CUS', function(e) {
-            map_dist.getCanvas().style.cursor = '';
+        map_grad.on('mouseleave', 'CUS', function(e) {
+            map_grad.getCanvas().style.cursor = '';
             cusPointer.remove(); 
         });
 
@@ -223,13 +268,13 @@ Promise.all(loadFiles).then(function (data){
         });
 
 
-        map_dist.on('click', 'Densidad90', function(e) {
-            map_dist.getCanvas().style.cursor = 'pointer'; 
-            den9Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + commaFloat(e.features[0].properties.Densidad90)).addTo(map_dist);
+        map_grad.on('click', 'Densidad90', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            den9Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + commaFloat(e.features[0].properties.Densidad90)).addTo(map_grad);
         });
 
-        map_dist.on('mouseleave', 'Densidad90', function(e) {
-            map_dist.getCanvas().style.cursor = '';
+        map_grad.on('mouseleave', 'Densidad90', function(e) {
+            map_grad.getCanvas().style.cursor = '';
             den9Pointer.remove(); 
         });
 
@@ -237,13 +282,13 @@ Promise.all(loadFiles).then(function (data){
             closeButton: false,
         });
 
-        map_dist.on('click', 'Densidad00', function(e) {
-            map_dist.getCanvas().style.cursor = 'pointer'; 
-            den0Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + commaFloat(e.features[0].properties.Densidad00)).addTo(map_dist);
+        map_grad.on('click', 'Densidad00', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            den0Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + commaFloat(e.features[0].properties.Densidad00)).addTo(map_grad);
         });
 
-        map_dist.on('mouseleave', 'Densidad00', function(e) {
-            map_dist.getCanvas().style.cursor = '';
+        map_grad.on('mouseleave', 'Densidad00', function(e) {
+            map_grad.getCanvas().style.cursor = '';
             den0Pointer.remove(); 
         });
 
@@ -252,13 +297,13 @@ Promise.all(loadFiles).then(function (data){
         });
 
 
-        map_dist.on('click', 'Densidad16', function(e) {
-            map_dist.getCanvas().style.cursor = 'pointer'; 
-            den6Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + commaFloat(e.features[0].properties.Densidad16)).addTo(map_dist);
+        map_grad.on('click', 'Densidad16', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            den6Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + commaFloat(e.features[0].properties.Densidad16)).addTo(map_grad);
         });
 
-        map_dist.on('mouseleave', 'Densidad16', function(e) {
-            map_dist.getCanvas().style.cursor = '';
+        map_grad.on('mouseleave', 'Densidad16', function(e) {
+            map_grad.getCanvas().style.cursor = '';
             den6Pointer.remove(); 
         });
 
@@ -266,13 +311,13 @@ Promise.all(loadFiles).then(function (data){
             closeButton: false,
         })
 
-        map_dist.on('click', 'PropPC', function(e) {
-            map_dist.getCanvas().style.cursor = 'pointer'; 
-            propPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + formatFloat(e.features[0].properties.PropPC)).addTo(map_dist);
+        map_grad.on('click', 'PropPC', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            propPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + formatFloat(e.features[0].properties.PropPC)).addTo(map_grad);
         });
 
-        map_dist.on('mouseleave', 'PropPC', function(e) {
-            map_dist.getCanvas().style.cursor = '';
+        map_grad.on('mouseleave', 'PropPC', function(e) {
+            map_grad.getCanvas().style.cursor = '';
             propPointer.remove(); 
         });
 
@@ -281,13 +326,13 @@ Promise.all(loadFiles).then(function (data){
             closeButton: false,
         });
 
-        map_dist.on('click', 'ConpP', function(e) {
-            map_dist.getCanvas().style.cursor = 'pointer'; 
-            consPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + formatFloat(e.features[0].properties.ConpP)).addTo(map_dist);
+        map_grad.on('click', 'ConpP', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            consPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + formatFloat(e.features[0].properties.ConpP)).addTo(map_grad);
         });
 
-        map_dist.on('mouseleave', 'ConpP', function(e) {
-            map_dist.getCanvas().style.cursor = '';
+        map_grad.on('mouseleave', 'ConpP', function(e) {
+            map_grad.getCanvas().style.cursor = '';
             consPointer.remove(); 
         });
 
@@ -295,13 +340,13 @@ Promise.all(loadFiles).then(function (data){
             closeButton: false,
         });
 
-        map_dist.on('click', 'PorPav', function(e) {
-            map_dist.getCanvas().style.cursor = 'pointer'; 
-            pavPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: %</b>' + formatFloat(e.features[0].properties.PorPav)).addTo(map_dist);
+        map_grad.on('click', 'PorPav', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            pavPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: %</b>' + formatFloat(e.features[0].properties.PorPav)).addTo(map_grad);
         });
 
-        map_dist.on('mouseleave', 'PorPav', function(e) {
-            map_dist.getCanvas().style.cursor = '';
+        map_grad.on('mouseleave', 'PorPav', function(e) {
+            map_grad.getCanvas().style.cursor = '';
             pavPointer.remove(); 
         });
         
@@ -309,13 +354,13 @@ Promise.all(loadFiles).then(function (data){
             closeButton: false,
         });
 
-        map_dist.on('click', 'CambioPP90', function(e) {
-            map_dist.getCanvas().style.cursor = 'pointer'; 
-            cambioPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + commaFloat(e.features[0].properties.CambioPP90)).addTo(map_dist);
+        map_grad.on('click', 'CambioPP90', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            cambioPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + commaFloat(e.features[0].properties.CambioPP90)).addTo(map_grad);
         });
 
-        map_dist.on('mouseleave', 'CambioPP90', function(e) {
-            map_dist.getCanvas().style.cursor = '';
+        map_grad.on('mouseleave', 'CambioPP90', function(e) {
+            map_grad.getCanvas().style.cursor = '';
             cambioPointer.remove(); 
         });
   

@@ -55,11 +55,11 @@
         </a>
     </div>
 
-    <div class = 'uk-container uk-container-expand uk-padding-remove'>
+    <div class = 'uk-container uk-container-expand uk-padding-remove' id = 'forma-target'>
         <div class = 'uk-grid-small uk-child-width-1-2@m' uk-grid>
             <div class = 'uk-first-column' style="color:black;
             background: linear-gradient(90deg, #E4E3DF, #cfcec9)">
-                <div class = 'uk-overflow-auto' style = 'height: 90vh !important'>
+             <div class = 'uk-overflow-auto' style = 'height: 90vh !important'>
                     <article class="uk-article uk-padding uk-padding-remove-top">
                         <p class="uk-text-justify" id="cluster-text" style="font-size: larger;">  
                                     <h3 style="color: black;">Forma Urbana</h3>
@@ -75,7 +75,12 @@
                                         </p>
                                     </p>
                         </p>
+                        <button class="uk-button uk-align-center" style = 'background-color: transparent;'>
+                            <a href="#dist-content" class="uk-icon-link scroll-btn" uk-icon="icon:arrow-down; ratio:3" uk-scroll></a>
+                        </button>
                     </article>
+                                                       
+           
                 </div>
 
             </div>
@@ -102,26 +107,61 @@
 
     <hr style = 'margin: 10px 0px 0px 10px; border-color:transparent;'></hr>
 
-    <div class = 'uk-container uk-container-expand uk-padding-remove'>
+<div class = 'uk-container uk-container-expand uk-padding-remove' id = dist-content> 
+        <div class = 'uk-grid-small uk-child-width-1-2@m' uk-grid>
+            <div class = 'uk-first-column uk-flex uk-flex-middle' style="
+            background: linear-gradient(90deg, #E4E3DF, #cfcec9)">
+                <div>
+                    <article class="uk-article uk-padding uk-padding-remove-top">
+                        <p class="uk-text-justify" style="font-size: larger;">  
+                            <h3 style="color: black;">Distancia al centro de la ciudad</h3>
+                            <p class="uk-text-justify" >
+                                        <p class="uk-text-justify">
+                                            Esta sección realiza una exploración del cambio de la función urbana de monterrey considerando los cambios en la morfología policéntrica de la ciudad ocurridos en los últimos veinte y treinta años. En este análisis, se trazaron círculos concéntricos de 1 kilómetro a partir de la macroplaza hasta los 40 kilómetros de distancia del centro de la ciudad. Los círculos fueron cortados con el tamaño de la mancha urbana actual para generar una serie de métricas que exploran el cambio en la ubicación de viviendas y empleos en el período comprendido entre el 2000 y el 2020.
+                                        </p>   
+                                    </p>
+                        </p>
+                    </article>
+                    <button class="uk-button uk-align-center" style = 'background-color: transparent;'>
+                        <a href="#grad-content" class="uk-icon-link scroll-btn" uk-icon="icon:arrow-down; ratio:3" uk-scroll></a>
+                    </button>
+                </div>  
+
+            </div>
+
+            <div class = 'uk-padding-remove'>
+                <div class = 'uk-inline uk-width-1-1'>
+                    <div class = 'map_gradiente' id = 'map_dist'></div>
+                    <div class = 'uk-overlay uk-position-right'>
+                        <div class="legend">
+                            <h4>Distancia</h4>
+                            <h5>(km.)</h5>
+                            <div><span style="background-color: #030512"></span>40</div>
+                            <div><span style="background-color: #1d1e3a"></span>36</div>
+                            <div><span style="background-color: #323467"></span>32</div>
+                            <div><span style="background-color: #3e4d92"></span>28</div>
+                            <div><span style="background-color: #416cae"></span>24</div>
+                            <div><span style="background-color: #4e8aba"></span>20</div>
+                            <div><span style="background-color: #65a8c6"></span>16</div>
+                            <div><span style="background-color: #88c6d2"></span>12</div>
+                            <div><span style="background-color: #b8e0e4"></span>8</div>
+                            <div><span style="background-color: #ebfcfd"></span>4</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> 
+
+    <hr style = 'margin: 10px 0px 0px 10px; border-color:transparent;'></hr>
+
+    <div class = 'uk-container uk-container-expand uk-padding-remove' id = grad-content>
         <div class = 'uk-grid-small uk-child-width-1-2@m' uk-grid>
             <div class = 'uk-first-column uk-flex uk-flex-middle' style="
             background: linear-gradient(90deg, #E4E3DF, #cfcec9)">
                 <div>
                     <ul class="uk-switcher" id = 'map_content'> 
-                        <li>           
-                            <div>
-                                <article class = 'uk-article uk-padding'>
-                                    <select class = 'uk-select uk-form-large' style= 'color:black; font-size: 190%; background-color: #b4b4b3; border-width: 0px 0px 0px 10px; border-color: black;'>
-                                        <option style = 'font-weight: lighter; font-size:0%;'>Distancia al centro de la ciudad</option>
-                                    </select>
-                                    <div class = 'uk-card-body'>
-                                        <p class = 'uk-text-justify'>
-                                            Esta sección realiza una exploración del cambio de la función urbana de monterrey considerando los cambios en la morfología policéntrica de la ciudad ocurridos en los últimos veinte y treinta años. En este análisis, se trazaron círculos concéntricos de 1 kilómetro a partir de la macroplaza hasta los 40 kilómetros de distancia del centro de la ciudad. Los círculos fueron cortados con el tamaño de la mancha urbana actual para generar una serie de métricas que exploran el cambio en la ubicación de viviendas y empleos en el período comprendido entre el 2000 y el 2020.
-                                        </p>
-                                    </div>
-                                </article>
-                            </div>         
-                        </li>
                         <li>
                             <div>
                                 <article class = 'uk-article uk-padding'>
@@ -148,8 +188,8 @@
                                     id = 'select-cus' onchange="displayLayer(this.value); changeText(this.value)">
                                         <option value = 'CUS' style = 'font-weight: lighter; font-size:95%;'>Coeficiente de uso de suelo (CUS)</option>
                                         <option value = 'AreaC' style = 'font-weight: lighter; font-size:95%;'>Densidad de área construida</option>
-                                        <option value = 'PropPC' style = 'font-weight: lighter; font-size:95%;'>Proporción pavimentos-construcción</option>
-                                        <option value = 'ConpP' style = 'font-weight: lighter; font-size:95%;'>Consumo per cápita de pavimentos</option>
+                                       <!--  <option value = 'PropPC' style = 'font-weight: lighter; font-size:95%;'>Proporción pavimentos-construcción</option> -->
+                                        <!-- <option value = 'ConpP' style = 'font-weight: lighter; font-size:95%;'>Consumo per cápita de pavimentos</option> -->
                                         <option value = 'PorPav' style = 'font-weight: lighter; font-size:95%;'>Porcentaje área pavimentada</option>
                                     </select>
                                     <div class = 'uk-card-body'>
@@ -181,28 +221,31 @@
                             </div>
                         </li>
                     </ul>
-                    
+                    <button class="uk-button uk-align-center" style = 'background-color: transparent;'>
+                        <a href="#pob-content" class="uk-icon-link scroll-btn" uk-icon="icon:arrow-down; ratio:3" uk-scroll></a>
+                    </button>
                 </div>
+          
 
             </div>
 
             <div class = 'uk-padding-remove'>
                 <div class = 'uk-inline uk-width-1-1'>
-                    <div class = 'map_gradiente' id = 'map_dist'></div>
+                    <div class = 'map_gradiente' id = 'map_grad'></div>
                     <div class = 'uk-overlay uk-position-right'>
                         <div class="legend">
-                            <h4 id= 'leg-title'>Distancia</h4>
-                            <h5 id= 'leg-unit'>(km.)</h5>
-                            <div id = 'leg10'><span style="background-color: #182D3A"></span>40</div>
-                            <div id = 'leg9'><span style="background-color: #2D5066"></span>36</div>
-                            <div id = 'leg8'><span style="background-color: #527D9A"></span>32</div>
-                            <div id = 'leg7'><span style="background-color: #94B5B8"></span>28</div>
-                            <div id = 'leg6'><span style="background-color: #BEE7E8"></span>24</div>
-                            <div id = 'leg5'><span style="background-color: #ffffff"></span>20</div>
-                            <div id = 'leg4'><span style="background-color: #E4E3DF"></span>16</div>
-                            <div id = 'leg3'><span style="background-color: #CEABB1"></span>12</div>
-                            <div id = 'leg2'><span style="background-color: #C2737C"></span>8</div>
-                            <div id = 'leg1' ><span style="background-color: #6B0F1A"></span>4</div>
+                            <h4 id= 'leg-title'>Dif. Población.</h4>
+                            <h5 id= 'leg-unit'>(personas)</h5>
+                            <div id = 'leg1' ><span style="background-color: #6B0F1A"></span>122545</div>
+                            <div id = 'leg2'><span style="background-color: #C2737C"></span>106995</div>
+                            <div id = 'leg3'><span style="background-color: #CEABB1"></span>91445</div>
+                            <div id = 'leg4'><span style="background-color: #E4E3DF"></span>75895</div>
+                            <div id = 'leg5'><span style="background-color: #ffffff"></span>60345</div>
+                            <div id = 'leg6'><span style="background-color: #BEE7E8"></span>44795</div>
+                            <div id = 'leg7'><span style="background-color: #94B5B8"></span>29245</div>
+                            <div id = 'leg8'><span style="background-color: #527D9A"></span>13695</div>
+                            <div id = 'leg9'><span style="background-color: #2D5066"></span>-1855</div>
+                            <div id = 'leg10'><span style="background-color: #182D3A"></span>-17405</div>
                             </div>
                     </div>
                 </div>
@@ -210,7 +253,6 @@
                     <div class = 'uk-grid-small' uk-grid>
                         <div class = 'uk-width-1-1'>
                             <ul class = 'uk-flex-center uk-tab' uk-tab='connect: #map_content; animation: uk-animation-fade;'>
-                                <li class = 'uk-active' onclick='displayLayer("dist_cbd")'><a href='#'>Dist. Centro</a></li>
                                 <li onclick='displayLayer("Pop0_16")'><a href='#'>Población/Empleo</a></li>
                                 <li onclick='displayLayer("CUS")'><a href='#'>Uso suelo</a></li>
                                 <li onclick='displayLayer("Densidad16")'><a href='#'>Población joven</a></li>
@@ -225,14 +267,14 @@
 
     <hr style = 'margin: 10px 0px 0px 10px; border-color:transparent;'></hr>
 
-    <div class = 'uk-container uk-container-expand uk-padding-remove'>
+    <div class = 'uk-container uk-container-expand uk-padding-remove' id = 'pob-content'>
         <div class = 'uk-grid-small uk-child-width-1-2@m' uk-grid>
             <div class = 'uk-first-column uk-flex uk-flex-middle' style="background: linear-gradient(90deg, #E4E3DF, #cfcec9); height : 90vh !important">
                 <div>
                     <article class="uk-article uk-padding uk-padding-remove-top">
-                        <p class="uk-text-justify" id="cluster-text" style="font-size: larger;">  
+                        <p class="uk-text-justify"  style="font-size: larger;">  
                                     <h3 style="color: black;">Poblacion y vivienda 2016 - 2000</h3>
-                                    <p class="uk-text-justify" id="cluster-text">
+                                    <p class="uk-text-justify" >
                                         <p class="uk-text-justify">
                                         En cuanto a población se nota una marcada tendencia entre 2000 y 2016. Los primeros 11 kilómetros de la ciudad han sido despoblados marcadamente, con una pérdida del 12% de la población respecto al año 2000, este sector de la ciudad comprende el centro histórico y se extiende hasta San Pedro Garza García, el inicio de Carretera Nacional, el centro de Guadalupe, el centro de San Nicolás de los Garza y Mitras Centro. Sin embargo, el número de viviendas en este sector incrementó en 11.7%, indicando que, aunque la población está deshabitando la zona, la construcción continúa, probablemente provocando una caída en la densidad de población de la mancha urbana.
                                         </p>    
@@ -242,6 +284,9 @@
                                     </p>
                         </p>
                     </article>
+                    <button class="uk-button uk-align-center" style = 'background-color: transparent;'>
+                        <a href="#denue-target" class="uk-icon-link scroll-btn" uk-icon="icon:arrow-down; ratio:3" uk-scroll></a>
+                    </button>
                 </div>
             </div>
 
@@ -251,16 +296,16 @@
         </div>
     </div>
     <hr style = 'margin: 10px 0px 0px 10px; border-color:transparent;'></hr>
-    <div class = 'uk-container uk-container-expand uk-padding-remove'> 
+    <div class = 'uk-container uk-container-expand uk-padding-remove' id = 'denue-target'> 
         <div class = 'uk-grid-small uk-child-width-1-2@m' uk-grid>
             <div class = 'uk-first-column uk-flex uk-flex-middle' style="background: linear-gradient(90deg, #E4E3DF, #cfcec9); height : 90vh !important">
                 <div>
                     <ul class = 'uk-switcher' id = 'denue_content'>
                         <li>
                             <article class="uk-article uk-padding uk-padding-remove-top">
-                                <p class="uk-text-justify" id="cluster-text" style="font-size: larger;">  
+                                <p class="uk-text-justify"  style="font-size: larger;">  
                                             <h3 style="color: black;">Actividades económicas 2019</h3>
-                                            <p class="uk-text-justify" id="cluster-text">
+                                            <p class="uk-text-justify" >
                                                 <p class="uk-text-justify">
                                                     Al 2019 el centro consolidado entre los 3 y 7 kilómetros de distancia vio un fuerte desarrollo de empleos. Esta zona correspondiente principalmente a San Pedro Garza García y al Tecnológico de Monterrey vio un crecimiento del 11%, sin embargo, ha perdido relevancia en cuanto a concentración de empleos. En este año concentró el 31.8% de los empleos del área metropolitana, a comparación del 35% y 33% que concentraba en el año 2010 y 2015 respectivamente. Se mantienen las tendencias de crecimiento que se observaron en el 2015. Se nota una fuerte consolidación de empleos a 12 kilómetros, coincidiendo con las zonas de Cumbres, Santa Catarina, San Nicolás de los Garza y Guadalupe, con un aumento del 18.5%, correspondiente a más de 12,000 empleos.
                                                 </p>    
@@ -273,9 +318,9 @@
                         </li>
                         <li>
                             <article class="uk-article uk-padding uk-padding-remove-top">
-                                <p class="uk-text-justify" id="cluster-text" style="font-size: larger;">  
+                                <p class="uk-text-justify"  style="font-size: larger;">  
                                             <h3 style="color: black;">Actividades económicas 2015</h3>
-                                            <p class="uk-text-justify" id="cluster-text">
+                                            <p class="uk-text-justify" >
                                                 <p class="uk-text-justify">
                                                     Al año 2015 se nota un considerable incremento en los empleos del sector de oficinas y servicios dentro del núcleo establecido entre los 3 y 7 kilómetros de distancia, con los trabajos de oficina incluso superando aquellos de industria, ahora cada uno representando el 21.8% y 18.3% respectivamente. En 2010 estos dos juntos representaban el 27.5% del sector e incrementaron a representar el 32% del total de la zona. A los 12, 22 y 33 kilómetros de distancia, correspondiendo principalmente a las zonas de Guadalupe, San Nicolás de los Garza, Santa Catarina, Cumbres, Juárez y García, sucedió otro considerable incremento en empleos, particularmente en los ámbitos comerciales e industriales, con incrementos totales del 11.7%, 66% y 25.2% respectivamente.                        </p>
                                                 </p>    
@@ -288,9 +333,9 @@
                         </li>
                         <li>
                             <article class="uk-article uk-padding uk-padding-remove-top">
-                                <p class="uk-text-justify" id="cluster-text" style="font-size: larger;">  
+                                <p class="uk-text-justify"  style="font-size: larger;">  
                                             <h3 style="color: black;">Actividades económicas 2010</h3>
-                                            <p class="uk-text-justify" id="cluster-text">
+                                            <p class="uk-text-justify" >
                                                 <p class="uk-text-justify">
                                                     En el año 2010 el comercio fue la principal fuente de empleos en el Área Metropolitana de Monterrey, representando el 35.9% de los empleos totales, siendo la industria el segundo principal empleador con el 23.4% del total. Entre los 3 y 7 kilómetros de distancia del centro se aglomera el 35% de los empleos totales. Esta alta concentración de empleos delimita una zona funcional bastante monocéntrica que abarca principalmente las zonas de Valle Oriente, Centro de San Pedro Garza García y el Tecnológico de Monterrey.
                                                 </p>    
@@ -302,6 +347,9 @@
                             </article>
                         </li>
                     </ul>
+                    <button class="uk-button uk-align-center" style = 'background-color: transparent;'>
+                        <a href="#forma-target" class="uk-icon-link scroll-btn" uk-icon="icon:arrow-up; ratio:3" uk-scroll></a>
+                    </button>
                 </div>
              
             </div>
