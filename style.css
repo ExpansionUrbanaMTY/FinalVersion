@@ -914,7 +914,7 @@ hr.rounded {
 
 .legend {
     background-color: #b4b4b3;
-    max-width: fit-content;
+    max-width: fit-content !important; 
     display:inline-block;
     color: rgb(233, 232, 232);
     font-size: 80%;
@@ -955,6 +955,15 @@ hr.rounded {
     background-color: #b4b4b3;
 }
 
+.scroll-btn {
+    background-color: #527D9A; 
+    border-radius: 40px;
+    color: white; 
+}
+
+.scroll-btn > svg { 
+    margin-right: 3px;
+}
 
 
 @media screen and (max-width: 1000px) {
