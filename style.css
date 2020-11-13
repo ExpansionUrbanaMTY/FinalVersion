@@ -748,7 +748,7 @@ hr.rounded {
     text-align: center;
 }
 .fullscreen-cont>*{
-    max-width: 800px;
+    /* max-width: 800px; */
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -773,6 +773,54 @@ hr.rounded {
 .fullscreen-cont>table>tbody>tr:hover{
     background-color: #C0CACE;
 }
+
+/* Costos table */
+.costos-table{
+    overflow-x: scroll;
+    left: 40px;
+}
+.costos-table::-webkit-scrollbar-track {
+    background: none; 
+}
+.costos-table>table{
+    /* margin: 8px; */
+    font-size: 1.2rem;
+    border-spacing: 0px;
+    overflow-x: scroll;
+}
+.costos-table>table td{
+    border: none;
+    border-collapse: collapse;
+    border-bottom: 1px solid rgb(30,30,30);
+    padding: 16px 10px;
+    font-size: 18px;
+}
+.costos-table>table>thead{
+    font-weight: 600;
+    font-size: 20px;
+}
+.costos-table>table>tbody>tr:nth-child(even){
+    background-color: #d6d5d2;
+}
+.costos-table>table>tbody>tr:hover{
+    background-color: #C0CACE;
+}
+
+/* Costos tabs */
+.costos-tabs-item{
+    padding: 1rem;
+    color: black;
+    text-align: justify;
+}
+@media screen and (min-width: 992px){
+    .costos-tabs{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
 #costos{
     display: flex;
     align-items: center;
