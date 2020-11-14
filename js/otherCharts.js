@@ -2,24 +2,79 @@ async function readData(){
     let poblacion = await d3.csv('./data/Poblacion.csv');
     let densidad = await d3.csv('./data/DensidadPob.csv');
     let extension = await d3.csv('./data/Extensiones.csv');
-    let pavimentos = await d3.json('./data/pavimentos.json');
+    let pavimentos = await d3.csv('./data/vialidades.csv');
+    console.log(pavimentos)
     //Costos
     var costContainer = document.getElementById('costChart');
     var costChart = new Chart(costContainer, {
         type: 'line',
+        fillOpacity: .3, 
         data: {
-            labels: Object.keys(pavimentos.historicosTotales).filter(l=>l!=""),
-            datasets: [
-            {
-                fill: 'origin',
-                label: 'Total',
-                data: Object.values(pavimentos.historicosTotales).filter(l=>l!="Total"),
-                backgroundColor: '#C0CACE',
-            }]
+            labels: ["1990",
+                "1995",
+                "2000",
+                "2005",
+                "2010",
+                "2015",
+                "2019",
+                ],
+            datasets: [{
+					label: 'Primaria',
+					borderColor: "#a5a5a5",
+                    backgroundColor:"#a5a5a5",
+                    fillOpacity: .3, 
+					data: [
+                        18234806,
+                        19766072,
+                        21158227,
+                        24341160,
+                        26294035,
+                        29284327,
+                        31582743
+					],
+				}, {
+					label: 'Secundaria',
+					borderColor: "#5a9bd5",
+                    backgroundColor: "#5a9bd5",
+                    fillOpacity: .3, 
+					data: [
+                        11265633,
+                        14352345,
+                        15966692,
+                        22150018,
+                        27548366,
+                        33081501,
+                        36331975
+
+					],
+				}, {
+					label: 'Terciaria',
+					borderColor: "#2D5066",
+                    backgroundColor: "#2D5066",
+                    fillOpacity: .3, 
+					data: [
+                        46407721,
+                        56544632,
+                        62745778,
+                        79908868,
+                        97077561,
+                        116000002,
+                        127911345
+
+					],
+				}
+            ]
         },
         options: {
+            plugins: {
+                datalabels: {
+                    display: false,
+                },
+            },
+            labels: {
+                display: false
+            },
             scales: {
-                
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
@@ -33,14 +88,25 @@ async function readData(){
                     scaleLabel: {
                         display: true,
                         labelString: 'Costo anual en pesos mexicanos del 2019'
-                    }
+                    },
+                    
                 }],
                 xAxes:[{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Vialidades del 2019 comprenidas en la mancha urbana por año'
+                        labelString: 'Vialidades comprendidas en la mancha urbana correspondiente a cada año (1990-2019)'
                     }
                 }]
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem) {
+                        return (new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'USD',
+                        })).format(tooltipItem.value);
+                    }
+                }
             }
         }
     });
@@ -110,9 +176,6 @@ async function readData(){
             }
         }
     });
-
-
-
 
     var pavimentosOData = {
         label: 'Escenario Óptimo',
