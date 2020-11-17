@@ -1032,10 +1032,10 @@ hr.rounded {
 @media screen and (max-width: 1000px) {
     .alert {
         display: block;
-        padding: 10px;
+        padding: 5px;
         background-color: #607da8ce;
         color: white;
-    }
+        }
       
       .closebtn {
         margin-left: 15px;
@@ -1122,6 +1122,10 @@ hr.rounded {
         position: fixed;
         z-index: 999;
     }
+
+    #map-section{
+        display: none;
+    }
 }
 @media only screen and (max-width: 800px){
     #nav img{
@@ -1170,6 +1174,9 @@ hr.rounded {
     transform: translateY(-50%);
   }
 
-.alert {
-    display: none;
+
+@media screen and (min-width: 1000px) {
+    .alert {
+        display: none;
+    }
 }
