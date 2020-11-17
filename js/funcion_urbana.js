@@ -1,5 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJja2MyajhuMjIwMGxhMnN1bTRudTk5MmlxIn0.FaHKa4n3CaUvaTKcwLXXGw';
-const colors = ['#182D3A', '#2D5066', '#527D9A', '#94B5B8', '#BEE7E8', '#ffffff', '#E4E3DF', '#CEABB1', '#C2737C', '#6B0F1A']; 
+const colors = ['#6B0F1A', '#C2737C', '#CEABB1', '#E4E3DF', '#ffffff', '#BEE7E8', '#94B5B8', '#527D9A', '#2D5066', '#182D3A']; 
 const colors_seq = ['#ebfcfd', '#b8e0e4', '#88c6d2', '#65a8c6', '#4e8aba', '#416cae', '#3e4d92', '#323467', '#1d1e3a', '#030512']; 
 const thresholds = {'dist_cbd':[4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
 'Pop0_16':[-17405, -1855, 13695, 29245, 44795, 60345, 75895, 91445, 106995, 122545],
@@ -18,17 +18,19 @@ const layerLegends = {
 'Densidad00':['Jov. 00','personas/m2'], 'Densidad16':['Jov. 16','personas/m2'], 'PropPC':['Pav/Const.','pav/m2'], 'ConpP':['Cons. Pav.','m2/personas'], 'PorPav':['Porc. Pav','%'], 'CambioPP90':['Dif. Jov.','cambio']
 }
 const cardcontent = {
-    'CUS': 'A partir de la información catastral consultada, estimamos el Coeficiente de Utilización del Suelo (CUS) promedio en los círculos concéntricos trazados a partir del centro de la ciudad. El CUS se refiere a la proporción de superficie construida respecto a la superficie del predio. Los colores más oscuros indican una mayor proporción de área construida contra área del terreno. La zona central de la ciudad tiene el CUS más alto, el cual se reduce gradualmente conforme nos movemos del centro hacia la periferia. La excepción son algunas franjas oscuras ubicadas en García y Juárez, con un CUS muy alto y que corresponden a desarrollos de vivienda social.',
-    'AreaC':'Este mapa se elaboró utilizando la información catastral de los predios. En este caso, se muestra el Área Construida dividida entre la superficie total del anillo concéntrico. Se hace esto debido a que es natural que a mayor área tenga el anillo, mayor superficie construida habría. Podemos observar que la proporción de Área Construida con Área Total es mayor en el centro de la ciudad, con valores arriba de 0.7. Sin embargo, mientras más se aleja uno del centro, la proporción disminuye constantemente, excepto por un pequeño incremento entre los 30 y 35 kilómetros de distancia que corresponden a centros históricos en García, Juárez y Santiago.',
-    'PropPC':'Este mapa fue elaborado utilizando tanto los datos catastrales, como las superficies calculadas de vialidades. El propósito del mapa es ilustrar cuántos metros cuadrados de vialidad sirven a cada metro cuadrado construido. Un valor menor, ilustra una mayor densidad de construcción, mientras que valores mayores indican que se necesita mantener más superficie pavimentada. En promedio, cada metro cuadrado construido del Área Metropolitana requiere de 1.6 metros cuadrados de pavimentos. Sin embargo, el valor difiere mientras uno se aleja del centro, donde se ubica el menor valor de 0.31. Las periferias tienden a necesitar mayor cantidad de superficie pavimentada para atender a las construcciones, posiblemente debido a la necesidad de grandes carreteras para conectar a los desarrollos urbanos con el centro.',
-    'ConpP':'Utilizando los datos del Inventario Nacional de Viviendas 2016 y las superficies calculadas de vialidades, se determinó el consumo per cápita de superficie pavimentada. Es decir, se divide la población total ubicada en el anillo concéntrico entre la superficie de vialidades del mismo anillo. Un valor mayor indica un mayor consumo, y, por lo tanto, el costo de manutención de vialidades recaería en menos personas. Podemos observar que el centro de Monterrey tiene un valor mayor que los anillos que van de 2 a 18 kilómetros, donde el consumo vuelve a aumentar, hasta un máximo de 300 metros cuadrados por habitante a 25 kilómetros de distancia. Esta tendencia puede verse explicada en parte por el abandono del centro, dejando las calles hechas a menos habitantes y por la menor densidad de construcción y habitantes que ocurre en las periferias.',
-    'PorPav':'Este mapa muestra el porcentaje del anillo concéntrico que se encuentra pavimentado. Es decir, se dividió la superficie de vialidades entre el área total del anillo y se multiplicó por cien. Un valor mayor indica que un porcentaje mayor del área total disponible se dispone a vialidades. En promedio el 19.6% del área disponible de los anillos se dedica a infraestructuras viales. Este valor es relativamente constante a través del Área Metropolitana, a excepción de unas caídas drásticas entre los 24 y 31 kilómetros de distancia.'
+    'CUS': ['A partir de la información catastral consultada, estimamos el Coeficiente de Utilización del Suelo (CUS) promedio en los círculos concéntricos trazados a partir del centro de la ciudad. El CUS se refiere a la proporción de superficie construida respecto a la superficie del predio. Un mayor CUS significa un mayor aprovechamiento del suelo. El color azul oscuro indica el CUS más alto.',
+    'El patrón espacial que se observa es que en términos generales el CUS más alto se encuentra en la zona central y funcional de la ciudad. Conforme nos movemos a la periferia, el CUS disminuye. Hay algunos valores atípicos en la periferia urbana, ubicaciones con un CUS muy alto. Estos corresponden a ubicaciones específicas con altas densidades de vivienda social en García y Cadereyta. Este patrón espacial hace sentido y responde al alto valor del suelo en la zona funcional que hemos mencionado anteriormente. El alto valor del suelo incentiva un proceso de mejor aprovechamiento del suelo y densificación de la ciudad. El siguiente paso en un futuro será identificar los diferentes CUS por tipo de uso de suelo y zona de la ciudad para comparar el valor para destino residencial versus comercial.'],
+    'AreaC':['Este mapa se elaboró utilizando la información catastral de los predios. En este caso, se muestra el Área Construida dividida entre la superficie total del anillo concéntrico. Se hace esto debido a que es natural que a mayor área tenga el anillo, mayor superficie construida habría. Podemos observar que la proporción de Área Construida con Área Total es mayor en el centro de la ciudad, con valores arriba de 0.7. Sin embargo, mientras más se aleja uno del centro, la proporción disminuye constantemente, excepto por un pequeño incremento entre los 30 y 35 kilómetros de distancia que corresponden a centros históricos en García, Juárez y Santiago. ',
+    'Este mapa confirma lo que observábamos anteriormente: la zona central de Monterrey registra un mayor aprovechamiento del suelo, la misma zona central de la ciudad que se ha despoblado, que es accesible y que se está convirtiendo en un enorme corredor comercial y de servicios, pero con poca vivienda. Este mapa es otra forma de observar el CUS, pero considerando toda la superficie del territorio y no solamente de los predios (es decir, incluyendo las vialidades y espacio público además de la superficie de los lotes catastrales).'],
+    'PorPav':['Este mapa muestra el porcentaje del anillo concéntrico que se encuentra pavimentado. Es decir, se dividió la superficie de vialidades entre el área total del anillo y se multiplicó por cien. Un valor mayor indica que un porcentaje mayor del área total disponible se dispone a vialidades. En promedio el 19.6% del área disponible de los anillos se dedica a infraestructuras viales, lo cual es consistente con los estimados que aparecen en la sección de Costos de este menú. Este valor es relativamente constante a través del Área Metropolitana, a excepción de unas caídas drásticas entre los 24 y 31 kilómetros de distancia. En general, los porcentajes de vialidades son mayores en la zona central de la ciudad, lo cual corrobora que la parte central y funcional de la ciudad es el área de la ciudad con mayor accesibilidad vial, donde un 25% de la superficie corresponde a calles.','']
 }
 var activeLayer = '';
 var loadFiles = [d3.json('./data/MapaGradientes.json'), d3.csv('./data/gradiente.csv')];
 var commaValues = d3.format(',');
 var formatFloat = d3.format('.4f');
-var commaFloat = d3.format(',.4f');
+var commaFloat = d3.format(',.2f');
+var commaFloat_a = d3.format(',.1f');
+var nofloat = d3.format('.1f');
 
 var map_dist = new mapboxgl.Map({
     container: 'map_dist',
@@ -46,14 +48,24 @@ var map_grad = new mapboxgl.Map({
 
 
 function changeText(s) {
-    document.getElementById('cus_text').textContent = cardcontent[s];
+    document.getElementById('cus_text').textContent = cardcontent[s][0];
+    document.getElementById('cus_text2').textContent = cardcontent[s][1];
+
 }
 
 function changeLegend(s) {
     document.getElementById('leg-title').textContent = layerLegends[s][0];
     document.getElementById('leg-unit').textContent = '('+layerLegends[s][1]+')';
     for (var i = 0; i < 10; i++) {
-        document.getElementById('leg'+String(i+1)).childNodes[1].textContent = commaValues(thresholds[s][i]);
+        if(s === 'Densidad16' || s === 'Densidad00' ||s === 'CambioPP90') {
+            document.getElementById('leg'+String(i)).childNodes[1].textContent = commaFloat_a(thresholds[s][i]);
+        } else if (s === 'PorPav') {
+            document.getElementById('leg'+String(i)).childNodes[1].textContent = nofloat(thresholds[s][i]);
+        } else if (s === 'Pop0_16' || s === 'Emp10_19' || s === 'Densidad90') {
+            document.getElementById('leg'+String(i)).childNodes[1].textContent = commaValues(thresholds[s][i]);
+        } else {
+            document.getElementById('leg'+String(i)).childNodes[1].textContent = commaFloat(thresholds[s][i]);
+        }
     }
 }
 
@@ -96,7 +108,6 @@ Promise.all(loadFiles).then(function (data){
         return feature;
     });
     var margedGeoJSON = data[0];
-    console.log(margedGeoJSON); 
 
     var rows = Object.keys(thresholds);
 
@@ -342,7 +353,7 @@ Promise.all(loadFiles).then(function (data){
 
         map_grad.on('click', 'PorPav', function(e) {
             map_grad.getCanvas().style.cursor = 'pointer'; 
-            pavPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: %</b>' + formatFloat(e.features[0].properties.PorPav)).addTo(map_grad);
+            pavPointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Porc.: %</b>' + nofloat(e.features[0].properties.PorPav)).addTo(map_grad);
         });
 
         map_grad.on('mouseleave', 'PorPav', function(e) {
