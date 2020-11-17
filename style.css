@@ -159,9 +159,9 @@ p{
     margin: 4px
 }
 
-input[type='range']{
+/* input[type='range']{
     appearance: none;
-    /* outline: none; */
+     outline: none;
     background: #f3f3f1;
     opacity: 0.7;
     padding: 0px !important;
@@ -181,8 +181,37 @@ input[type='range']::-moz-range-thumb{
     background-color: #527d9a;
     height: 20px;
     width: 20px;    
+} */
+input[type=range]::-webkit-slider-runnable-track {
+  width: 20px;
+  height: 2px;
+  cursor: pointer;
+  background: #C0CACE;
+  border-radius: 10px;
 }
 
+input[type=range]:focus {
+  outline: none;
+}
+
+
+input[type='range']::-webkit-slider-thumb {
+  background: #E4E3DF;
+  border-color: #182D3A;
+  border-width: 2px;
+}
+
+input[type='range']::-moz-range-thumb {
+  background: #E4E3DF;
+  border-color: #182D3A;
+  border-width: 2px;
+}
+
+input[type='range']::-ms-thumb {
+  background: #E4E3DF;
+  border-color: #182D3A;
+  border-width: 2px;
+}
 
 
 
@@ -790,6 +819,14 @@ hr.rounded {
 }
 
 /* Costos table */
+@media screen and (min-width: 1600px){
+    .costos-superficie{
+        height: 1150px;
+        overflow: auto;
+        padding-right: 20px;
+    }
+}
+
 .costos-table{
     overflow-x: scroll;
     left: 40px;
