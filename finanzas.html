@@ -63,18 +63,14 @@
     <div class = 'uk-container uk-container-expand uk-padding-remove'>
         <div class = 'uk-grid-small uk-child-width-1-2@m' uk-grid>
             <div class = 'uk-first-column' style="
-            background: linear-gradient(90deg, #E4E3DF, #cfcec9); height: 90vh">
+            background: linear-gradient(90deg, #E4E3DF, #cfcec9);">
                 <div class = 'uk-grid-small uk-padding-small uk-padding-remove-bottom' uk-grid>
                     <div class = 'uk-width-1-1'>
-                        <h3 style="color: black;">Relación de ingresos/inversión por municipio</h3>
+                        <h3 style="color: black; font-weight: bold;">Relación de ingresos/inversión por municipio</h3>
                     </div>
-                    <div class = 'uk-width-1-1 uk-overflow-auto' style = 'height: 20vh !important'>
+                    <div class = 'uk-width-1-1'>
                         <p class = 'uk-text-justify'>
-                            El objetivo de esta sección es identificar las fuentes de financiamiento del crecimiento territorial de la mancha urbana (participaciones federales o ingresos propios) y cómo se ha gastado (gasto corriente o inversión). Asimismo, identificar los municipios con el mayor gasto en inversión per cápita. Los municipios de la periferia urbana como García, General Zuazua, Juárez o Cadereyta han tenido un crecimiento habitacional importante en los últimos 15 años, principalmente a través de vivienda social tipo INFONAVIT.
-                        </p>
-                        <p class = 'uk-text-justify'>
-                            La pregunta es: ¿en qué medida este desarrollo territorial ha estado financiado a través de participaciones federales versus ingresos propios? La fuente de información para estos comparativos procede de los reportes de Finanzas públicas estatales y municipales de INEGI. Los ingresos y egresos se reportan en cantidades brutas de cada año, sin actualización por la inflación.
-                        </p>
+                            El objetivo de esta sección es identificar las fuentes de financiamiento del crecimiento territorial de la mancha urbana (participaciones federales o ingresos propios) y cómo se ha gastado (gasto corriente o inversión). Asimismo, identificar los municipios con el mayor gasto en inversión per cápita.                        </p>
                     </div>
                     <div class = 'uk-width-1-1'>
                         <select class = 'uk-select uk-light uk-width-1-2' style= 'color:black; background-color: #b4b4b3; border-width: 0px 0px 0px 10px; border-color: black;' id = 'select-bubbles'>
@@ -101,7 +97,7 @@
             <div class = 'uk-padding-remove'>
                 <div class = 'uk-grid-small uk-padding-small uk-padding-remove-bottom' uk-grid>
                     <div class = 'uk-width-1-1'>
-                        <h3 style="color: black;">Ingresos y egresos históricos por municipio: 2018 - 1990</h3>
+                        <h3 style="color: black; font-weight: bold;">Ingresos y egresos históricos por municipio: 2018 - 1990</h3>
                     </div>
                     <div class = 'uk-width-1-1'>
                         <div class = 'grafica_container2b' id = 'historico_1'></div>
@@ -131,8 +127,11 @@
     <div id="modal-close-default" uk-modal>
         <div class="uk-modal-dialog uk-modal-body">
             <button class="uk-modal-close-default" type="button" uk-close></button>
-            <h2 class="uk-modal-title">Acerca de esta sección</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h2 class="uk-modal-title">¿Cómo se está financiando el desarrollo en la periferia urbana bajo este modelo de expansión territorial en baja densidad?  </h2>
+            <p>En las secciones anteriores, hemos observado que la ciudad de Monterrey ha perdido densidad, el centro de la ciudad se ha despoblado y la forma urbana ha transitado a una estructura policéntrica. Las mayores tasas de crecimiento poblacional y de empleos están ocurriendo en la periferia urbana, alrededor de estos nuevos subcentros de actividad.</p>
+            <p>Estos nuevos desarrollos requieren servicios e inversión pública por parte de los municipios. La pregunta es: ¿En qué medida este nuevo desarrollo en la periferia urbana se financia a través de transferencias federales versus ingresos propios de los municipios versus deuda adquirida? De igual manera, ¿en qué medida estos ingresos adicionales se utilizan para gasto corriente versus inversión pública versus pago de deuda? Esta sección plantea un análisis exploratorio de la evolución de las finanzas públicas municipales de los Ayuntamientos de la zona metropolitana, prestando mayor atención a aquéllos de la periferia y con una incorporación en fecha más reciente a la mancha urbana.</p>
+            <p>La fuente de información de este análisis es la sección de Finanzas Estatales y Municipales de INEGI. Se trata de datos públicos. Hay tres fuentes de ingresos: transferencias de la Federación, ingresos propios (por pago de licencias e impuesto predial) y adquisición de deuda. Paralelamente: hay tres destinos de egresos: gasto corriente (pago de nómina y costos fijos administrativos), inversión pública (obra pública y servicios) y pago de deuda (intereses y abono a capital). Los datos que se presentan en esta sección han sido actualizados por inflación y se reportan en pesos mexicanos del 2020. Se reportan en cantidades totales y en valores per cápita de acuerdo con el valor poblacional de cada año.</p>
+            <p>El panel del lado izquierdo compara los ingresos propios con el gasto en inversión del municipio (en valores per cápita). Se muestran dos paneles: uno con los municipios históricos de la zona metropolitana y otro con los municipios de más reciente incorporación a la mancha urbana. Santiago y San Pedro son los dos casos atípicos: tienen los valores más altos en inversión y recursos propios. El panel del lado derecho despliega los montos totales de ingresos y egresos por rubro a través de los años. El menú del lado inferior de este gráfico permite seleccionar los municipios que se desee consultar. En general, el patrón que se observa es que el grueso del gasto en la periferia urbana ha sido y sigue siendo financiado por transferencias federales, más que por recursos propios de los municipios.</p>
         </div>
     </div>
     <script src='./js/egresos.js'></script>
