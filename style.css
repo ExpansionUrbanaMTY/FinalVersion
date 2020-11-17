@@ -1126,10 +1126,14 @@ hr.rounded {
     #map-section{
         display: none;
     }
+
+    #image-nav{
+        display: none;
+    }
 }
 @media only screen and (max-width: 800px){
     #nav img{
-        width: 80px !important;
+        width: 40px;
         height: auto !important;
     }
     #map-container{
@@ -1177,6 +1181,10 @@ hr.rounded {
 
 @media screen and (min-width: 1000px) {
     .alert {
+        display: none;
+    }
+
+    #text-nav{
         display: none;
     }
 }
