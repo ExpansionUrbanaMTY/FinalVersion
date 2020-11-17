@@ -1030,6 +1030,27 @@ hr.rounded {
 
 
 @media screen and (max-width: 1000px) {
+    .alert {
+        display: block;
+        padding: 10px;
+        background-color: #607da8ce;
+        color: white;
+    }
+      
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      
+      .closebtn:hover {
+        color: black;
+      }
     /* Hace que se vea el hamburger menu */
     #nav a.icon {
       display: block;
@@ -1042,7 +1063,7 @@ hr.rounded {
     #nav.responsive ul{
         z-index: 9999;
         position: absolute; 
-        background: #F3775D; 
+        background: #e4e3dfa9; 
         backdrop-filter: blur(10px);
         display: block;
         top: 80px;
@@ -1058,7 +1079,7 @@ hr.rounded {
     #nav.responsive ul{
         z-index: 1000;
         position: absolute; 
-        background: #F3775D; 
+        background: #e4e3dfc2; 
         backdrop-filter: blur(10px);
         display: block;
         top: 80px;
@@ -1069,6 +1090,7 @@ hr.rounded {
     /* Hace que se vea el hamburger menu */
     #nav a.icon {
       display: block;
+      color: #182D3A;
     }
     #nav.responsive a {
       float: none;
@@ -1147,3 +1169,7 @@ hr.rounded {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+
+.alert {
+    display: none;
+}
