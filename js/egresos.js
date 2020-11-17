@@ -6,9 +6,10 @@ var btnHist = document.getElementById('histBtn');
 var yearBubbles = document.getElementById('select-bubbles');
 var commaValues = d3.format('$,.0f');
 
-const muncolors = {"Abasolo": "#89C5DA", "Apodaca": "#DA5724","Cadereyta": "#74D944","Ciénaga de Flores": "#CE50CA","El Carmen": "#3F4921","García": "#C0717C", 
-    "General Escobedo": "#CBD588", "General Zuazua": "#5F7FC7", "Guadalupe": "#673770", "Juárez": "#D3D93E", "Monterrey": "#c84248","Pesquería": "#508578",
-    "Salinas Victoria": "#D7C1B1", "San Nicolás": "#689030","San Pedro": "#8569D5", "Santa Catarina": "#CD9BCD", "Santiago": "#D14285"};
+
+const muncolors = {"Abasolo": "#8fc4b0", "Apodaca": "#e7aeae","Cadereyta": "#98d8e5","Ciénaga de Flores": "#dec49f","El Carmen": "#96b4df","García": "#b9cda1", 
+    "General Escobedo": "#cbb5dc", "General Zuazua": "#d3efcb", "Guadalupe": "#a6ceee", "Juárez": "#edd7c9", "Monterrey": "#97b1ab","Pesquería": "#dfcede",
+    "Salinas Victoria": "#a6b79f", "San Nicolás": "#aabbcb","San Pedro": "#c2ebe2", "Santa Catarina": "#c5c9b4", "Santiago": "#abc5bf"};
 
 function renderBubbles() {
     Plotly.d3.csv('./data/propinvajustado.csv', function(data) {
