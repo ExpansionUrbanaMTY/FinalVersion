@@ -87,7 +87,7 @@ async function readData(){
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Costo anual en pesos mexicanos del 2019'
+                        labelString: 'Metros cuadrados de superficie'
                     },
                     
                 }],

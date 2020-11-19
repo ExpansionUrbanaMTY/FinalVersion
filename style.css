@@ -871,14 +871,15 @@ hr.rounded {
         align-items: center;
     }
 }
-
-
-#costos{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
+/* Costos mantenimiento */
+@media screen and (min-width: 968px){
+    .costos-mantenimiento{
+        height: 30vw;
+        overflow: auto;
+        padding-right: 20px;
+    }
 }
+
 #costos>*{
     /* max-width: 100%; */
     flex: 1;
