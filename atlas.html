@@ -105,7 +105,28 @@
                     <div>
                         <p class="uk-text-justify" style="font-size: larger;">  
                             <h3 style="color: black; font-weight: bold;">Tipología de la estructura vial de Monterrey</h3>
-                            <h3 id="complex-title" style="color: black;">Nuevos suburbios</h3>
+                            <table class="uk-table" style="padding:0!important">
+                                <tr>
+                                    <td style="padding:0!important">
+                                        <h3 id="complex-title" style="color: black;">Nuevos suburbios</h3>
+                                    </td>
+                                    <td style="padding:0!important;background-color: #d4d4d3;">
+                                        <button class="uk-button uk-button-danger" style="background-color: #d4d4d3;
+                                                        border: none;
+                                                        color: #a1a19e;
+                                                        background-color: #d4d4d3;
+                                                        padding: 12px;
+                                                        text-align: center;
+                                                        text-decoration: none;
+                                                        display: block;
+                                                        font-size: 25px;
+                                                        margin: auto;
+                                                        border-radius: 50%;" uk-toggle="target: #helpModal">
+                                            <i class="fa fa-question" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
                         </p>
                         <div>
                             <p class="uk-text-justify" id="cluster-text">Este cluster está compuesto por calles mayoritariamente radiales que hacen uso de calles colectoras para conectarse entre sí. Las comunidades que lo componen se encuentran en la periferia, y en secciones urbanas o “manchas” no integradas al AMM. El cluster representa zonas exclusivamente residenciales, con viviendas de baja a media densidad. La red de calles muestra una alta centralidad de grado, con muchas conexiones entre los nodos de las comunidades, y una intermediación baja, donde pocos nodos forman parte del camino más corto entre dos lugares.</p>
@@ -164,14 +185,12 @@
                 </article>
             </div>
         </div>
-
         <div class="uk-card uk-text-center map">
             <div class="uk-card uk-text-center" style="background-color: #E4E3DF;">
                 <div style="margin-top: 5vh;">
                     <div class="uk-padding uk-dark" style="padding-top: 0 !important; padding-right: 65px;padding-bottom: 10px !important; display: flex;
                     align-items: center;  justify-content: center;" id="maps-container">
                         <div class="uk-grid-match uk-grid-medium uk-child-width-expand@s uk-text-center" uk-grid>
-                            
                             <div>
                                 <div class="uk-grid-match uk-card ">
                                     <div class="uk-grid-medium  uk-child-width-1-1@s uk-grid-medium uk-text-center" uk-grid>  
@@ -288,6 +307,28 @@
     <div id="modal-diagram" uk-modal>
         <div class="uk-modal-dialog uk-modal-body" style="background-color: #E4E3DF;">
             <img src="./img/Diagramas/Cluster 1-100.png"  alt="" uk-img id="diagram-cluster2">
+        </div>
+    </div>
+
+    <!-- This is the modal -->
+    <div id="helpModal" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="color:black !important;width: 95%;">
+    
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+    
+            <h2 class="uk-modal-title" style="font-weight: bold;">Tipología de Vialidades</h2>
+            <p>
+                Esta sección presenta los resultados de un análisis de la topología de calles de Monterrey comprendida como una red de nodos y ejes. Las intersecciones de calles son los nodos y los tramos de calles representan los ejes. Se corrió un algoritmo de detección de comunidades (método Louvain) con la cartografía vial de INEGI. Una vez identificadas las comunidades y depurado el archivo, se construyeron 954 polígonos que representan comunidades con una topología de calles diferenciada de la de sus vecinos. Finalmente, se crearon una serie de variables para representar los grados de centralidad en cada comunidad, así como elementos del entorno como densidad poblacional y de empleos, diversidad de empleos y proporción de empleos a viviendas. Se aplicó un método de reducción de dimensionalidad a estas variables y posteriormente se aplicó un algoritmo de agrupamiento de k medias sobre las primeras cuatro componentes. El resultado es una tipología de 11 estructuras topológicas viales que se repiten recurrentemente en la ciudad. 
+            </p>
+            <p>
+                Esta sección enlista los 11 tipos ideales, presentando tres elementos gráficos para cada una: 1) un mapa topológico representativo de la topología; 2) un mapa con la ubicación e las comunidades que tienen este tipo de topología; 3) un video que ilustra la sensación de navegar por este tipo de calles. 
+            </p>
+            <p>
+                Esto es importante porque cada tipo de vialidad y comunidad impone un tipo de condiciones para hacer un entorno caminable. Por ejemplo, el trazo de cuadrícula con usos mixtos incentiva los viajes peatonales y solamente lo encontramos en la zona central de Monterrey. En la periferia urbana, en las zonas de expansión, encontramos un recurrentemente un tipo de trazo urbano radial que es poco amigable con el peatón. Las estructuras radiales favorecen los viajes en vehículo motor por encima de los peatonales. 
+            </p>
+            <p>
+                Te invitamos en esta sección a explorar esta tipología de 11 grupos de topología vial en la zona metropolitana de Monterrey.
+            </p>
         </div>
     </div>
 
