@@ -50,7 +50,7 @@
         <img id="image-nav" src="img/logos/NewLogo.png"  style="height: 80;">
         <h3 id="text-nav">Expansión Urbana de Monterrey</h3>
         <ul>
-            <li><a href="index.html" class="activeNav">Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="expansion.html">Expansión</a></li>
             <li><a href="costos.html" class="activeNav">Costos</a></li>
             <li><a href="morfologia.html">Morfología</a></li>
@@ -117,21 +117,21 @@
                                     <tr valign="middle" style="height: 130px;">
                                         <td class="uk-width-small">Grosor de carpeta (cm)</td>
                                         <td>
-                                            <div class="range-wrap">
+                                            <div class="range-wrap" style="text-align: center; font-weight: bold;">
                                                 <input type="range" class="range uk-range custom-range" value="6" min="1"
                                                     max="10" step="1" id="GCarpPrim" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="range-wrap">
+                                            <div class="range-wrap" style="text-align: center; font-weight: bold;">
                                                 <input type="range" class="range uk-range" value="4" min="1" max="4"
                                                     step="1" id="GCarpSec" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="range-wrap">
+                                            <div class="range-wrap" style="text-align: center; font-weight: bold;">
                                                 <input type="range" class="range uk-range" value="4" min="1" max="4"
                                                     step="1" id="GCarpTer" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
@@ -141,21 +141,21 @@
                                     <tr valign="middle" style="height: 130px;">
                                         <td class="uk-width-small">Frecuencia de mantenimientos (años)</td>
                                         <td>
-                                            <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="5" min="1" max="50"
+                                            <div class="range-wrap" style="text-align: center; font-weight: bold;">
+                                                <input type="range" class="range uk-range" value="5" min="1" max="20"
                                                     step="1" id="fMantPrim" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="range-wrap">
-                                                <input type="range" class="range uk-range" value="15" min="1" max="50"
+                                            <div class="range-wrap" style="text-align: center; font-weight: bold;">
+                                                <input type="range" class="range uk-range" value="15" min="1" max="3s0"
                                                     step="1" id="fMantSec" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="range-wrap">
+                                            <div class="range-wrap" style="text-align: center; font-weight: bold;">
                                                 <input type="range" class="range uk-range" value="50" min="1" max="100"
                                                     step="1" id="fMantTer" onchange="calculateCostosEscenario()">
                                                 <output class="bubble"></output>
@@ -166,21 +166,21 @@
                                         <td class="uk-width-small">Bacheo profundo (porcentaje de la superficie que se hace
                                             bacheo donde se recarpetea)</td>
                                         <td>
-                                            <div class="range-wrap2">
+                                            <div class="range-wrap2" style="text-align: center; font-weight: bold;">
                                                 <input type="range" class="range uk-range" value="0.07" min="0" max="0.10"
                                                     step="0.01" id="bProfPrim" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="range-wrap2">
+                                            <div class="range-wrap2" style="text-align: center; font-weight: bold;">
                                                 <input type="range" class="range uk-range" value="0.05" min="0" max="0.10"
                                                     step="0.01" id="bProfSec" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="range-wrap2">
+                                            <div class="range-wrap2" style="text-align: center; font-weight: bold;">
                                                 <input type="range" class="range uk-range" value="0.03" min="0" max="0.10"
                                                     step="0.01" id="bProfTer" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
@@ -191,21 +191,21 @@
                                         <td class="uk-width-small">Bacheo superficial(porcentaje de las vialidades en las
                                             que se realiza bacheo)</td>
                                         <td>
-                                            <div class="range-wrap2">
+                                            <div class="range-wrap2" style="text-align: center; font-weight: bold;">
                                                 <input type="range" class="range uk-range" value="0.02" min="0" max="0.10"
                                                     step="0.01" id="bSupPrim" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="range-wrap2">
+                                            <div class="range-wrap2" style="text-align: center; font-weight: bold;">
                                                 <input type="range" class="range uk-range" value="0.02" min="0" max="0.10"
                                                     step="0.01" id="bSupSec" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="range-wrap2">
+                                            <div class="range-wrap2" style="text-align: center; font-weight: bold;">
                                                 <input type="range" class="range uk-range" value="0.01" min="0" max="0.10"
                                                     step="0.01" id="bSupTer" onchange="calculateCostosEscenario()">
                                                 <output class="bubble2"></output>
