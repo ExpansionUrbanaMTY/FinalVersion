@@ -818,6 +818,8 @@ hr.rounded {
     background-color: #C0CACE;
 }
 
+
+
 /* Costos table */
 @media screen and (min-width: 1600px){
     .costos-superficie{
@@ -830,10 +832,9 @@ hr.rounded {
 .costos-table{
     overflow-x: scroll;
     left: 40px;
+    padding-bottom: 10px;
 }
-.costos-table::-webkit-scrollbar-track {
-    background: none; 
-}
+
 .costos-table>table{
     /* margin: 8px; */
     font-size: 1.2rem;
