@@ -100,12 +100,19 @@ async function readData(){
             },
             tooltips: {
                 callbacks: {
-                    label: function (tooltipItem) {
+                    label: function(tooltipItem, data) {
+                        var value = data.datasets[0].data[tooltipItem.index];
+                        value = value.toString();
+                        value = value.split(/(?=(?:...)*$)/);
+                        value = value.join(',');
+                        return value + ' m²';
+                    }
+                    /* label: function (tooltipItem) {
                         return (new Intl.NumberFormat('en-US', {
                             style: 'currency',
                             currency: 'USD',
                         })).format(tooltipItem.value);
-                    }
+                    } */
                 }
             }
         }
