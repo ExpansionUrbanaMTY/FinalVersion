@@ -323,10 +323,14 @@
             <div class = 'uk-first-column uk-flex uk-flex-middle' style="background: linear-gradient(90deg, #E4E3DF, #cfcec9); height : 90vh !important">
                 <div class = 'uk-grid-collapse uk-width-1-1' uk-grid>
                     <div class = 'uk-width-1-1'>
-                        <div class = 'uk-align-left uk-padding' uk-switcher='connect: #denue_content; animation: uk-animation-fade; toggle: > *'>
-                            <button class = 'uk-button' style = 'background-color: #cfcec9;' type = 'button' id='denue-2019'>2019</button>
-                            <button class = 'uk-button' style = 'background-color: #cfcec9;' type = 'button' id='denue-2015'>2015</button>
-                            <button class = 'uk-button' style = 'background-color: #cfcec9;' type = 'button' id='denue-2010'>2010</button>
+                        <div class = 'uk-grid-small' uk-grid>
+                            <div class = 'uk-width-1-1'>
+                                <ul class = 'uk-flex-left uk-tab' uk-tab='connect: #denue_content; animation: uk-animation-fade;' id = 'year-denue' style = 'padding-left: 2%;'>
+                                    <li id='denue-2019'><a href='#'>2019</a></li>
+                                    <li id='denue-2015'><a href='#'>2015</a></li>
+                                    <li id='denue-2010'><a href='#'>2010</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class = 'uk-width-1-1 uk-overflow-auto' style = 'height: 60vh !important'>
