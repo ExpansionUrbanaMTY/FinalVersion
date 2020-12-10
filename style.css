@@ -864,6 +864,10 @@ hr.rounded {
     height:590px;     
 }
 
+#year-denue::before {
+    border-bottom: transparent; 
+}
+
 .grafica_container{
     top:0;
     bottom:0; 
