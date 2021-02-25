@@ -842,7 +842,7 @@ hr.rounded {
     overflow-x: scroll;
 }
 .costos-table>table td{
-    border: none;
+    border: 1px solid black;
     border-collapse: collapse;
     border-bottom: 1px solid rgb(30,30,30);
     padding: 16px 10px;
@@ -851,6 +851,10 @@ hr.rounded {
 .costos-table>table>thead{
     font-weight: 600;
     font-size: 20px;
+    border: 1px solid black;
+}
+.costos-table>table th{
+    border: 1px solid black;
 }
 .costos-table>table>tbody>tr:nth-child(even){
     background-color: #d6d5d2;

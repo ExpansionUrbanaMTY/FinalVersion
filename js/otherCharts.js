@@ -16,7 +16,7 @@ async function readData(){
                 "2005",
                 "2010",
                 "2015",
-                "2019",
+                "2020",
                 ],
             datasets: [{
 					label: 'Primaria',
@@ -94,14 +94,15 @@ async function readData(){
                 xAxes:[{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Vialidades comprendidas en la mancha urbana correspondiente a cada año (1990-2019)'
+                        labelString: 'Vialidades comprendidas en la mancha urbana correspondiente a cada año (1990-2020)'
                     }
                 }]
             },
             tooltips: {
                 callbacks: {
                     label: function(tooltipItem, data) {
-                        var value = data.datasets[0].data[tooltipItem.index];
+                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                        console.log(value)
                         value = value.toString();
                         value = value.split(/(?=(?:...)*$)/);
                         value = value.join(',');
