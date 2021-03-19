@@ -2,9 +2,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expansión Urbana Mty</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Expansión | Expansión Urbana de Monterrey</title>
+    <meta name="title" content="Expansión | Expansión Urbana de Monterrey">
+    <meta name="description" content="Entre 1990 y el 2019, la densidad del área metropolitana de Monterrey pasó de 7,746 personas por kilómetro cuadrado (km²) a 5,248. En un periodo de 30 años, observamos una caída del 32% en la densidad. Para otorgar un poco de contexto a estas cifras, observemos las densidades registradas por algunas ciudades alrededor del mundo: Hong Kong tiene una densidad de 25,700 personas por km², Bogotá de 16,600, Sao Paulo de 7,100, la Ciudad de México de 9,800, Buenos Aires de 5,300 y Los Angeles de 2,400**. Monterrey tiene más o menos una tercera parte que Bogotá, la mitad que la Ciudad de México y el doble que Los Ángeles">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://expansionurbanamty.mx/expansion.html">
+    <meta property="og:title" content="Expansión | Expansión Urbana de Monterrey">
+    <meta property="og:description" content="Entre 1990 y el 2019, la densidad del área metropolitana de Monterrey pasó de 7,746 personas por kilómetro cuadrado (km²) a 5,248. En un periodo de 30 años, observamos una caída del 32% en la densidad. Para otorgar un poco de contexto a estas cifras, observemos las densidades registradas por algunas ciudades alrededor del mundo: Hong Kong tiene una densidad de 25,700 personas por km², Bogotá de 16,600, Sao Paulo de 7,100, la Ciudad de México de 9,800, Buenos Aires de 5,300 y Los Angeles de 2,400**. Monterrey tiene más o menos una tercera parte que Bogotá, la mitad que la Ciudad de México y el doble que Los Ángeles">
+    <meta property="og:image" content="https://expansionurbanamty.mx/img/Social/Expansion.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://expansionurbanamty.mx/expansion.html">
+    <meta property="twitter:title" content="Expansión | Expansión Urbana de Monterrey">
+    <meta property="twitter:description" content="Entre 1990 y el 2019, la densidad del área metropolitana de Monterrey pasó de 7,746 personas por kilómetro cuadrado (km²) a 5,248. En un periodo de 30 años, observamos una caída del 32% en la densidad. Para otorgar un poco de contexto a estas cifras, observemos las densidades registradas por algunas ciudades alrededor del mundo: Hong Kong tiene una densidad de 25,700 personas por km², Bogotá de 16,600, Sao Paulo de 7,100, la Ciudad de México de 9,800, Buenos Aires de 5,300 y Los Angeles de 2,400**. Monterrey tiene más o menos una tercera parte que Bogotá, la mitad que la Ciudad de México y el doble que Los Ángeles">
+    <meta property="twitter:image" content="https://expansionurbanamty.mx/img/Social/Expansion.png">
+
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="./img/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./img/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./img/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./img/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./img/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./img/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./img/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <!--MapBox-->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
@@ -41,6 +76,7 @@
     <style>
         #slider-cont{
             display: flex;
+            align-items: center;
             height: 5vh
         }
             #slider-cont>*{
@@ -69,14 +105,15 @@
 </head>
 <body>
     <div id="nav" style=" z-index: 1000;">
-        <img src="img/logos/NewLogo.png"  style="height: 80 !important;">
+        <img id="image-nav" src="img/logos/NewLogo.png"  style="height: 80;">
+        <h3 id="text-nav">Expansión Urbana de Monterrey</h3>
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="expansion.html" class="activeNav">Expansión Urbana</a></li>
-            <li><a href="morfologia.html">Morfología Urbana</a></li>
+            <li><a href="expansion.html" class="activeNav">Expansión</a></li>
+            <li><a href="costos.html">Costos</a></li>
+            <li><a href="morfologia.html">Morfología</a></li>
             <li><a href="atlas.html">Calles</a></li>
             <li><a href="finanzas.html">Finanzas</a></li>
-            <li><a href="costos.html">Costos</a></li>
             <li><a href="equipo.html">Equipo</a></li>
         </ul>
         <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
@@ -91,65 +128,38 @@
         justify-content: stretch;
     ">
         <div class="uk-light uk-card uk-card-body sidebar">
+            <div class="alert" style="margin-top: 30px; margin-bottom: 20px;">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                <p>Para una mejor experiencia de usuario, lo invitamos a visitar el sitio desde una computadora.</p>
+            </div>
             <article class="uk-article">
                 <div id="graphs">
                     <ul class="tabs">
                         <li class="buttonHome">Población</li>
                         <li class="buttonHome">Superficies</li>
-                        <li class="active buttonHome">Densidad Poblacional</li>
+                        <li class="active buttonHome">Densidad</li>
                     </ul>
     
                     <ul class="tabs-content">
                         <li>
                             <canvas id="populationChart" width="200" height="180"></canvas>
-                            <p class="uk-text-justify">
-                                La población de la Zona Metropolitana de Monterrey (ZMM) ha aumentado de forma constante entre los años 1990 y 2019. Pasó de albergar una población de 2,614,841 habitantes a 4,859,863, es decir que tuvo un crecimiento del 86% durante este periodo. La ciudad casi ha duplicado su población en un periodo de 30 años.  
-                            </p>
-    
-                            <p>
-                                * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
-                            </p>
+                            <p class="uk-text-justify">La población de la conurbación asociada a Monterrey se ha incrementado de 2.6 millones en 1990 a 4.8 millones en el 2019*. Durante este periodo, la población tuvo un aumento del 86% (1.8 veces). La ciudad casi ha duplicado su población en un periodo de 30 años. Comparativamente, la conurbación del Valle de México aumentó su población un 39% en este mismo periodo, Tijuana en un 163%, Puebla un 78% y Querétaro un 128%. Estas cifras nos muestran que Monterrey es una zona metropolitana que ha crecido a unas tasas similares a la ciudad de Puebla, pero con un crecimiento demográfico mucho más controlado que ciudades como Tijuana.</p>
+                            <p class="uk-text-justify">*Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.</p>
                         </li>
                         <li>
                             <canvas id="extensionsChart" width="200" height="180"></canvas>
-                            <p class="uk-text-justify">
-                                La mancha urbana del área metropolitana ha crecido a mayor velocidad que el cambio poblacional. Mientras que la 
-                                población total se duplicó en 30 años, la huella territorial de la ciudad creció casi tres veces en el mismo período. 
-                            </p>
-                            <p class="uk-text-justify">
-                                No obstante, esta expansión no ha sido proporcional a lo largo de los años, el principal periodo de expansión 
-                                fue entre el 2000 y 2010, cuando la ciudad se expandió en 53% respecto al año 2000, esto fue un crecimiento mayor 
-                                al sucedido entre 1990 y 2000, cuando la mancha urbana creció 32%. Entre el 2010 y 2016 la expansión de la mancha 
-                                urbana parece desacelerarse, siendo el periodo con la menor expansión porcentual, de tan sólo el 23%, sin embargo, 
-                                esto significó un crecimiento de 157 kilómetros cuadrados, así que, en números concretos, fue una expansión más 
-                                grande que la sucedida entre 1990 y 2000 que fue de 109 kilómetros cuadrados.
-                            </p>
-                            <p class="uk-text-justify">
-                                Tanto la zona núcleo como la zona de complemento de la ciudad han experimentado grandes incrementos en superficie, 
-                                aumentando en 145% y 182%, respectivamente, con respecto al año de 1990. La relación entre área núcleo y complemento 
-                                ha disminuido en este periodo de tiempo, pasando ser 10.27 kilómetros cuadrados de núcleo por cada kilómetro cuadrado 
-                                de complemento a ser de 8.95.
-                            </p>
-                            <p>
-                                * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
-                            </p>
+                            <p class="uk-text-justify"> El crecimiento territorial es un proceso irregular geométricamente. Por un lado, la mancha urbana al extenderse va incorporando aglomeraciones prexistentes de áreas complemento, al adicionar nuevos municipios y localidades antes rurales. Por otro lado, las áreas núcleo se van extendiendo territorialmente. En este proceso van quedando huecos que paulatinamente se van llenando con el tiempo. </p>
+                            <p class="uk-text-justify"> La mancha urbana del área metropolitana ha crecido a mayor velocidad que el cambio poblacional. Mientras que la población total se duplicó en 30 años, la huella territorial de la ciudad creció casi tres veces en el mismo periodo. No obstante, esta expansión no ha sido proporcional a lo largo de los años, el principal periodo de expansión fue entre el 2000 y 2010, cuando la ciudad se expandió en 53% respecto al año 2000, esto fue un crecimiento mayor al sucedido entre 1990 y 2000, cuando la mancha urbana creció 32%. Entre el 2010 y 2016 la expansión de la mancha urbana parece desacelerarse, siendo el periodo con la menor expansión porcentual, de tan sólo el 23%, sin embargo, esto significó un crecimiento de 157 kilómetros cuadrados, así que, en números concretos, fue una expansión más grande que la sucedida entre 1990 y 2000 que fue de 109 kilómetros cuadrados.</p>
+                            <p class="uk-text-justify"> El cálculo de la superficie urbanizada se realizó a partir de imágenes de satélite Landsat con una resolución de 30x30 metros a partir de un método visual de clasificación, siguiendo un criterio de contigüidad (a la zona núcleo) y un criterio de conectividad/proximidad (a las zonas complemento). Referimos al autor al trabajo de tesis de Alejandro Carpio (2020) para consultar la metodología detallada del criterio de elaboración de la cartografía de mancha urbana <a href="https://hdl.handle.net/11285/636801" target="_blank" style="color: #2D5066;"> https://hdl.handle.net/11285/636801 </a>.</p>
                         </li>
-                        
+
                         <li class="active">
                             <canvas id="densityChart" width="200" height="180"></canvas>
-                            <p class="uk-text-justify">
-                                La densidad de la Zona Metropolitana de Monterrey (ZMM) ha caído drásticamente. Pasó de ser 7,746.5 habitantes por 
-                                kilómetro cuadrado en 1990 a 5,248 en 2019. Una reducción total del 32% en el periodo de 30 años. Esta disminución 
-                                en la densidad de la ciudad se ve proporcional con el abandono poblacional de la zona centro de Monterrey a favor de 
-                                las zonas periféricas. Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Las 
-                                áreas no conectadas al núcleo de la ciudad son las que han observado densidades cada vez más bajas. Mientras que en 
-                                1990 las zonas de complemento tenían una densidad de 9,457 habitantes por kilómetro cuadrado, incluso mayor al del 
-                                núcleo que era de 7,580, para 2016 la densidad de las nuevas áreas de complemento cayó drásticamente a 1,849 habitantes 
-                                por kilómetro cuadrado, una disminución del 80%. Es decir, el desarrollo de las áreas complementos es muy disperso y 
-                                desconectado del resto de la ciudad.</p>
-                            <p>
-                                * Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.
-                            </p>
+                            <p class="uk-text-justify"> Entre 1990 y el 2019, la densidad del área metropolitana de Monterrey pasó de 7,746 personas por kilómetro cuadrado (km&sup2;) a 5,248. En un periodo de 30 años, observamos una caída del 32% en la densidad. Para otorgar un poco de contexto a estas cifras, observemos las densidades registradas por algunas ciudades alrededor del mundo: Hong Kong tiene una densidad de 25,700 personas por km&sup2;, Bogotá de 16,600, Sao Paulo de 7,100, la Ciudad de México de 9,800, Buenos Aires de 5,300 y Los Angeles de 2,400**. Monterrey tiene más o menos una tercera parte que Bogotá, la mitad que la Ciudad de México y el doble que Los Ángeles</p>
+                            <p class="uk-text-justify"> Cabe notar que este proceso de “des densificación” se ha acelerado a través de los años. Las áreas no conectadas al núcleo de la ciudad son las que registran las densidades más bajas. Este patrón de desarrollo nos lleva a cuestionar dos cosas: las causas de este crecimiento y cuáles son sus consecuencias. Una de las causas tiene que ver con la localización predominante de la oferta de vivienda en la periferia urbana. Una de las consecuencias se relaciona con la pérdida de economías de escala en las finanzas públicas: una población 1.8 veces mayor tiene que sostener un territorio 2.7 veces más grande.</p>
+                            <p class="uk-text-justify"> Te invitamos a visitar los apartados de Población y Superficie de esa sección, así como continuar la exploración en la sección de Costos de esta página.</p>
+                            <p class="uk-text-justify"> *Aproximación de la población en la superficie urbanizada a partir de la proyección municipal de CONAPO.</p>
+                            <p class="uk-text-justify"> <a href="https://ourworldindata.org/grapher/population-density-by-city?time=earliest..lates" target="_blank" style="color: #2D5066;">**Ourworldindata</a></p>
                         </li>
                         
                     </ul>
@@ -157,11 +167,11 @@
             </article>
         </div>
 
-        <div class="uk-card uk-text-center map">
+        <div class="uk-card uk-text-center map" id="map-section">
             <div id="map"></div>
             <div id="slider-cont">
                 <span class="tooltip">1990</span>
-                <input id="slider" type="range" min="0" max="6" step="1" value="6" style="outline:none !important; flex:1"/>
+                <input id="slider" type="range" min="0" max="6" step="1" value="6" style="flex:1"/>
                 <span class="tooltip">2019</span>
             
                 <button id="autoplay" style="background-color: #2D5066; border:none; height: 30px; width: 30px;">

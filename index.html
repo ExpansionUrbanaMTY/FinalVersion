@@ -2,9 +2,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expansión Urbana Mty</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Expansión Urbana de Monterrey</title>
+    <meta name="title" content="Expansión Urbana de Monterrey">
+    <meta name="description" content="El propósito de esta investigación es documentar el proceso de expansión territorial del área metropolitana de Monterrey, ahondando en algunas de las causas y consecuencias de este proceso de crecimiento. El proceso de cambio ha involucrado una transformación de la morfología de la ciudad: la transición de una ciudad monocéntrica a una policéntrica. La nueva morfología plantea una serie de retos en la gestión de usos de suelo y transporte para crear comunidades integradas a la zona funcional de la ciudad, subcentros de actividad con buenos niveles de accesibilidad a oportunidades de trabajo, ocio y consumo, así como comunidades vibrantes e integradas socialmente en el entorno urbano.
+
+    El objetivo de nuestro proyecto es contar la historia de este proceso de urbanización a partir de datos, evidencia empírica y análisis espacial, con la finalidad de contribuir a generar una discusión colectiva y ciudadana acerca de la visión de futuro que queremos para nuestra ciudad de Monterrey.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://expansionurbanamty.mx/">
+    <meta property="og:title" content="Expansión Urbana de Monterrey">
+    <meta property="og:description" content="El propósito de esta investigación es documentar el proceso de expansión territorial del área metropolitana de Monterrey, ahondando en algunas de las causas y consecuencias de este proceso de crecimiento. El proceso de cambio ha involucrado una transformación de la morfología de la ciudad: la transición de una ciudad monocéntrica a una policéntrica. La nueva morfología plantea una serie de retos en la gestión de usos de suelo y transporte para crear comunidades integradas a la zona funcional de la ciudad, subcentros de actividad con buenos niveles de accesibilidad a oportunidades de trabajo, ocio y consumo, así como comunidades vibrantes e integradas socialmente en el entorno urbano.
+
+    El objetivo de nuestro proyecto es contar la historia de este proceso de urbanización a partir de datos, evidencia empírica y análisis espacial, con la finalidad de contribuir a generar una discusión colectiva y ciudadana acerca de la visión de futuro que queremos para nuestra ciudad de Monterrey.">
+    <meta property="og:image" content="https://expansionurbanamty.mx/img/Social/Inicio.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://expansionurbanamty.mx/">
+    <meta property="twitter:title" content="Expansión Urbana de Monterrey">
+    <meta property="twitter:description" content="El propósito de esta investigación es documentar el proceso de expansión territorial del área metropolitana de Monterrey, ahondando en algunas de las causas y consecuencias de este proceso de crecimiento. El proceso de cambio ha involucrado una transformación de la morfología de la ciudad: la transición de una ciudad monocéntrica a una policéntrica. La nueva morfología plantea una serie de retos en la gestión de usos de suelo y transporte para crear comunidades integradas a la zona funcional de la ciudad, subcentros de actividad con buenos niveles de accesibilidad a oportunidades de trabajo, ocio y consumo, así como comunidades vibrantes e integradas socialmente en el entorno urbano.
+
+    El objetivo de nuestro proyecto es contar la historia de este proceso de urbanización a partir de datos, evidencia empírica y análisis espacial, con la finalidad de contribuir a generar una discusión colectiva y ciudadana acerca de la visión de futuro que queremos para nuestra ciudad de Monterrey.">
+    <meta property="twitter:image" content="https://expansionurbanamty.mx/img/Social/Inicio.png">
+
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="./img/logos/logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="./img/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./img/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./img/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./img/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./img/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./img/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./img/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <!--MapBox-->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
@@ -40,14 +81,15 @@
 </head>
 <body>
     <div id="nav" style=" z-index: 1000;">
-        <img src="img/logos/NewLogo.png"  style="height: 80 !important;">
+        <img id="image-nav" src="img/logos/NewLogo.png"  style="height: 80;">
+        <h3 id="text-nav">Expansión Urbana de Monterrey</h3>
         <ul>
             <li><a href="index.html" class="activeNav">Inicio</a></li>
-            <li><a href="expansion.html">Expansión Urbana</a></li>
-            <li><a href="morfologia.html">Morfología Urbana</a></li>
+            <li><a href="expansion.html">Expansión</a></li>
+            <li><a href="costos.html">Costos</a></li>
+            <li><a href="morfologia.html">Morfología</a></li>
             <li><a href="atlas.html">Calles</a></li>
             <li><a href="finanzas.html">Finanzas</a></li>
-            <li><a href="costos.html">Costos</a></li>
             <li><a href="equipo.html">Equipo</a></li>
         </ul>
         <a href="javascript:void(0);" class="icon nav-toggle" onclick="mobileNav()">
@@ -58,18 +100,23 @@
     <div class="uk-child-width-expand@s uk-grid-small uk-grid-match" uk-grid>
         <div>
             <div style="
-                padding-left: 40px;padding-top: 0 !important; color:black; height: 90vh;
+                padding-left: 40px;padding-top: 0 !important; color:black;
                 background: linear-gradient(90deg, #E4E3DF, #cfcec9);
             ">
-                <article class="uk-article" style="padding-right: 10px;">
+                <article class="uk-article" style="padding-right: 40px; max-height: 80%; overflow-y: scroll;">
                     <div>
                         <p class="uk-text-justify" id="cluster-text" style="font-size: larger;">  
-                            <h3 style="color: black;">Expansión Urbana de Monterrey</h3>
-                            <p class="uk-text-justify">Esta investigación ha sido posible gracias al apoyo financiero de la Fundación FEMSA a través del Tecnológico de Monterrey. Los recursos fueron utilizados para la compra de equipo, licencias de software y el sostenimiento del equipo de investigación durante un año.</p>
-                            <p class="uk-text-justify">Agradecemos a la Secretaría de Infraestructura del gobierno del Estado de Nuevo León abrirnos las puertas para consultar los archivos cartográficos catastrales. Asimismo, agradecemos al personal y dirección del Instituto Registra! y Catastral del Estado de Nuevo León las facilidades otorgadas durante nuestras visitas y compartirnos información crucial para el cálculo de anchos de vialidades. </p>
-                            <p class="uk-text-justify">Agradecemos y reconocemos la generosidad de Centro de Colaboración Geoespacial de la Secretaría de Desarrollo Sustentable del gobierno del estado de Nuevo León, que nos compartió información geográfica valiosa de sus acervos para guiar este trabajo. </p>
-                            <p class="uk-text-justify">Agradecemos el apoyo del Consejo de Nuevo Léon para abrirnos puertas con las administraciones de los municipios de la ZMM y poder gestionar las entrevistas a profundidad. </p>
-                            <p class="uk-text-justify">Agradecemos el apoyo y participación de las empresas Terra Regia y U-Calli para validar las estimaciones del costo de mantenimiento de vialidades. </p>
+
+                           <h3 style="color: black; font-weight: bold;">Expansión Urbana de Monterrey</h3>
+                            <p class="uk-text-right"> Noviembre del 2020</p>
+                            <p class="uk-text-justify"> Esta investigación ha sido patrocinada por la Fundación FEMSA. Agradecemos el apoyo de la Fundación para sostener el trabajo de nuestro grupo interdisciplinario de investigación durante un año para recolectar, depurar y visualizar la información que aquí se presenta. La coordinación y ejecución del proyecto ha estado a cargo del Centro del Agua del Tecnológico de Monterrey, Distrito Tec y la Escuela de Gobierno y Transformación Pública.</p>
+                            <p class="uk-text-justify"> El propósito de esta investigación es documentar el proceso de expansión territorial del área metropolitana de Monterrey, ahondando en algunas de las causas y consecuencias de este proceso de crecimiento. El proceso de cambio ha involucrado una transformación de la morfología de la ciudad: la transición de una ciudad monocéntrica a una policéntrica. La nueva morfología plantea una serie de retos en la gestión de usos de suelo y transporte para crear comunidades integradas a la zona funcional de la ciudad, subcentros de actividad con buenos niveles de accesibilidad a oportunidades de trabajo, ocio y consumo, así como comunidades vibrantes e integradas socialmente en el entorno urbano.</p>
+                            <p class="uk-text-justify"> El objetivo de nuestro proyecto es contar la historia de este proceso de urbanización a partir de datos, evidencia empírica y análisis espacial, con la finalidad de contribuir a generar una discusión colectiva y ciudadana acerca de la visión de futuro que queremos para nuestra ciudad de Monterrey.</p>
+                            <p class="uk-text-justify"> Agradecemos a la Secretaría de Infraestructura del gobierno del Estado de Nuevo León abrirnos las puertas para consultar los archivos cartográficos catastrales. Estamos en deuda con el personal y dirección del Instituto Registral y Catastral del Estado de Nuevo León por las facilidades otorgadas durante nuestras visitas.</p>
+                            <p class="uk-text-justify"> Agradecemos y reconocemos la generosidad de Centro de Colaboración Geoespacial de la Secretaría de Desarrollo Sustentable del gobierno del estado de Nuevo León, que nos compartió información geográfica valiosa de sus acervos para conducir esta investigación.</p>
+                            <p class="uk-text-justify"> Agradecemos el apoyo del Consejo de Nuevo Léon por abrirnos puertas con las administraciones de los municipios del área metropolitana para desarrollar la investigación.</p>
+                            <p class="uk-text-justify"> Agradecemos el apoyo de las empresas U-Calli y Terra Regia para validar nuestras estimaciones del costo de mantenimiento de las vialidades de acuerdo con su ciclo de vida.</p>
+                      
                         </p>
                     </div>
 
