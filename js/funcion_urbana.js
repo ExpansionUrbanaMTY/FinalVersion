@@ -2,6 +2,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoicm9wb25teCIsImEiOiJja2MyajhuMjIwMGxhMnN1bTRud
 const colors = ['#6B0F1A', '#C2737C', '#CEABB1', '#E4E3DF', '#ffffff', '#BEE7E8', '#94B5B8', '#527D9A', '#2D5066', '#182D3A']; 
 const colors_seq = ['#ebfcfd', '#b8e0e4', '#88c6d2', '#65a8c6', '#4e8aba', '#416cae', '#3e4d92', '#323467', '#1d1e3a', '#030512']; 
 const thresholds = {'dist_cbd':[4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
+'Pop0_20': [-35029, -12122, 10785, 33692, 56599, 79506, 102413, 125320, 148227, 171134],
 'Pop0_16':[-17405, -1855, 13695, 29245, 44795, 60345, 75895, 91445, 106995, 122545],
 'Emp10_19':[-1999, 383, 2765, 5147, 7529, 9911, 12293, 14675, 17057, 19439],
 'AreaC':[0.1, 0.172, 0.243, 0.314, 0.385, 0.456, 0.527, 0.598, 0.669, 0.74],
@@ -9,13 +10,16 @@ const thresholds = {'dist_cbd':[4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
 'Densidad90':[338, 676, 1014, 1352, 1690, 2028, 2366, 2704, 3042, 3380],
 'Densidad00':[319.985, 630.32, 940.65, 1250.99, 1561.325, 1871.65, 2181.995, 2492.33, 2802.665, 3113.0],
 'Densidad16':[340.698, 537.586, 734.473, 931.362, 1128.25, 1325.138, 1522.026, 1718.914, 1915.802, 2112.69],
+'Densidad20':[77.17, 277.0, 476.82, 676.64, 876.46, 1076.29, 1276.11, 1475.93, 1675.76, 1875.58],
 'PropPC':[1.378, 2.196, 3.014, 3.832, 4.65, 5.468, 6.286, 7.104, 7.922, 8.74],
 'ConpP':[96.679, 145.128, 193.577, 242.025, 290.475, 338.924, 387.373, 435.822, 484.271, 532.72],
 'PorPav':[10.988, 12.596, 14.204, 15.812, 17.42, 19.028, 20.636, 22.244, 23.852, 25.46],
-'CambioPP90':[-4.97, -3.858, -2.747, -1.636, -0.525, 0.586, 1.697, 2.808, 3.919, 5.03]};
+'CambioPP90':[-4.97, -3.858, -2.747, -1.636, -0.525, 0.586, 1.697, 2.808, 3.919, 5.03],
+'CambioPP20':[-54983.2, -42940.4, -30897.6, -18854.8, -6812.0, 5230.8, 17273.6, 29316.4, 41359.2, 53402]
+};
 const layerLegends = {
-'dist_cbd':['Distancia','km.'], 'Emp10_19':['Dif. Empleos','empleos'], 'Pop0_16':['Dif. Población','personas'], 'AreaC':['Área const.','porcentaje'], 'CUS':['CUS','metros'], 'Densidad90':['Jov. 90','personas/m2'],
-'Densidad00':['Jov. 00','personas/m2'], 'Densidad16':['Jov. 16','personas/m2'], 'PropPC':['Pav/Const.','pav/m2'], 'ConpP':['Cons. Pav.','m2/personas'], 'PorPav':['Porc. Pav','%'], 'CambioPP90':['Dif. Jov.','cambio']
+'dist_cbd':['Distancia','km.'], 'Emp10_19':['Dif. Empleos','empleos'], 'Pop0_16':['Dif. Población','personas'],'Pop0_20':['Dif. Población','personas'], 'AreaC':['Área const.','porcentaje'], 'CUS':['CUS','metros'], 'Densidad90':['Jov. 90','personas/m2'],
+'Densidad00':['Jov. 00','personas/m2'], 'Densidad16':['Jov. 16','personas/m2'], 'Densidad20':['Jov. 20','personas/m2'], 'PropPC':['Pav/Const.','pav/m2'], 'ConpP':['Cons. Pav.','m2/personas'], 'PorPav':['Porc. Pav','%'], 'CambioPP90':['Dif. Jov.','cambio'], 'CambioPP20':['Dif. Jov.','cambio']
 }
 const cardcontent = {
     'CUS': ['A partir de la información catastral consultada, estimamos el Coeficiente de Utilización del Suelo (CUS) promedio en los círculos concéntricos trazados a partir del centro de la ciudad. El CUS se refiere a la proporción de superficie construida respecto a la superficie del predio. Un mayor CUS significa un mayor aprovechamiento del suelo. El color azul oscuro indica el CUS más alto.',
@@ -57,11 +61,11 @@ function changeLegend(s) {
     document.getElementById('leg-title').textContent = layerLegends[s][0];
     document.getElementById('leg-unit').textContent = '('+layerLegends[s][1]+')';
     for (var i = 0; i < 10; i++) {
-        if(s === 'Densidad16' || s === 'Densidad00' ||s === 'CambioPP90') {
+        if(s === 'Densidad16' || s === 'Densidad00' || s === 'Densidad20' || s === 'CambioPP90' || s === 'CambioPP20') {
             document.getElementById('leg'+String(i)).childNodes[1].textContent = commaFloat_a(thresholds[s][i]);
         } else if (s === 'PorPav') {
             document.getElementById('leg'+String(i)).childNodes[1].textContent = nofloat(thresholds[s][i]);
-        } else if (s === 'Pop0_16' || s === 'Emp10_19' || s === 'Densidad90') {
+        } else if (s === 'Pop0_16' || s === 'Pop0_20' || s === 'Emp10_19' || s === 'Densidad90') {
             document.getElementById('leg'+String(i)).childNodes[1].textContent = commaValues(thresholds[s][i]);
         } else {
             document.getElementById('leg'+String(i)).childNodes[1].textContent = commaFloat(thresholds[s][i]);
@@ -94,15 +98,18 @@ Promise.all(loadFiles).then(function (data){
                 feature.properties.dist_cbd = Number(gradienteData['dist_cbd']);
                 feature.properties.Emp10_19 = Number(gradienteData['Emp10_19']);
                 feature.properties.Pop0_16 = Number(gradienteData['Pop0_16']);
+                feature.properties.Pop0_20 = Number(gradienteData['Pop0_20']);
                 feature.properties.AreaC = Number(gradienteData['AreaC']);
                 feature.properties.CUS = Number(gradienteData['CUS']);
                 feature.properties.Densidad90 = Number(gradienteData['Densidad90']);
                 feature.properties.Densidad00 = Number(gradienteData['Densidad00']);
                 feature.properties.Densidad16 = Number(gradienteData['Densidad16']);
+                feature.properties.Densidad20 = Number(gradienteData['Densidad20']);
                 feature.properties.PropPC = Number(gradienteData['PropPC']);
                 feature.properties.ConpP = Number(gradienteData['ConpP']);
                 feature.properties.PorPav = Number(gradienteData['PorPav']);
                 feature.properties.CambioPP90 = Number(gradienteData['CambioPP90']);
+                feature.properties.CambioPP20 = Number(gradienteData['CambioPP20']);
             }
         });
         return feature;
@@ -144,7 +151,7 @@ Promise.all(loadFiles).then(function (data){
 
 
 
-    var stepsList = thresholds['Pop0_16'].map((num,i) => {
+    var stepsList = thresholds['Pop0_20'].map((num,i) => {
         return[num,colors[i]]; 
     });
   
@@ -157,7 +164,7 @@ Promise.all(loadFiles).then(function (data){
         });
 
         map_grad.addLayer({
-            'id':'Pop0_16',
+            'id':'Pop0_20',
             'type':'fill',
             'source':'gradiente',
             'paint':{
@@ -166,7 +173,7 @@ Promise.all(loadFiles).then(function (data){
             },
             'paint': {
                 'fill-color': {
-                    property: 'Pop0_16',
+                    property: 'Pop0_20',
                     stops: stepsList
                 },
                 'fill-opacity':0.9
@@ -176,7 +183,7 @@ Promise.all(loadFiles).then(function (data){
             }
         });
 
-        activeLayer = 'Pop0_16' 
+        activeLayer = 'Pop0_20' 
 
         rows.slice(2).forEach(header => {
 
@@ -231,6 +238,21 @@ Promise.all(loadFiles).then(function (data){
             map_grad.getCanvas().style.cursor = '';
             empPointer.remove(); 
         });
+
+        var popPointer2 =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+        map_grad.on('click', 'Pop0_20', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            popPointer2.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + commaValues(e.features[0].properties.Pop0_20)).addTo(map_grad);
+        });
+
+        map_grad.on('mouseleave', 'Pop0_20', function(e) {
+            map_grad.getCanvas().style.cursor = '';
+            popPointer2.remove(); 
+        });
+
 
         var popPointer =  new mapboxgl.Popup({
             closeButton: false,
@@ -318,6 +340,21 @@ Promise.all(loadFiles).then(function (data){
             den6Pointer.remove(); 
         });
 
+        var den20Pointer =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+        map_grad.on('click', 'Densidad20', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            den20Pointer.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Prop.: </b>' + commaFloat(e.features[0].properties.Densidad20)).addTo(map_grad);
+        });
+
+        map_grad.on('mouseleave', 'Densidad20', function(e) {
+            map_grad.getCanvas().style.cursor = '';
+            den20Pointer.remove(); 
+        });
+
+
         var propPointer =  new mapboxgl.Popup({
             closeButton: false,
         })
@@ -373,6 +410,20 @@ Promise.all(loadFiles).then(function (data){
         map_grad.on('mouseleave', 'CambioPP90', function(e) {
             map_grad.getCanvas().style.cursor = '';
             cambioPointer.remove(); 
+        });
+
+        var cambioPointer2 =  new mapboxgl.Popup({
+            closeButton: false,
+        });
+
+        map_grad.on('click', 'CambioPP20', function(e) {
+            map_grad.getCanvas().style.cursor = 'pointer'; 
+            cambioPointer2.setLngLat(e.lngLat).setHTML('<b>Distancia: </b>' + e.features[0].properties.distance + '<br><b>Cambio: </b>' + commaFloat(e.features[0].properties.CambioPP20)).addTo(map_grad);
+        });
+
+        map_grad.on('mouseleave', 'CambioPP20', function(e) {
+            map_grad.getCanvas().style.cursor = '';
+            cambioPointer2.remove(); 
         });
   
     });
