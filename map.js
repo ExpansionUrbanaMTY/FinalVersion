@@ -117,7 +117,6 @@ document.querySelector('#slider').addEventListener('change', (e)=>{
 
 document.querySelector('#autoplay').addEventListener('click', ()=>{
     document.getElementById("autoplay").setAttribute("disabled","true");
-    
     let is = [0,1,2,3,4,5,6];
     is.reduce((prevPromise, i)=>{
         return prevPromise.then(()=>{
@@ -125,12 +124,6 @@ document.querySelector('#autoplay').addEventListener('click', ()=>{
                 return changeLayer(i)
         })
     }, Promise.resolve())
-
     document.getElementById("autoplay").removeAttribute("disabled");
-    // Promise.all(promises).then(()=>{
-    //     console.log("resolve")
-    //     document.querySelector("#slider").value = 6;
-    //     // changeLayer(6);
-    // })
     return;
 })

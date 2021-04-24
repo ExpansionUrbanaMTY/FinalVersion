@@ -164,10 +164,10 @@ async function readData(){
 
 Chart.pluginService.register({
     afterDraw: function(chart) {
-      var width = chart.chart.width,
-          height = chart.chart.height,
-          ctx = chart.chart.ctx,
-          opts = chart.options;
+    var width = chart.chart.width,
+        height = chart.chart.height,
+        ctx = chart.chart.ctx,
+        opts = chart.options;
         let text = opts.overlayText || "";
         ctx.fillStyle = opts.overlayTextColor || 'black';
         ctx.restore();
