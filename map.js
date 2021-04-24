@@ -1,4 +1,4 @@
-const years = [1990, 1995, 2000, 2005, 2010, 2015, 2019];
+const years = [1990, 1995, 2000, 2005, 2010, 2015, 2020];
 
 
 const places = {
@@ -30,7 +30,7 @@ let changeLayer = (value)=>(
     new Promise((resolve, reject)=>{
         let year = years[value]; 
         map.setLayoutProperty(year.toString(), 'visibility', 'visible');
-        map.setLayoutProperty(year.toString()+'-label', 'visibility', 'visible');
+        // map.setLayoutProperty(year.toString()+'-label', 'visibility', 'visible');
         function hideOthers(e,_year=year) {
             setTimeout(()=>{
                 console.log('A render event occurred.', _year);
@@ -56,14 +56,13 @@ let loadMap = async ()=>{
         data: geojson
     });
     years.forEach((year)=>{
-        var expression = ['match', ['get', 'Id']
-            // ...rows.map(row=>([Number(row['Id']), row['MU'+year]=='1' ? '#F3775D' : 'transparent' ])).flat()
-        ];
+        var expression = ['match', ['get', 'Id']];
         rows.forEach(function(row) {
             if(row['MU'+year]=='1'){
                 expression.push(Number(row['Id']), '#2D5066');
-            } 
+            }
         });
+        // console.log(year, expression)
         expression.push('transparent')
         map.addLayer({
             'id': year.toString(),
@@ -76,11 +75,11 @@ let loadMap = async ()=>{
             }
         });
         let label = {...places};
-        label.features[0].properties.description = (area[2][year] || area[2]["2019*"])+" km²";
+        label.features[0].properties.description = area[2][year] + " km²";
         map.addSource(year.toString()+'-value', {
             'type': 'geojson',
             'data': places
-        });
+        }); 
 
         map.addLayer({
             'id': year.toString()+'-label',

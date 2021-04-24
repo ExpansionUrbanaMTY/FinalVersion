@@ -20,7 +20,7 @@ async function readData(){
             }]
         },
         options: {
-            overlayText: 'x 1.8 veces',
+            overlayText: 'x 1.68 veces',
             overlayTextColor: 'white',
             tooltips: {
                 callbacks: {
@@ -76,7 +76,7 @@ async function readData(){
             }]
         },
         options: {
-            overlayText: '-32%',
+            overlayText: '-39%',
             overlayTextColor: 'white',
             tooltips: {
                 callbacks: {
@@ -131,7 +131,7 @@ async function readData(){
             }]
         },
         options: {
-            overlayText: "x 2.7 veces",
+            overlayText: "x 2.78 veces",
             overlayTextColor: 'white',
             scales: {
                 
