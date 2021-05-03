@@ -10,10 +10,10 @@ async function readData(){
     var populationChart = new Chart(populationContainer, {
         type: 'line',
         data: {
-            labels: Object.keys(poblacion[2]).filter(l=>l!=""),
+            labels: Object.keys(poblacion[0]).filter(l=>l!=""),
             datasets: [{
                 label: 'Número de habitantes por año',
-                data: Object.values(poblacion[2]).filter(l=>l!="Total"),
+                data: Object.values(poblacion[0]).filter(l=>l!="Total"),
                 backgroundColor: '#527D9A',
                 borderColor: '#2D5066',
                 borderWidth: 2
@@ -65,11 +65,11 @@ async function readData(){
     var densityChart = new Chart(densityContainer, {
         type: 'line',
         data: {
-            labels: Object.keys(densidad[2]).filter(l=>l!=""),
+            labels: Object.keys(densidad[0]).filter(l=>l!=""),
             datasets: [
             {
                 label: 'Número de habitantes por kilómetro cuadrado',
-                data: Object.values(densidad[2]).filter(l=>l!="Total"),
+                data: Object.values(densidad[0]).filter(l=>l!="Total"),
                 backgroundColor: '#527D9A',
                 borderColor: '#2D5066',
                 borderWidth: 2
@@ -120,11 +120,11 @@ async function readData(){
     var extensionsChart = new Chart(extensionsContainer, {
         type: 'line',
         data: {
-            labels: Object.keys(extension[2]).filter(l=>l!=""),
+            labels: Object.keys(extension[0]).filter(l=>l!=""),
             datasets: [
                 {
                 label: 'Kilómetros cuadrados por año',
-                data: Object.values(extension[2]).filter(l=>l!="Total"),
+                data: Object.values(extension[0]).filter(l=>l!="Total"),
                 backgroundColor: '#527D9A',
                 borderColor: '#2D5066',
                 borderWidth: 2
@@ -134,7 +134,6 @@ async function readData(){
             overlayText: "x 2.78 veces",
             overlayTextColor: 'white',
             scales: {
-                
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,

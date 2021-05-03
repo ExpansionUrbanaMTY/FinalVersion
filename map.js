@@ -30,7 +30,7 @@ let changeLayer = (value)=>(
     new Promise((resolve, reject)=>{
         let year = years[value]; 
         map.setLayoutProperty(year.toString(), 'visibility', 'visible');
-        // map.setLayoutProperty(year.toString()+'-label', 'visibility', 'visible');
+        map.setLayoutProperty(year.toString()+'-label', 'visibility', 'visible');
         function hideOthers(e,_year=year) {
             setTimeout(()=>{
                 console.log('A render event occurred.', _year);
@@ -40,7 +40,7 @@ let changeLayer = (value)=>(
                     resolve();
                 })
                 map.off('idle',hideOthers)
-            }, 2500)
+            }, 3500)
         }
         map.on('idle', hideOthers)
     })
@@ -75,7 +75,7 @@ let loadMap = async ()=>{
             }
         });
         let label = {...places};
-        label.features[0].properties.description = area[2][year] + " km²";
+        label.features[0].properties.description = area[0][year] + " km²";
         map.addSource(year.toString()+'-value', {
             'type': 'geojson',
             'data': places
