@@ -1,4 +1,4 @@
-const years = [1990, 1995, 2000, 2005, 2010, 2015, 2019];
+const years = [1990, 1995, 2000, 2005, 2010, 2015, 2020];
 
 
 const places = {
@@ -40,7 +40,7 @@ let changeLayer = (value)=>(
                     resolve();
                 })
                 map.off('idle',hideOthers)
-            }, 2500)
+            }, 3500)
         }
         map.on('idle', hideOthers)
     })
@@ -56,14 +56,13 @@ let loadMap = async ()=>{
         data: geojson
     });
     years.forEach((year)=>{
-        var expression = ['match', ['get', 'Id']
-            // ...rows.map(row=>([Number(row['Id']), row['MU'+year]=='1' ? '#F3775D' : 'transparent' ])).flat()
-        ];
+        var expression = ['match', ['get', 'Id']];
         rows.forEach(function(row) {
             if(row['MU'+year]=='1'){
                 expression.push(Number(row['Id']), '#2D5066');
-            } 
+            }
         });
+        // console.log(year, expression)
         expression.push('transparent')
         map.addLayer({
             'id': year.toString(),
@@ -76,11 +75,11 @@ let loadMap = async ()=>{
             }
         });
         let label = {...places};
-        label.features[0].properties.description = (area[2][year] || area[2]["2019*"])+" km²";
+        label.features[0].properties.description = area[0][year] + " km²";
         map.addSource(year.toString()+'-value', {
             'type': 'geojson',
             'data': places
-        });
+        }); 
 
         map.addLayer({
             'id': year.toString()+'-label',
@@ -118,7 +117,6 @@ document.querySelector('#slider').addEventListener('change', (e)=>{
 
 document.querySelector('#autoplay').addEventListener('click', ()=>{
     document.getElementById("autoplay").setAttribute("disabled","true");
-    
     let is = [0,1,2,3,4,5,6];
     is.reduce((prevPromise, i)=>{
         return prevPromise.then(()=>{
@@ -126,12 +124,6 @@ document.querySelector('#autoplay').addEventListener('click', ()=>{
                 return changeLayer(i)
         })
     }, Promise.resolve())
-
     document.getElementById("autoplay").removeAttribute("disabled");
-    // Promise.all(promises).then(()=>{
-    //     console.log("resolve")
-    //     document.querySelector("#slider").value = 6;
-    //     // changeLayer(6);
-    // })
     return;
 })
